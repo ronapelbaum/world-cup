@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>המדריך הגדול למונדיאל 2026 ⚽</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&family=Heebo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --grass:#2bb24c;--grass-dark:#159a3a;
+  --sky-1:#36bdf6;--sky-2:#1f8fe0;
+  --sun:#ffd23f;--sun-deep:#ffb800;
+  --coral:#ff5d5d;--ink:#13233b;--ink-soft:#3a5172;
+  --shadow:0 10px 0 rgba(19,35,59,.12),0 18px 30px rgba(19,35,59,.18);
+  --shadow-sm:0 4px 0 rgba(19,35,59,.12),0 8px 16px rgba(19,35,59,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html,body{font-family:'Rubik','Heebo',sans-serif;color:var(--ink);font-size:18px;}
+body{min-height:100vh;background:
+  radial-gradient(circle at 12% 8%,rgba(255,210,63,.55),transparent 38%),
+  radial-gradient(circle at 88% 0%,rgba(255,93,93,.4),transparent 40%),
+  linear-gradient(180deg,#7fd3ff 0%,#aee9ff 30%,#d7f6e1 70%,#c7f0d2 100%);
+  background-attachment:fixed;overflow-x:hidden;}
+.bg-ball{position:fixed;font-size:46px;opacity:.18;pointer-events:none;animation:floaty 9s ease-in-out infinite;z-index:0;}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-26px) rotate(20deg)}}
+.wrap{max-width:980px;margin:0 auto;padding:18px 14px 80px;position:relative;z-index:2;}
+
+header{text-align:center;background:linear-gradient(135deg,#1f8fe0,#36bdf6);border:4px solid #fff;
+  border-radius:34px;padding:26px 18px 30px;box-shadow:var(--shadow);position:relative;overflow:hidden;}
+header::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.08) 0 16px,transparent 16px 32px);pointer-events:none;}
+.hosts{display:flex;justify-content:center;gap:8px;font-size:32px;margin-bottom:6px;}
+h1{font-size:clamp(32px,7.5vw,50px);color:#fff;font-weight:900;text-shadow:0 3px 0 #1567a8,0 6px 12px rgba(0,0,0,.25);line-height:1.05;}
+.ball-spin{display:inline-block;animation:spin 4s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.subtitle{margin-top:10px;display:inline-block;background:var(--sun);color:var(--ink);font-weight:900;padding:8px 20px;border-radius:999px;font-size:18px;box-shadow:0 4px 0 var(--sun-deep);}
+
+.toptabs{display:flex;gap:10px;justify-content:center;margin:22px 0 18px;flex-wrap:wrap;}
+.toptab{border:3px solid var(--ink);background:#fff;color:var(--ink);font-family:inherit;font-weight:900;
+  font-size:19px;padding:13px 22px;border-radius:18px;cursor:pointer;box-shadow:var(--shadow-sm);
+  transition:transform .12s,background .2s;display:flex;align-items:center;gap:7px;}
+.toptab:hover{transform:translateY(-3px) rotate(-1deg);}
+.toptab.active{background:var(--sun);transform:translateY(-2px) scale(1.04);}
+.tabpanel{display:none;animation:pop .35s ease;}
+.tabpanel.show{display:block;}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+
+/* ===== TEAM SIDEBAR LAYOUT (option C) ===== */
+.teamlayout{display:flex;gap:16px;align-items:flex-start;}
+.teamside{flex:0 0 210px;display:flex;flex-direction:column;gap:8px;position:sticky;top:10px;
+  max-height:calc(100vh - 24px);overflow-y:auto;padding:4px;}
+.teammain{flex:1;min-width:0;}
+.teamtab{border:3px solid var(--ink);background:#fff;cursor:pointer;font-family:inherit;font-weight:900;
+  font-size:16.5px;padding:10px 15px;border-radius:14px;box-shadow:var(--shadow-sm);transition:transform .12s;
+  display:flex;align-items:center;gap:8px;width:100%;text-align:start;}
+.teamtab .fl{font-size:24px;}
+.teamtab:hover{transform:translateY(-2px);}
+.teamtab.active{color:#fff;transform:scale(1.03);}
+@media(max-width:600px){
+  .teamlayout{flex-direction:column;}
+  .teamside{flex:0 0 auto;width:100%;flex-direction:row;overflow-x:auto;overflow-y:hidden;
+    position:static;max-height:none;padding-bottom:10px;-webkit-overflow-scrolling:touch;}
+  .teamside .teamtab{flex:0 0 auto;width:auto;white-space:nowrap;}
+}
+
+.hero{border-radius:28px;border:4px solid #fff;color:#fff;padding:22px;box-shadow:var(--shadow);
+  margin-bottom:22px;position:relative;overflow:hidden;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% -10%,rgba(255,255,255,.35),transparent 50%);}
+.hero .big-flag{font-size:80px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.3));position:relative;}
+.hero-txt{position:relative;flex:1;min-width:200px;}
+.hero-txt h2{font-size:40px;font-weight:900;text-shadow:0 3px 0 rgba(0,0,0,.25);}
+.hero-txt .nick{font-size:21px;font-weight:700;opacity:.95;}
+.funstat{margin-top:10px;background:rgba(255,255,255,.95);color:var(--ink);font-weight:700;padding:10px 15px;
+  border-radius:14px;font-size:17px;display:inline-block;box-shadow:0 4px 0 rgba(0,0,0,.15);}
+.funstat b{color:var(--coral);}
+
+.section-title{font-size:25px;font-weight:900;margin:6px 4px 14px;display:flex;align-items:center;gap:8px;}
+.section-title .line{flex:1;height:5px;border-radius:5px;background:repeating-linear-gradient(90deg,var(--sun) 0 14px,var(--coral) 14px 28px);}
+
+/* FEATURED CARDS (click -> modal) */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px;margin-bottom:8px;}
+.pcard{background:#fff;border:4px solid #fff;border-radius:20px;box-shadow:var(--shadow-sm);overflow:hidden;
+  cursor:pointer;transition:transform .14s;display:flex;flex-direction:column;align-items:center;padding:10px 8px 12px;position:relative;}
+.pcard:hover{transform:translateY(-5px) rotate(-1deg);}
+.pcard .star-badge{position:absolute;top:6px;inset-inline-start:8px;font-size:24px;animation:twinkle 1.6s ease-in-out infinite;}
+@keyframes twinkle{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.25) rotate(12deg)}}
+.pcard .pic{width:116px;height:116px;border-radius:50%;overflow:hidden;margin-top:6px;border:3px solid;}
+.pcard .pic img{width:100%;height:100%;object-fit:cover;}
+.pname{font-weight:900;font-size:18px;text-align:center;margin-top:8px;line-height:1.15;}
+.prole{font-size:14px;font-weight:700;color:#fff;padding:4px 12px;border-radius:999px;margin-top:6px;text-align:center;}
+.tap-hint{margin-top:8px;font-size:12.5px;font-weight:700;color:var(--ink-soft);background:#f1f6fc;padding:4px 11px;border-radius:999px;}
+
+/* ROSTER */
+.roster{background:#fff;border:4px solid var(--ink);border-radius:24px;padding:16px;box-shadow:var(--shadow-sm);margin-bottom:22px;}
+.posgroup{margin-bottom:12px;}.posgroup:last-child{margin-bottom:0;}
+.poshead{display:inline-block;color:#fff;font-weight:900;font-size:16px;padding:6px 15px;border-radius:999px;margin-bottom:8px;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{background:#f1f6fc;border:2px solid #e0e9f4;border-radius:12px;padding:8px 12px;font-weight:700;
+  font-size:15.5px;display:flex;align-items:center;gap:6px;cursor:pointer;transition:transform .1s,background .15s;}
+.chip:hover{transform:translateY(-2px);background:#e7f0fb;}
+.chip .jn{background:var(--ink);color:#fff;font-size:12.5px;width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;}
+.chip .crole{font-size:12.5px;color:var(--ink-soft);font-weight:700;}
+.chip.is-star{background:#fff7df;border-color:var(--sun-deep);}
+
+/* MODAL */
+.modal-bg{position:fixed;inset:0;background:rgba(10,20,38,.55);backdrop-filter:blur(3px);z-index:100;
+  display:none;align-items:center;justify-content:center;padding:18px;}
+.modal-bg.show{display:flex;animation:fadein .2s;}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.modal{background:#fff;border:5px solid #fff;border-radius:28px;max-width:440px;width:100%;max-height:90vh;
+  overflow-y:auto;box-shadow:0 30px 60px rgba(0,0,0,.4);animation:popin .35s cubic-bezier(.34,1.56,.64,1);position:relative;}
+@keyframes popin{from{transform:scale(.8) translateY(30px);opacity:0}to{transform:none;opacity:1}}
+.modal-top{padding:24px 22px 18px;color:#fff;text-align:center;position:relative;}
+.modal-close{position:absolute;top:12px;inset-inline-end:14px;width:38px;height:38px;border-radius:50%;border:none;
+  background:rgba(255,255,255,.9);font-size:22px;font-weight:900;cursor:pointer;color:var(--ink);box-shadow:0 3px 8px rgba(0,0,0,.2);}
+.modal-close:hover{transform:scale(1.1);}
+.modal-pic{width:210px;height:210px;border-radius:50%;overflow:hidden;margin:10px auto 14px;border:6px solid #fff;box-shadow:0 8px 22px rgba(0,0,0,.35);}
+.modal-pic img{width:100%;height:100%;object-fit:cover;}
+.modal-name{font-size:30px;font-weight:900;text-shadow:0 2px 0 rgba(0,0,0,.2);}
+.modal-flag{font-size:23px;}
+.modal-role{display:inline-block;margin-top:8px;background:rgba(255,255,255,.95);color:var(--ink);font-weight:900;
+  font-size:16px;padding:6px 18px;border-radius:999px;box-shadow:0 3px 0 rgba(0,0,0,.15);}
+.modal-body{padding:18px 22px 24px;}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;}
+.stat{background:#f1f6fc;border:2px solid #e0e9f4;border-radius:14px;padding:11px 6px;text-align:center;}
+.stat .lab{font-size:12.5px;font-weight:700;color:var(--ink-soft);}
+.stat .val{font-size:23px;font-weight:900;margin-top:2px;}
+.factbox{border-radius:16px;padding:15px;font-weight:700;font-size:16.5px;line-height:1.5;margin-bottom:12px;}
+.factbox.fun{background:#fff7df;border:2px solid var(--sun-deep);}
+.factbox.know{background:#e7f7ec;border:2px solid var(--grass);}
+.factbox .h{display:block;font-weight:900;font-size:15px;margin-bottom:4px;}
+
+/* QUIZ */
+.quiz{background:linear-gradient(135deg,#fff,#eef7ff);border:4px solid var(--ink);border-radius:24px;padding:18px;box-shadow:var(--shadow-sm);margin-bottom:10px;}
+.quiz h3{font-size:23px;font-weight:900;margin-bottom:4px;}
+.qsub{font-size:15px;color:var(--ink-soft);font-weight:700;margin-bottom:14px;}
+.qtext{font-weight:900;font-size:19.5px;margin-bottom:12px;}
+.qopts{display:grid;gap:9px;}
+.qopt{font-family:inherit;font-weight:700;font-size:17px;text-align:right;background:#fff;border:3px solid var(--ink);
+  border-radius:14px;padding:12px 15px;cursor:pointer;box-shadow:0 4px 0 rgba(19,35,59,.15);transition:transform .1s;}
+.qopt:hover{transform:translateY(-2px);}
+.qopt.correct{background:#caf7d3;border-color:var(--grass-dark);animation:rightpop .4s;}
+.qopt.wrong{background:#ffd6d6;border-color:var(--coral);animation:shake .4s;}
+.qopt:disabled{cursor:default;}
+@keyframes rightpop{0%,100%{transform:scale(1)}40%{transform:scale(1.07)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.qfoot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:10px;flex-wrap:wrap;}
+.qscore{font-weight:900;font-size:16.5px;}
+.qnext{font-family:inherit;font-weight:900;font-size:16.5px;background:var(--sun);border:3px solid var(--ink);border-radius:14px;padding:10px 20px;cursor:pointer;box-shadow:0 4px 0 var(--sun-deep);transition:transform .1s;}
+.qnext:hover{transform:translateY(-2px);}
+.qdone{text-align:center;font-weight:900;font-size:23px;padding:14px;}
+
+.info-card{background:#fff;border:4px solid var(--ink);border-radius:24px;padding:20px;box-shadow:var(--shadow-sm);margin-bottom:18px;}
+.info-card h3{font-size:25px;font-weight:900;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.info-card p{font-size:17.5px;line-height:1.6;font-weight:500;margin-bottom:8px;}
+.points-calc{background:linear-gradient(135deg,#1f8fe0,#36bdf6);border-radius:18px;padding:18px;color:#fff;text-align:center;margin-top:6px;}
+.points-calc .res{font-size:60px;font-weight:900;text-shadow:0 4px 0 rgba(0,0,0,.2);line-height:1;margin:6px 0;}
+.points-calc .res small{font-size:20px;}
+.pc-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px;}
+.pc-btn{font-family:inherit;font-weight:900;font-size:17px;border:3px solid #fff;border-radius:14px;padding:11px 17px;cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.2);transition:transform .1s;color:#fff;}
+.pc-btn:hover{transform:translateY(-2px);}
+.pc-win{background:var(--grass);}.pc-draw{background:var(--sun-deep);}.pc-loss{background:var(--coral);}
+
+/* GROUP-STAGE DIAGRAM */
+.gsd{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-top:12px;}
+.gsd-group{background:#f1f6fc;border:3px solid var(--ink);border-radius:18px;padding:12px;min-width:200px;}
+.gsd-group .ghead{font-weight:900;margin-bottom:8px;font-size:17px;}
+.gsd-team{display:flex;align-items:center;gap:8px;background:#fff;border:2px solid #e0e9f4;border-radius:12px;
+  padding:8px 11px;margin-bottom:7px;font-weight:700;font-size:16px;}
+.gsd-team:last-child{margin-bottom:0;}
+.gsd-team.adv{background:#caf7d3;border-color:var(--grass-dark);}
+.gsd-team .pos{width:24px;height:24px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.gsd-team.adv .pos{background:var(--grass-dark);}
+.gsd-arrow{font-size:32px;}
+.gsd-note{background:#fff7df;border:2px solid var(--sun-deep);border-radius:14px;padding:13px 15px;font-weight:700;font-size:16.5px;line-height:1.5;flex:1;min-width:190px;}
+.gsd-sum{background:linear-gradient(135deg,#159a3a,#2bb24c);color:#fff;border-radius:16px;padding:14px;text-align:center;font-weight:900;font-size:20px;margin-top:14px;}
+
+/* KNOCKOUT BRACKET */
+.brk{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin-top:14px;justify-content:center;}
+.brk-stage{flex:1;min-width:90px;background:#f1f6fc;border:3px solid var(--ink);border-radius:16px;
+  padding:14px 8px;text-align:center;cursor:pointer;transition:transform .12s,background .2s;}
+.brk-stage:hover,.brk-stage.active{background:var(--sun);transform:translateY(-3px) scale(1.04);}
+.brk-stage.brk-final{background:#fff7df;}
+.brk-stage.brk-final.active{background:var(--sun);}
+.brk-stage .n{font-size:28px;font-weight:900;}
+.brk-stage .l{font-size:13px;font-weight:700;color:var(--ink-soft);margin-top:2px;}
+.brk-stage.active .l{color:var(--ink);}
+.brk-arrow{font-size:22px;color:var(--ink-soft);}
+
+/* STADIUM MAP */
+.map-card{background:#fff;border:4px solid var(--ink);border-radius:24px;padding:16px;box-shadow:var(--shadow-sm);margin-bottom:18px;}
+.smap-wrap{background:#cdeafe;border:3px solid var(--ink);border-radius:18px;overflow:hidden;}
+#smap{display:block;width:100%;height:auto;}
+.smap-detail{background:#fff7df;border:2px solid var(--sun-deep);border-radius:14px;padding:12px 15px;font-weight:800;font-size:17px;margin-bottom:12px;text-align:center;min-height:24px;}
+.smap-detail b{color:var(--coral);}
+.sland{fill:#bfe6a9;stroke:#7fb46a;stroke-width:2;stroke-linejoin:round;}
+.scountry{font-family:'Rubik',sans-serif;font-weight:900;fill:#3a5172;opacity:.32;}
+.spin{cursor:pointer;}
+.spin circle{stroke:#fff;stroke-width:2.5;transition:r .12s;}
+.spin:hover circle,.spin.sel circle{r:11;}
+.spin.sel circle{stroke:var(--ink);stroke-width:3.5;}
+.spin text{font-family:'Rubik',sans-serif;font-size:12px;font-weight:800;fill:var(--ink);paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round;pointer-events:none;}
+.cc-us{fill:#1f8fe0;}.cc-mx{fill:#1a8a4a;}.cc-ca{fill:#d52b1e;}
+.smap-legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;}
+.scity{display:flex;align-items:center;gap:6px;background:#f1f6fc;border:2px solid #e0e9f4;border-radius:12px;
+  padding:6px 11px;font-weight:800;font-size:14.5px;cursor:pointer;transition:transform .1s,background .15s;}
+.scity:hover{transform:translateY(-2px);background:#e7f0fb;}
+.scity.sel{background:#fff7df;border-color:var(--sun-deep);}
+.scity .dot{width:13px;height:13px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.15);}
+
+.loading{text-align:center;padding:60px 20px;font-weight:900;font-size:22px;color:var(--ink-soft);}
+.loading .ball-spin{font-size:44px;display:block;margin-bottom:10px;}
+
+.timeline{position:relative;padding:10px 0;}
+.tnode{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;cursor:pointer;}
+.tdot{flex-shrink:0;width:60px;height:60px;border-radius:50%;border:4px solid #fff;display:flex;align-items:center;justify-content:center;font-size:28px;box-shadow:var(--shadow-sm);transition:transform .15s;}
+.tnode:hover .tdot{transform:scale(1.12) rotate(-6deg);}
+.tcontent{flex:1;background:#fff;border:3px solid var(--ink);border-radius:18px;padding:13px 16px;box-shadow:var(--shadow-sm);}
+.tcontent .tdate{font-weight:900;color:var(--sky-2);font-size:16px;}
+.tcontent .ttitle{font-weight:900;font-size:20px;margin:2px 0;}
+.tdesc{font-size:16px;line-height:1.5;font-weight:500;max-height:0;overflow:hidden;transition:max-height .35s ease,margin .35s;}
+.tdesc-hint{font-size:14px;font-weight:700;color:var(--ink-soft);}
+.tnode.open .tdesc{max-height:200px;margin-top:6px;}
+
+.confetti{position:fixed;width:11px;height:11px;z-index:160;pointer-events:none;border-radius:2px;}
+footer{text-align:center;margin-top:30px;font-size:15px;font-weight:700;color:var(--ink-soft);}
+</style>
+</head>
+<body>
+<span class="bg-ball" style="top:20%;left:4%;">⚽</span>
+<span class="bg-ball" style="top:55%;right:3%;animation-delay:2s;">🏆</span>
+<span class="bg-ball" style="top:80%;left:8%;animation-delay:4s;">⚽</span>
+
+<div class="wrap">
+  <header>
+    <div class="hosts">🇺🇸 🇨🇦 🇲🇽</div>
+    <h1>המדריך הגדול למונדיאל <span class="ball-spin">⚽</span> 2026</h1>
+    <div class="subtitle">הטורניר הכי גדול בהיסטוריה — 48 נבחרות!</div>
+  </header>
+
+  <nav class="toptabs">
+    <button class="toptab active" data-panel="teams">⚽ הנבחרות</button>
+    <button class="toptab" data-panel="how">📊 איך זה עובד</button>
+    <button class="toptab" data-panel="time">📅 קו הזמן</button>
+    <button class="toptab" data-panel="map">🗺️ מפת האצטדיונים</button>
+  </nav>
+
+  <section class="tabpanel show" id="panel-teams">
+    <div class="teamlayout">
+      <nav class="teamside" id="teamSide"></nav>
+      <div class="teammain" id="teamContent">
+        <div class="loading"><span class="ball-spin">⚽</span>טוען נבחרות...</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tabpanel" id="panel-how">
+    <div class="info-card">
+      <h3>🗂️ שלב הבתים</h3>
+      <p>48 הנבחרות מחולקות ל-12 בתים, 4 נבחרות בכל בית. כל נבחרת משחקת 3 משחקים — אחד נגד כל יריבה בבית שלה.</p>
+      <p><b>שתי הראשונות בכל בית</b> עולות אוטומטית, ואיתן <b>8 הנבחרות הטובות ביותר ממקום שלישי</b>. סך הכל 32 נבחרות ממשיכות!</p>
+      <div id="groupDiagram"></div>
+    </div>
+    <div class="info-card">
+      <h3>🧮 מחשבון הנקודות</h3>
+      <p>נסה בעצמך! לחץ על תוצאה וראה כמה נקודות מקבלים:</p>
+      <div class="points-calc">
+        <div>הנבחרת שלך קיבלה</div>
+        <div class="res" id="pcRes">0<small> נק'</small></div>
+        <div id="pcLabel" style="font-weight:700">לחץ על כפתור 👇</div>
+        <div class="pc-btns" id="pcBtns"></div>
+      </div>
+    </div>
+    <div class="info-card">
+      <h3>⚔️ שלב הנוקאאוט</h3>
+      <p>מכאן זה "המפסיד יוצא הביתה". אין יותר נקודות — משחק אחד מכריע!</p>
+      <p>תיקו אחרי 90 דקות? הולכים ל<b>הארכה</b> (עוד 30 דקות). עדיין תיקו? <b>פנדלים</b> מותחים! 🥅</p>
+      <div id="knockoutBracket"></div>
+    </div>
+  </section>
+
+  <section class="tabpanel" id="panel-time">
+    <div class="section-title">📅 כל התחנות בדרך לגמר <span class="line"></span></div>
+    <div class="timeline" id="timeline"></div>
+  </section>
+
+  <section class="tabpanel" id="panel-map">
+    <div class="section-title">🗺️ 16 הערים המארחות <span class="line"></span></div>
+    <div class="map-card">
+      <div class="smap-detail" id="smapDetail">👆 לחץ על נקודה במפה או על עיר ברשימה כדי לגלות פרטים</div>
+      <div class="smap-wrap"><svg id="smap" viewBox="0 0 760 560" role="img" aria-label="מפת ערי האירוח"></svg></div>
+      <div class="smap-legend" id="smapLegend"></div>
+    </div>
+  </section>
+
+  <footer>נבנה לכבוד מונדיאל 2026 · 16 נבחרות נבחרות · המידע להמחשה ולומדה</footer>
+</div>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal" id="modal"></div>
+</div>
+
+<script>
+/* ===== GLOBAL DATA (populated from JSON at runtime) ===== */
+let LINE = {};          // positions.json
+let TEAMS = [];         // data/teams/*.json
+let TIMELINE = [];      // schedule.json
+let STRUCTURE = {};     // structure.json
+let STADIUMS = [];      // stadiums.json
+let activeTeam = null;
+
+/* ===== DATA LOADER ===== */
+async function loadJSON(path){
+  const r = await fetch(path);
+  if(!r.ok) throw new Error('failed to load '+path+' ('+r.status+')');
+  return r.json();
+}
+async function bootstrap(){
+  try{
+    const base='./data/';
+    const [positions,structure,schedule,stadiums,manifest] = await Promise.all([
+      loadJSON(base+'positions.json'),
+      loadJSON(base+'structure.json'),
+      loadJSON(base+'schedule.json'),
+      loadJSON(base+'stadiums.json'),
+      loadJSON(base+'manifest.json'),
+    ]);
+    const teams = await Promise.all(manifest.map(id=>loadJSON(base+'teams/'+id+'.json')));
+    LINE = positions; STRUCTURE = structure; TIMELINE = schedule; STADIUMS = stadiums;
+    // flatten team colors to c1/c2 (prototype expects them at top level)
+    teams.forEach(t=>{ if(t.colors){ t.c1=t.colors.c1; t.c2=t.colors.c2; } });
+    TEAMS = teams;
+    activeTeam = TEAMS[0].id;
+    init();
+  }catch(e){
+    document.getElementById('teamContent').innerHTML =
+      '<div class="loading">אופס! לא הצלחנו לטעון את הנתונים.<br><span style="font-size:15px;font-weight:700">'+e.message+
+      '<br>הפעל שרת מקומי (למשל <code>python3 -m http.server</code>) ופתח דרך http.</span></div>';
+    console.error(e);
+  }
+}
+
+function init(){
+  buildSidebar();
+  renderTeam(activeTeam);
+  renderTimeline();
+  renderGroupDiagram();
+  renderBracket();
+  renderPointsButtons();
+  renderStadiumMap();
+}
+
+/* ===== SOUNDS ===== */
+let actx;
+function tone(freq,dur,type='sine',vol=0.15,delay=0){
+  try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();
+    const o=actx.createOscillator(),g=actx.createGain();o.type=type;o.frequency.value=freq;
+    o.connect(g);g.connect(actx.destination);const t=actx.currentTime+delay;
+    g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001,t+dur);o.start(t);o.stop(t+dur);}catch(e){}
+}
+const sfx={
+  click:()=>tone(520,0.08,'triangle',0.12),
+  open:()=>{tone(440,0.08,'sine',0.13);tone(660,0.1,'sine',0.11,0.06);},
+  tab:()=>{tone(660,0.07,'square',0.08);tone(880,0.08,'square',0.07,0.06);},
+  right:()=>{[523,659,784,1046].forEach((f,i)=>tone(f,0.16,'triangle',0.14,i*0.08));},
+  wrong:()=>tone(160,0.28,'sawtooth',0.12),
+  win:()=>{[523,659,784,1046,1318].forEach((f,i)=>tone(f,0.25,'triangle',0.15,i*0.1));}
+};
+
+/* ===== AVATAR (used when no real photo provided / on image error) ===== */
+function avatarSVG(c1,c2,num,star){
+  const skin='#f1c9a5';
+  return `<svg viewBox="0 0 120 120" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+    <rect width="120" height="120" fill="${c1}"/>
+    <circle cx="60" cy="44" r="20" fill="${skin}"/>
+    <path d="M40 40 q20 -22 40 0 q-6 -16 -20 -16 q-14 0 -20 16Z" fill="#3a2a1c"/>
+    <circle cx="52" cy="44" r="2.6" fill="#2b2b2b"/><circle cx="68" cy="44" r="2.6" fill="#2b2b2b"/>
+    <path d="M54 52 q6 5 12 0" stroke="#b5654b" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <path d="M28 120 q2 -40 32 -44 q30 4 32 44Z" fill="${c2}"/>
+    <path d="M52 74 q8 6 16 0 l4 6 q-12 9 -24 0Z" fill="${c1}"/>
+    <text x="60" y="106" font-family="Rubik,sans-serif" font-size="24" font-weight="900" fill="#fff" text-anchor="middle">${num}</text>
+    ${star?'<text x="100" y="28" font-size="22" text-anchor="middle">⭐</text>':''}
+  </svg>`;
+}
+function picInner(p,t){
+  return p.img
+    ? `<img src="${p.img}" alt="${p.n}" loading="lazy" data-fallback data-team="${t.id}" data-num="${p.num}">`
+    : avatarSVG(t.c1,t.c2,p.num,p.star);
+}
+function swapAvatar(img){
+  const t=TEAMS.find(x=>x.id===img.dataset.team); if(!t)return;
+  const p=t.players.find(x=>String(x.num)===img.dataset.num); if(!p)return;
+  img.outerHTML=avatarSVG(t.c1,t.c2,p.num,p.star);
+}
+/* attach photo->avatar fallback for any <img data-fallback> within root */
+function attachFallbacks(root){
+  root.querySelectorAll('img[data-fallback]').forEach(img=>{
+    img.addEventListener('error',()=>swapAvatar(img));
+    if(img.complete && img.naturalWidth===0) swapAvatar(img); // already-failed (cached)
+  });
+}
+
+/* ===== SIDEBAR (team navigation, option C) ===== */
+function buildSidebar(){
+  const side=document.getElementById('teamSide');
+  side.innerHTML='';
+  TEAMS.forEach((t,i)=>{
+    const on=t.id===activeTeam;
+    const b=document.createElement('button');
+    b.className='teamtab'+(on?' active':'');
+    b.style.background=on?t.c2:'#fff';b.style.color=on?'#fff':'var(--ink)';
+    b.innerHTML=`<span class="fl">${t.flag}</span> ${t.name}`;
+    b.dataset.id=t.id;b.dataset.c2=t.c2;
+    b.onclick=()=>{selectTeam(t.id);sfx.tab();};
+    side.appendChild(b);
+  });
+}
+function selectTeam(id){
+  activeTeam=id;
+  document.querySelectorAll('.teamtab').forEach(b=>{
+    const on=b.dataset.id===id;b.classList.toggle('active',on);
+    b.style.background=on?b.dataset.c2:'#fff';b.style.color=on?'#fff':'var(--ink)';
+  });
+  renderTeam(id);
+}
+
+/* ===== RENDER TEAM ===== */
+const teamContent=document.getElementById('teamContent');
+function renderTeam(id){
+  const t=TEAMS.find(x=>x.id===id);
+  const order=['gk','def','mid','att'];
+  const byLine={};order.forEach(l=>byLine[l]=[]);
+  t.players.forEach(p=>byLine[p.line].push(p));
+  const stars=t.players.filter(p=>p.star);
+
+  const starCards=stars.map(p=>`
+    <div class="pcard" data-team="${t.id}" data-num="${p.num}">
+      ${p.star?'<span class="star-badge">⭐</span>':''}
+      <div class="pic" style="border-color:${t.c2}">${picInner(p,t)}</div>
+      <div class="pname">${p.n}</div>
+      <div class="prole" style="background:${LINE[p.line].color}">${p.role}</div>
+      <div class="tap-hint">👆 לחץ לכל הפרטים</div>
+    </div>`).join('');
+
+  const roster=order.map(l=>{
+    if(!byLine[l].length)return'';
+    const chips=byLine[l].map(p=>`
+      <span class="chip ${p.star?'is-star':''}" data-team="${t.id}" data-num="${p.num}">
+        <span class="jn">${p.num}</span>${p.n}${p.star?' ⭐':''}
+        <span class="crole">· ${p.role}</span>
+      </span>`).join('');
+    return `<div class="posgroup">
+      <span class="poshead" style="background:${LINE[l].color}">${LINE[l].name}</span>
+      <div class="chips">${chips}</div></div>`;
+  }).join('');
+
+  teamContent.innerHTML=`
+    <div class="hero" style="background:linear-gradient(135deg,${t.c2},${t.c1})">
+      <div class="big-flag">${t.flag}</div>
+      <div class="hero-txt"><h2>${t.name}</h2>${t.nick?`<div class="nick">${t.nick}</div>`:''}
+      <div class="funstat">${t.funstat}</div></div>
+    </div>
+    <div class="section-title">⭐ הכוכבים הבולטים <span class="line"></span></div>
+    <div class="cards">${starCards}</div>
+    <div class="section-title">👥 כל הסגל — לחץ על שם לפרטים <span class="line"></span></div>
+    <div class="roster">${roster}</div>
+    <div class="section-title">🧠 חידון על ${t.name} <span class="line"></span></div>
+    <div class="quiz" id="quizBox"></div>`;
+
+  teamContent.querySelectorAll('[data-num]').forEach(el=>{
+    el.onclick=()=>openModal(el.dataset.team,+el.dataset.num);
+  });
+  attachFallbacks(teamContent);
+  buildQuiz(t);
+}
+
+/* ===== MODAL ===== */
+const modalBg=document.getElementById('modalBg');
+const modalEl=document.getElementById('modal');
+function openModal(teamId,num){
+  const t=TEAMS.find(x=>x.id===teamId);
+  const p=t.players.find(x=>x.num===num);
+  modalEl.innerHTML=`
+    <div class="modal-top" style="background:linear-gradient(140deg,${t.c2},${t.c1})">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-pic">${picInner(p,t)}</div>
+      <div class="modal-name">${p.n} <span class="modal-flag">${t.flag}</span></div>
+      <div class="modal-role">${p.role}</div>
+    </div>
+    <div class="modal-body">
+      <div class="stat-grid">
+        <div class="stat"><div class="lab">מספר</div><div class="val">#${p.num}</div></div>
+        <div class="stat"><div class="lab">גיל</div><div class="val">${p.age!=null?p.age:'—'}</div></div>
+        <div class="stat"><div class="lab">קו</div><div class="val" style="font-size:17px">${LINE[p.line].name}</div></div>
+      </div>
+      ${p.club?`<div class="factbox fun"><span class="h">⚽ קבוצת מועדון</span>${p.club}</div>`:''}
+      ${p.fact?`<div class="factbox fun"><span class="h">💡 עובדה מגניבה</span>${p.fact}</div>`:''}
+      ${p.know?`<div class="factbox know"><span class="h">🤩 הידעת?</span>${p.know}</div>`:''}
+    </div>`;
+  attachFallbacks(modalEl);
+  modalBg.classList.add('show');sfx.open();
+}
+function closeModal(){modalBg.classList.remove('show');}
+modalBg.onclick=(e)=>{if(e.target===modalBg)closeModal();};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+/* ===== QUIZ ===== */
+function buildQuiz(t){
+  const box=document.getElementById('quizBox');
+  let idx=0,score=0;
+  function render(){
+    if(idx>=t.quiz.length){
+      box.innerHTML=`<h3>🧠 חידון על ${t.name}</h3>
+        <div class="qdone">🎉 סיימת! קיבלת ${score} מתוך ${t.quiz.length}!
+        <div style="margin-top:12px"><button class="qnext" id="again">שחק שוב 🔄</button></div></div>`;
+      document.getElementById('again').onclick=()=>{idx=0;score=0;render();sfx.click();};
+      if(score===t.quiz.length){sfx.win();confetti();}
+      return;
+    }
+    const q=t.quiz[idx];
+    box.innerHTML=`<h3>🧠 חידון על ${t.name}</h3>
+      <div class="qsub">שאלה ${idx+1} מתוך ${t.quiz.length}</div>
+      <div class="qtext">${q.q}</div>
+      <div class="qopts">${q.o.map((o,i)=>`<button class="qopt" data-i="${i}">${o}</button>`).join('')}</div>
+      <div class="qfoot"><span class="qscore">⭐ ניקוד: ${score}</span></div>`;
+    box.querySelectorAll('.qopt').forEach(btn=>{
+      btn.onclick=()=>{
+        const i=+btn.dataset.i;
+        box.querySelectorAll('.qopt').forEach(b=>b.disabled=true);
+        if(i===q.a){btn.classList.add('correct');score++;sfx.right();}
+        else{btn.classList.add('wrong');sfx.wrong();box.querySelectorAll('.qopt')[q.a].classList.add('correct');}
+        const foot=box.querySelector('.qfoot');
+        const nx=document.createElement('button');nx.className='qnext';
+        nx.textContent=idx===t.quiz.length-1?'לתוצאה הסופית 🏁':'השאלה הבאה ⏭️';
+        nx.onclick=()=>{idx++;render();sfx.click();};
+        foot.appendChild(nx);box.querySelector('.qscore').textContent='⭐ ניקוד: '+score;
+      };
+    });
+  }
+  render();
+}
+
+/* ===== TIMELINE ===== */
+function renderTimeline(){
+  const tl=document.getElementById('timeline');
+  tl.innerHTML='';
+  TIMELINE.forEach(e=>{
+    const node=document.createElement('div');node.className='tnode';
+    node.innerHTML=`<div class="tdot" style="background:${e.color}">${e.emoji}</div>
+      <div class="tcontent"><div class="tdate">${e.date}</div><div class="ttitle">${e.title}</div>
+      <div class="tdesc-hint">👆 לחץ לפרטים</div><div class="tdesc">${e.desc}</div></div>`;
+    node.onclick=()=>{node.classList.toggle('open');sfx.open();};
+    tl.appendChild(node);
+  });
+}
+
+/* ===== GROUP-STAGE DIAGRAM ===== */
+function renderGroupDiagram(){
+  const el=document.getElementById('groupDiagram'); if(!el)return;
+  const sample=[['🇧🇷','ברזיל'],['🇭🇷','קרואטיה'],['🇲🇦','מרוקו'],['🇯🇵','יפן']];
+  const rows=sample.map((s,i)=>{
+    const pos=i+1, adv=pos<=2;
+    return `<div class="gsd-team ${adv?'adv':''}"><span class="pos">${pos}</span>
+      <span style="font-size:22px">${s[0]}</span> ${s[1]} ${adv?'⬆️':''}</div>`;
+  }).join('');
+  el.innerHTML=`<div class="gsd">
+    <div class="gsd-group"><div class="ghead">בית לדוגמה 🅰️</div>${rows}</div>
+    <div class="gsd-arrow">⬅️</div>
+    <div class="gsd-note">🥇🥈 <b>2 הראשונות</b> מכל בית עולות אוטומטית!<br>➕ ועוד <b>${STRUCTURE.advance.thirds}</b> מבין כל הבתים.</div>
+  </div>
+  <div class="gsd-sum">${STRUCTURE.teams} נבחרות ב-${STRUCTURE.groups} בתים → ${STRUCTURE.advance.total} ממשיכות לנוקאאוט! 🚀</div>`;
+}
+
+/* ===== KNOCKOUT BRACKET ===== */
+function renderBracket(){
+  const el=document.getElementById('knockoutBracket'); if(!el)return;
+  const k=STRUCTURE.knockout;
+  const stages=[
+    {n:'32',l:k[0]},{n:'16',l:k[1]},{n:'8',l:k[2]},{n:'4',l:k[3]},{n:'🏆',l:k[4]}
+  ];
+  el.innerHTML='<div class="brk">'+stages.map((s,i)=>
+    `<div class="brk-stage ${i===4?'brk-final':''}" tabindex="0"><div class="n">${s.n}</div><div class="l">${s.l}</div></div>`
+    +(i<4?'<span class="brk-arrow">←</span>':'')
+  ).join('')+'</div>';
+  el.querySelectorAll('.brk-stage').forEach(b=>{
+    const act=()=>{el.querySelectorAll('.brk-stage').forEach(x=>x.classList.remove('active'));b.classList.add('active');sfx.tab();};
+    b.onclick=act;
+    b.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();act();}});
+  });
+}
+
+/* ===== POINTS CALCULATOR (reads structure.points) ===== */
+function renderPointsButtons(){
+  const el=document.getElementById('pcBtns'); if(!el)return;
+  const p=STRUCTURE.points;
+  el.innerHTML=
+    `<button class="pc-btn pc-win" onclick="calcPoints(${p.win},'ניצחון! 🎉')">ניצחון = ${p.win}</button>`+
+    `<button class="pc-btn pc-draw" onclick="calcPoints(${p.draw},'תיקו 🤝')">תיקו = ${p.draw}</button>`+
+    `<button class="pc-btn pc-loss" onclick="calcPoints(${p.loss},'הפסד... 😅')">הפסד = ${p.loss}</button>`;
+}
+function calcPoints(pts,label){
+  document.getElementById('pcRes').innerHTML=pts+"<small> נק'</small>";
+  document.getElementById('pcLabel').textContent=label;
+  if(pts===STRUCTURE.points.win){sfx.right();confetti();}
+  else if(pts===STRUCTURE.points.draw){sfx.click();}
+  else{sfx.wrong();}
+}
+
+/* ===== STADIUM MAP (schematic SVG, no map library) ===== */
+function projNA(lon,lat){
+  const W=760,H=560,M=26,lonMin=-140,lonMax=-60,latMin=14,latMax=62;
+  return {x:M+(lon-lonMin)/(lonMax-lonMin)*(W-2*M),
+          y:M+(latMax-lat)/(latMax-latMin)*(H-2*M)};
+}
+/* coarse North-America silhouette (lon,lat) — schematic, not precise */
+const NA_OUTLINE=[[-140,60],[-125,49],[-124,40],[-120,34],[-117,32.5],[-114,30],[-112,26],
+  [-110,23],[-106,20],[-103,18],[-97,16],[-92,15],[-88,18],[-87,21],[-91,25],[-97,26],
+  [-94,29.5],[-89,29],[-84,30],[-82,27],[-80,25],[-81,31],[-78,33],[-76,37],[-74,40],
+  [-71,42],[-67,45],[-60,47],[-64,52],[-79,52],[-95,60],[-120,60],[-140,60]];
+function renderStadiumMap(){
+  const svg=document.getElementById('smap'); if(!svg)return;
+  const detail=document.getElementById('smapDetail');
+  const legend=document.getElementById('smapLegend');
+  const pts=NA_OUTLINE.map(([lo,la])=>{const p=projNA(lo,la);return p.x.toFixed(1)+','+p.y.toFixed(1);}).join(' ');
+  let h=`<polygon class="sland" points="${pts}"/>`;
+  [['קנדה 🇨🇦',-104,57],['ארצות הברית 🇺🇸',-99,42],['מקסיקו 🇲🇽',-104,22.5]].forEach(([t,lo,la])=>{
+    const p=projNA(lo,la);
+    h+=`<text class="scountry" x="${p.x.toFixed(1)}" y="${p.y.toFixed(1)}" font-size="26" text-anchor="middle">${t}</text>`;
+  });
+  STADIUMS.forEach((s,i)=>{
+    const p=projNA(s.lon,s.lat);
+    h+=`<g class="spin" data-i="${i}" tabindex="0" role="button" aria-label="${s.city}">
+      <circle class="cc-${s.cc}" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="8"/>
+      <text x="${p.x.toFixed(1)}" y="${(p.y-13).toFixed(1)}" text-anchor="middle">${s.city}</text>
+    </g>`;
+  });
+  svg.innerHTML=h;
+  const dotColor={us:'#1f8fe0',mx:'#1a8a4a',ca:'#d52b1e'};
+  legend.innerHTML=STADIUMS.map((s,i)=>
+    `<span class="scity" data-i="${i}"><span class="dot" style="background:${dotColor[s.cc]}"></span>${s.flag} ${s.city}</span>`
+  ).join('');
+  function select(i){
+    const s=STADIUMS[i];
+    detail.innerHTML=`${s.flag} <b>${s.stadium}</b> — ${s.city}, ${s.state} (${s.country})`;
+    svg.querySelectorAll('.spin').forEach(g=>g.classList.toggle('sel',+g.dataset.i===i));
+    legend.querySelectorAll('.scity').forEach(c=>c.classList.toggle('sel',+c.dataset.i===i));
+    sfx.open();
+  }
+  svg.querySelectorAll('.spin').forEach(g=>{
+    g.onclick=()=>select(+g.dataset.i);
+    g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select(+g.dataset.i);}});
+  });
+  legend.querySelectorAll('.scity').forEach(c=>{c.onclick=()=>select(+c.dataset.i);});
+}
+
+/* ===== TOP TABS ===== */
+document.querySelectorAll('.toptab').forEach(tab=>{
+  tab.onclick=()=>{
+    document.querySelectorAll('.toptab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.tabpanel').forEach(p=>p.classList.remove('show'));
+    tab.classList.add('active');
+    document.getElementById('panel-'+tab.dataset.panel).classList.add('show');sfx.tab();
+  };
+});
+
+/* ===== CONFETTI ===== */
+function confetti(){
+  const colors=['#ffd23f','#ff5d5d','#2bb24c','#36bdf6','#fff','#7c3aed'];
+  for(let i=0;i<40;i++){
+    const c=document.createElement('div');c.className='confetti';
+    c.style.left=(40+Math.random()*20)+'%';c.style.top='40%';
+    c.style.background=colors[i%colors.length];document.body.appendChild(c);
+    const x=(Math.random()-0.5)*600,y=300+Math.random()*300,r=Math.random()*720;
+    c.animate([{transform:'translate(0,0) rotate(0)',opacity:1},
+      {transform:`translate(${x}px,${y}px) rotate(${r}deg)`,opacity:0}],
+      {duration:1100+Math.random()*700,easing:'cubic-bezier(.2,.6,.3,1)'}).onfinish=()=>c.remove();
+  }
+}
+
+/* ===== GO ===== */
+bootstrap();
+</script>
+</body>
+</html>

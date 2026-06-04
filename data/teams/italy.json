@@ -1,0 +1,24 @@
+{
+  "id":"ita","name":"איטליה","flag":"🇮🇹","nick":"האדזורי",
+  "colors":{"c1":"#1e63b0","c2":"#06245c"},
+  "funstat":"אלופות עולם <b>4 פעמים</b>! מפורסמות בהגנה הכי חזקה והכי חכמה בעולם.",
+  "players":[
+    {"n":"ג'אנלואיג'י דונארומה","en":"Gianluigi Donnarumma","num":21,"line":"gk","role":"שוער","age":27,"club":"מנצ'סטר סיטי","star":true,"img":"./player_images/Gianluigi Donnarumma.jpg","fact":"שוער ענק שעוצר פנדלים ומציל את הקבוצה שוב ושוב.","know":"היה השוער הטוב של אליפות אירופה 2020 שבה איטליה ניצחה."},
+    {"n":"ניקולו בארלה","en":"Nicolo Barella","num":18,"line":"mid","role":"קשר מרכזי","age":29,"club":"אינטר מילאן","star":true,"img":"./player_images/Nicolo Barella.jpg","fact":"מנוע בלתי נדלה שרץ, נלחם ומבקיע.","know":"קטן בגובה אבל עם לב של אריה — לא מפסיק לרוץ לרגע."},
+    {"n":"אלסנדרו באסטוני","en":"Alessandro Bastoni","num":23,"line":"def","role":"בלם","age":26,"club":"אינטר מילאן","star":true,"img":"./player_images/Alessandro Bastoni.jpg","fact":"בלם מודרני עם רגל שמאל שמתחילה התקפות.","know":"יודע למסור כדורים ארוכים ומדויקים כמו קשר אמיתי."},
+    {"n":"פדריקו דימרקו","en":"Federico Dimarco","num":33,"line":"def","role":"מגן שמאלי","age":28,"club":"אינטר מילאן","star":true,"img":"./player_images/Federico Dimarco.jpg","fact":"מגן שמאלי עם בעיטה והגשה מדהימות.","know":"אוהד של אינטר מילדות — וכיום כוכב במועדון האהוב עליו!"},
+    {"n":"מרקו קרנזקי","en":"Marco Carnesecchi","num":1,"line":"gk","role":"שוער","age":25,"club":"אטאלנטה","star":false,"img":"./player_images/Marco Carnesecchi.jpg","fact":"שוער צעיר ומבטיח עם קפיצה גבוהה."},
+    {"n":"ריקרדו קלאפיורי","en":"Riccardo Calafiori","num":5,"line":"def","role":"בלם","age":23,"club":"ארסנל","star":false,"img":"./player_images/Riccardo Calafiori.jpg","fact":"בלם צעיר וחזק שאוהב גם לעלות עם הכדור."},
+    {"n":"אלסנדרו בונג'ורנו","en":"Alessandro Buongiorno","num":15,"line":"def","role":"בלם","age":26,"club":"נאפולי","star":false,"img":"./player_images/Alessandro Buongiorno.jpg","fact":"בלם נחוש שלא מוותר על אף כדור."},
+    {"n":"אנדראה קמביאזו","en":"Andrea Cambiaso","num":2,"line":"def","role":"מגן ימני","age":25,"club":"יובנטוס","star":false,"img":"./player_images/Andrea Cambiaso.jpg","fact":"מגן רב-תכליתי שמשחק בשני האגפים."},
+    {"n":"סנדרו טונאלי","en":"Sandro Tonali","num":8,"line":"mid","role":"קשר אחורי","age":25,"club":"ניוקאסל","star":false,"img":"./player_images/Sandro Tonali.jpg","fact":"קשר לוחם עם בעיטה חזקה מרחוק."},
+    {"n":"דוידה פראטזי","en":"Davide Frattesi","num":16,"line":"mid","role":"קשר מרכזי","age":26,"club":"אינטר מילאן","star":false,"img":"./player_images/Davide Frattesi.jpg","fact":"מומחה לפרוץ לרחבה ולהבקיע בתזמון מושלם."},
+    {"n":"מטאו רטגי","en":"Mateo Retegui","num":9,"line":"att","role":"חלוץ מרכזי","age":26,"club":"אטאלנטה","star":false,"img":"./player_images/Mateo Retegui.jpg","fact":"חלוץ חזק שמבקיע הרבה שערים בליגה האיטלקית."},
+    {"n":"מואיז קין","en":"Moise Kean","num":20,"line":"att","role":"כנף ימנית","age":26,"club":"פיורנטינה","star":false,"img":"./player_images/Moise Kean.jpg","fact":"חלוץ מהיר וחזק שמצא את הכושר הטוב בקריירה."}
+  ],
+  "quiz":[
+    {"q":"כמה מונדיאלים זכתה איטליה?","o":["2","4","6"],"a":1},
+    {"q":"במה מפורסמת נבחרת איטליה?","o":["הגנה חזקה","שוערים גרועים","משחק איטי"],"a":0},
+    {"q":"מה הכינוי של נבחרת איטליה?","o":["האדזורי","המאנשאפט","הטריקולור"],"a":0}
+  ]
+}

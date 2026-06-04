@@ -1,0 +1,24 @@
+{
+  "id":"ned","name":"הולנד","flag":"🇳🇱","nick":"האורנייה",
+  "colors":{"c1":"#ff7a18","c2":"#cc5500"},
+  "funstat":"הנבחרת הכתומה! הגיעו <b>3 פעמים לגמר</b> מונדיאל — תמיד עם כדורגל יפה.",
+  "players":[
+    {"n":"וירג'יל ואן דייק","en":"Virgil van Dijk","num":4,"line":"def","role":"בלם","age":34,"club":"ליברפול","star":true,"img":"./player_images/Virgil van Dijk.jpg","fact":"הקפטן והחומה — אחד הבלמים הטובים בעולם.","know":"כל כך רגוע וחזק שחלוצים מתייאשים עוד לפני שהם מתקרבים אליו."},
+    {"n":"פרנקי דה יונג","en":"Frenkie de Jong","num":21,"line":"mid","role":"קשר מרכזי","age":28,"club":"ברצלונה","star":true,"img":"./player_images/Frenkie de Jong.jpg","fact":"חומק מלחץ בקלות ומוביל את הקבוצה קדימה.","know":"יודע לפרוץ בריצה עם הכדור דרך כל קווי היריבה."},
+    {"n":"קודי גאקפו","en":"Cody Gakpo","num":8,"line":"att","role":"כנף שמאלית","age":26,"club":"ליברפול","star":true,"img":"./player_images/Cody Gakpo.jpg","fact":"כנף גבוה שמבקיע שערים יפים ברגל ימין ושמאל.","know":"היה מהכובשים הבולטים במונדיאל 2022."},
+    {"n":"ממפיס דפאי","en":"Memphis Depay","num":10,"line":"att","role":"חלוץ מרכזי","age":32,"club":"קורינתיאנס","star":true,"img":"./player_images/Memphis Depay.jpg","fact":"מלך השערים ההיסטורי של נבחרת הולנד.","know":"מלבד כדורגל הוא גם זמר ראפ מצליח עם הרבה מעריצים."},
+    {"n":"בארט ורברוחן","en":"Bart Verbruggen","num":1,"line":"gk","role":"שוער","age":23,"club":"ברייטון","star":false,"img":"./player_images/Bart Verbruggen.jpg","fact":"שוער צעיר עם רפלקסים מהירים שתפס את המקום."},
+    {"n":"מארק פלקן","en":"Mark Flekken","num":13,"line":"gk","role":"שוער","age":32,"club":"באייר לברקוזן","star":false,"img":"./player_images/Mark Flekken.jpg","fact":"שוער מנוסה עם משחק רגל טוב."},
+    {"n":"נתן אקה","en":"Nathan Ake","num":5,"line":"def","role":"בלם","age":30,"club":"מנצ'סטר סיטי","star":false,"img":"./player_images/Nathan Ake.jpg","fact":"בלם מהיר וגמיש שיכול לשחק גם כמגן שמאלי."},
+    {"n":"דנזל דומפריס","en":"Denzel Dumfries","num":22,"line":"def","role":"מגן ימני","age":29,"club":"אינטר מילאן","star":false,"img":"./player_images/Denzel Dumfries.jpg","fact":"מגן עוצמתי שעולה לתקוף ומבקיע בכדורי ראש."},
+    {"n":"מיקי ואן דה ון","en":"Micky van de Ven","num":3,"line":"def","role":"בלם","age":24,"club":"טוטנהאם","star":false,"img":"./player_images/Micky van de Ven.jpg","fact":"מהיר במיוחד — נחשב לאחד הבלמים המהירים בעולם."},
+    {"n":"יוריין טימבר","en":"Jurrien Timber","num":2,"line":"def","role":"מגן שמאלי","age":24,"club":"ארסנל","star":false,"img":"./player_images/Jurrien Timber.jpg","fact":"מגן רב-תכליתי שמשחק בכמה תפקידים בהגנה."},
+    {"n":"ריאן חראפנברך","en":"Ryan Gravenberch","num":18,"line":"mid","role":"קשר התקפי","age":23,"club":"ליברפול","star":false,"img":"./player_images/Ryan Gravenberch.jpg","fact":"קשר גבוה ואלגנטי שחומק בין יריבים."},
+    {"n":"טיג'אני ריינדרס","en":"Tijjani Reijnders","num":6,"line":"mid","role":"קשר אחורי","age":27,"club":"מנצ'סטר סיטי","star":false,"img":"./player_images/Tijjani Reijnders.jpg","fact":"קשר חרוץ שמחבר בין הגנה להתקפה."}
+  ],
+  "quiz":[
+    {"q":"מה צבע החולצה המפורסם של נבחרת הולנד?","o":["כתום","סגול","ורוד"],"a":0},
+    {"q":"מי הקפטן והבלם המוביל של הולנד?","o":["ואן דייק","דה יונג","דפאי"],"a":0},
+    {"q":"מה הכינוי של נבחרת הולנד?","o":["הסלסאו","האורנייה","לה רוחה"],"a":1}
+  ]
+}

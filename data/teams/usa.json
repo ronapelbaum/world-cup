@@ -1,0 +1,24 @@
+{
+  "id":"usa","name":"ארה\"ב","flag":"🇺🇸","nick":"","nickNote":"TODO: לאמת כינוי ישראלי",
+  "colors":{"c1":"#0a3161","c2":"#b31942"},
+  "funstat":"אחת המארחות של המונדיאל! נבחרת צעירה ומשתפרת עם כוכבים מאירופה.",
+  "players":[
+    {"n":"כריסטיאן פוליסיץ","en":"Christian Pulisic","num":10,"line":"att","role":"כנף ימנית","age":27,"club":"מילאן","star":true,"img":"./player_images/Christian Pulisic.jpg","fact":"הכוכב הגדול והקפטן — מבקיע ומבשל בנבחרת ובמועדון.","know":"מכונה 'קפטן אמריקה' בזכות היותו מנהיג הנבחרת האמריקאית."},
+    {"n":"וסטון מקני","en":"Weston McKennie","num":8,"line":"mid","role":"קשר מרכזי","age":27,"club":"יובנטוס","star":true,"img":"./player_images/Weston McKennie.jpg","fact":"קשר אנרגטי שרץ הרבה וגם מבקיע בכדורי ראש.","know":"גדל ליד בסיס צבאי בגרמניה ושם התאהב בכדורגל."},
+    {"n":"טיילר אדאמס","en":"Tyler Adams","num":4,"line":"mid","role":"קשר אחורי","age":26,"club":"בורנמות'","star":true,"img":"./player_images/Tyler Adams.jpg","fact":"מנוע ההגנה — לא מפסיק לרוץ ולקטוע התקפות.","know":"היה הקפטן הצעיר ביותר במונדיאל 2022."},
+    {"n":"פולארין באלוגון","en":"Folarin Balogun","num":9,"line":"att","role":"חלוץ מרכזי","age":24,"club":"מונאקו","star":true,"img":"./player_images/Folarin Balogun.jpg","fact":"חלוץ מהיר שבחר לשחק לארה\"ב למרות שגדל באנגליה.","know":"היה יכול לשחק לאנגליה או לניגריה — ובחר באמריקה!"},
+    {"n":"מאט טרנר","en":"Matt Turner","num":1,"line":"gk","role":"שוער","age":31,"club":"ניו אינגלנד","star":false,"img":"./player_images/Matt Turner.jpg","fact":"שוער שהתחיל לשחק כדורגל מאוחר יחסית והגיע לנבחרת."},
+    {"n":"אית'ן הורבאט","en":"Ethan Horvath","num":12,"line":"gk","role":"שוער","age":30,"club":"קרדיף סיטי","star":false,"img":"./player_images/Ethan Horvath.jpg","fact":"שוער מנוסה שעצר פנדל בגמר גביע חשוב."},
+    {"n":"סרג'יניו דסט","en":"Sergino Dest","num":2,"line":"def","role":"מגן ימני","age":25,"club":"איינדהובן","star":false,"img":"./player_images/Sergino Dest.jpg","fact":"מגן טכני שאוהב לעלות ולשחק התקפי."},
+    {"n":"אנטוני רובינסון","en":"Antonee Robinson","num":5,"line":"def","role":"מגן שמאלי","age":28,"club":"פולהאם","star":false,"img":"./player_images/Antonee Robinson.jpg","fact":"מגן שמאלי מהיר מאוד שמגיש המון כדורים."},
+    {"n":"כריס ריצ'רדס","en":"Chris Richards","num":3,"line":"def","role":"בלם","age":25,"club":"קריסטל פאלאס","star":false,"img":"./player_images/Chris Richards.jpg","fact":"בלם אתלטי וחזק בכדורי ראש."},
+    {"n":"טים ריים","en":"Tim Ream","num":13,"line":"def","role":"בלם","age":38,"club":"שארלוט","star":false,"img":"./player_images/Tim Ream.jpg","fact":"בלם ותיק ורגוע שמנהיג את ההגנה בניסיון."},
+    {"n":"יונוס מוסא","en":"Yunus Musah","num":6,"line":"mid","role":"קשר מרכזי","age":23,"club":"אטאלנטה","star":false,"img":"./player_images/Yunus Musah.jpg","fact":"קשר חזק שחומק מלחץ בעזרת הגוף שלו."},
+    {"n":"טימותי וואה","en":"Timothy Weah","num":21,"line":"att","role":"כנף שמאלית","age":25,"club":"יובנטוס","star":false,"img":"./player_images/Timothy Weah.jpg","fact":"כנף מהיר — בנו של אגדת הכדורגל וזוכה כדור הזהב ג'ורג' וואה!"}
+  ],
+  "quiz":[
+    {"q":"מי מכונה 'קפטן אמריקה' בנבחרת ארה\"ב?","o":["פוליסיץ","מקני","אדאמס"],"a":0},
+    {"q":"ארה\"ב היא אחת מ...","o":["המארחות של המונדיאל","הנבחרות החדשות","אלופות העבר"],"a":0},
+    {"q":"של מי הבן הוא טימותי וואה?","o":["זוכה כדור הזהב ג'ורג' וואה","שחקן NBA","טניסאי"],"a":0}
+  ]
+}

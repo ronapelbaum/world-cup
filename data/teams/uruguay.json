@@ -1,0 +1,24 @@
+{
+  "id":"uru","name":"אורוגוואי","flag":"🇺🇾","nick":"","nickNote":"TODO: לאמת כינוי ישראלי (נפוץ: 'הסלסטה')",
+  "colors":{"c1":"#7facd6","c2":"#1c3f94"},
+  "funstat":"מדינה קטנה עם לב ענק — זכו ב<b>מונדיאל הראשון בהיסטוריה</b> ב-1930!",
+  "players":[
+    {"n":"פדריקו ואלוורדה","en":"Federico Valverde","num":15,"line":"mid","role":"קשר מרכזי","age":27,"club":"ריאל מדריד","star":true,"img":"./player_images/Federico Valverde.jpg","fact":"מנוע אדיר עם בעיטה מהחזקות בעולם.","know":"רץ כל כך הרבה שקוראים לו 'הציפור הקטנה' שלא נחה לרגע."},
+    {"n":"רונאלד אראוחו","en":"Ronald Araujo","num":4,"line":"def","role":"בלם","age":26,"club":"ברצלונה","star":true,"img":"./player_images/Ronald Araujo.jpg","fact":"בלם מהיר וחזק שעוצר את החלוצים הכי טובים.","know":"מהיר כל כך שהוא משיג גם את הכנפיים הזריזים ביותר."},
+    {"n":"דרווין נונייס","en":"Darwin Nunez","num":11,"line":"att","role":"חלוץ מרכזי","age":26,"club":"אל-הילאל","star":true,"img":"./player_images/Darwin Nunez.jpg","fact":"חלוץ מהיר וחזק שלא מפסיק לרוץ אחרי כל כדור.","know":"קוראים לו 'הליבון' (הזאב) בגלל הדרך שבה הוא צד שערים."},
+    {"n":"רודריגו בנטנקור","en":"Rodrigo Bentancur","num":6,"line":"mid","role":"קשר מרכזי","age":28,"club":"טוטנהאם","star":true,"img":"./player_images/Rodrigo Bentancur.jpg","fact":"קשר רגוע וחכם ששולט בקצב המשחק.","know":"מנהיג שקט שתמיד נמצא במקום הנכון לעזור לקבוצה."},
+    {"n":"סרחיו רוצ'ט","en":"Sergio Rochet","num":1,"line":"gk","role":"שוער","age":33,"club":"אינטרנסיונל","star":false,"img":"./player_images/Sergio Rochet.jpg","fact":"שוער אמין שעצר פנדלים חשובים לנבחרת."},
+    {"n":"סנטיאגו מלה","en":"Santiago Mele","num":23,"line":"gk","role":"שוער","age":28,"club":"חוניור","star":false,"img":"./player_images/Santiago Mele.jpg","fact":"שוער צעיר שתופס ביטחון מול הקורה."},
+    {"n":"חוסה מריה חימנס","en":"Jose Maria Gimenez","num":2,"line":"def","role":"בלם","age":31,"club":"אתלטיקו מדריד","star":false,"img":"./player_images/Jose Maria Gimenez.jpg","fact":"בלם נחוש ולוחם שלא מוותר על כדור."},
+    {"n":"מתיאס אוליברה","en":"Mathias Olivera","num":17,"line":"def","role":"מגן שמאלי","age":28,"club":"נאפולי","star":false,"img":"./player_images/Mathias Olivera.jpg","fact":"מגן שמאלי שעולה לתקוף עם אנרגיה רבה."},
+    {"n":"נהיטן נאנדס","en":"Nahitan Nandez","num":8,"line":"def","role":"מגן ימני","age":30,"club":"בוקה חוניורס","star":false,"img":"./player_images/Nahitan Nandez.jpg","fact":"מגן לוחם וקשוח שלא מוותר על אף כדור."},
+    {"n":"מנואל אוגארטה","en":"Manuel Ugarte","num":5,"line":"mid","role":"קשר אחורי","age":24,"club":"מנצ'סטר יונייטד","star":false,"img":"./player_images/Manuel Ugarte.jpg","fact":"קשר הגנתי שקוטע התקפות לפני שהן מתחילות."},
+    {"n":"ניקולס דה לה קרוס","en":"Nicolas de la Cruz","num":10,"line":"mid","role":"קשר התקפי","age":28,"club":"פלמנגו","star":false,"img":"./player_images/Nicolas de la Cruz.jpg","fact":"קשר יצירתי עם רגל שמאל מדויקת."},
+    {"n":"פקונדו פליסטרי","en":"Facundo Pellistri","num":7,"line":"att","role":"כנף ימנית","age":24,"club":"פנאתינאיקוס","star":false,"img":"./player_images/Facundo Pellistri.jpg","fact":"כנף מהיר ומלא טריקים באגף."}
+  ],
+  "quiz":[
+    {"q":"מי זכתה במונדיאל הראשון בהיסטוריה (1930)?","o":["אורוגוואי","ברזיל","ארגנטינה"],"a":0},
+    {"q":"מי מכונה 'הציפור הקטנה' שלא נחה לרגע?","o":["ואלוורדה","נונייס","אראוחו"],"a":0},
+    {"q":"באיזו קבוצה משחק רונאלד אראוחו?","o":["ריאל מדריד","ברצלונה","אתלטיקו"],"a":1}
+  ]
+}

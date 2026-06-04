@@ -1,0 +1,6 @@
+{
+  "gk":  { "name": "שוערים", "color": "#f59e0b" },
+  "def": { "name": "הגנה",   "color": "#2563eb" },
+  "mid": { "name": "קישור",  "color": "#16a34a" },
+  "att": { "name": "התקפה",  "color": "#dc2626" }
+}

@@ -1,0 +1,25 @@
+{
+  "id":"eng","name":"אנגליה","flag":"🏴","nick":"שלושת האריות",
+  "colors":{"c1":"#ffffff","c2":"#1d3a8a"},
+  "funstat":"ממציאי הכדורגל המודרני! זכו במונדיאל פעם אחת — ב-<b>1966</b> בבית.",
+  "players":[
+    {"n":"הארי קיין","en":"Harry Kane","num":9,"line":"att","role":"חלוץ מרכזי","age":32,"club":"באיירן מינכן","star":true,"img":"./player_images/Harry Kane.jpg","fact":"הקפטן והמלך של השערים — שובר שיא אחרי שיא בנבחרת.","know":"הוא מבקיע שערים, אבל גם מבשל המון — אחד החלוצים הכי שלמים בעולם."},
+    {"n":"ג'וד בלינגהאם","en":"Jude Bellingham","num":10,"line":"mid","role":"קשר התקפי","age":22,"club":"ריאל מדריד","star":true,"img":"./player_images/Jude Bellingham.jpg","fact":"כוכב צעיר שמשחק בלי פחד מול הגדולים בעולם.","know":"ריאל מדריד שילמה עליו הון עתק כשהיה רק בן 19!"},
+    {"n":"בוקאיו סאקה","en":"Bukayo Saka","num":7,"line":"att","role":"כנף ימנית","age":24,"club":"ארסנל","star":true,"img":"./player_images/Bukayo Saka.jpg","fact":"כנף מהיר ומלא חיוך שמפרק הגנות בדריבל.","know":"הכינוי החביב שלו הוא 'סטארבוי' — ילד הכוכב."},
+    {"n":"פיל פודן","en":"Phil Foden","num":11,"line":"att","role":"כנף שמאלית","age":25,"club":"מנצ'סטר סיטי","star":true,"img":"./player_images/Phil Foden.jpg","fact":"קסם טכני עם רגל שמאל מדויקת כמו סרגל.","know":"מכונה 'ילד הפלא ממנצ'סטר' מאז שהיה נער צעיר במועדון."},
+    {"n":"ג'ורדן פיקפורד","en":"Jordan Pickford","num":1,"line":"gk","role":"שוער","age":31,"club":"אברטון","star":false,"img":"./player_images/Jordan Pickford.jpg","fact":"שוער שמתמחה בעצירת פנדלים במשחקים גדולים."},
+    {"n":"ארון רמסדייל","en":"Aaron Ramsdale","num":13,"line":"gk","role":"שוער","age":27,"club":"סאות'המפטון","star":false,"img":"./player_images/Aaron Ramsdale.jpg","fact":"שוער אנרגטי שמשדר ביטחון להגנה."},
+    {"n":"קייל ווקר","en":"Kyle Walker","num":2,"line":"def","role":"מגן ימני","age":35,"club":"מנצ'סטר סיטי","star":false,"img":"./player_images/Kyle Walker.jpg","fact":"אחד המגינים הכי מהירים בעולם — כמעט בלתי אפשרי לעקוף אותו."},
+    {"n":"ג'ון סטונס","en":"John Stones","num":5,"line":"def","role":"בלם","age":31,"club":"מנצ'סטר סיטי","star":false,"img":"./player_images/John Stones.jpg","fact":"בלם רגוע שיודע גם לצאת עם הכדור ולבנות התקפה."},
+    {"n":"הארי מגווייר","en":"Harry Maguire","num":6,"line":"def","role":"בלם","age":32,"club":"מנצ'סטר יונייטד","star":false,"img":"./player_images/Harry Maguire.jpg","fact":"בלם ענק וחזק שמסוכן מאוד גם בכדורים נייחים."},
+    {"n":"קיראן טריפייר","en":"Kieran Trippier","num":12,"line":"def","role":"מגן שמאלי","age":35,"club":"ניוקאסל","star":false,"img":"./player_images/Kieran Trippier.jpg","fact":"מומחה להגשות מדויקות מבעיטות חופשיות."},
+    {"n":"דקלן רייס","en":"Declan Rice","num":4,"line":"mid","role":"קשר אחורי","age":27,"club":"ארסנל","star":false,"img":"./player_images/Declan Rice.jpg","fact":"מנוע הקישור — גם עוצר וגם מבקיע שערים מבעיטות חופשיות."},
+    {"n":"קובי מאינו","en":"Kobbie Mainoo","num":14,"line":"mid","role":"קשר מרכזי","age":20,"club":"מנצ'סטר יונייטד","star":false,"img":"./player_images/Kobbie Mainoo.jpg","fact":"כישרון צעיר ורגוע שפרץ במהירות לנבחרת."},
+    {"n":"קול פאלמר","en":"Cole Palmer","num":20,"line":"att","role":"קשר התקפי","age":23,"club":"צ'לסי","star":false,"img":"./player_images/Cole Palmer.jpg","fact":"קר רוח מתחת ללחץ — קוראים לו 'קולד פאלמר' כי הוא קר כקרח."}
+  ],
+  "quiz":[
+    {"q":"באיזו שנה זכתה אנגליה במונדיאל?","o":["1966","1990","2018"],"a":0},
+    {"q":"מי הקפטן וכובש השערים של אנגליה?","o":["הארי קיין","פיל פודן","דקלן רייס"],"a":0},
+    {"q":"מה הכינוי של נבחרת אנגליה?","o":["הטריקולור","שלושת האריות","לה רוחה"],"a":1}
+  ]
+}
