@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>המדריך הגדול למונדיאל 2026 ⚽</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&family=Heebo:wght@400;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --grass:#2bb24c;--grass-dark:#159a3a;
+  --sky-1:#36bdf6;--sky-2:#1f8fe0;
+  --sun:#ffd23f;--sun-deep:#ffb800;
+  --coral:#ff5d5d;--ink:#13233b;--ink-soft:#3a5172;
+  --shadow:0 10px 0 rgba(19,35,59,.12),0 18px 30px rgba(19,35,59,.18);
+  --shadow-sm:0 4px 0 rgba(19,35,59,.12),0 8px 16px rgba(19,35,59,.14);
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html,body{font-family:'Rubik','Heebo',sans-serif;color:var(--ink);}
+body{min-height:100vh;background:
+  radial-gradient(circle at 12% 8%,rgba(255,210,63,.55),transparent 38%),
+  radial-gradient(circle at 88% 0%,rgba(255,93,93,.4),transparent 40%),
+  linear-gradient(180deg,#7fd3ff 0%,#aee9ff 30%,#d7f6e1 70%,#c7f0d2 100%);
+  background-attachment:fixed;overflow-x:hidden;}
+.bg-ball{position:fixed;font-size:46px;opacity:.18;pointer-events:none;animation:floaty 9s ease-in-out infinite;z-index:0;}
+@keyframes floaty{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-26px) rotate(20deg)}}
+.wrap{max-width:980px;margin:0 auto;padding:18px 14px 80px;position:relative;z-index:2;}
+
+header{text-align:center;background:linear-gradient(135deg,#1f8fe0,#36bdf6);border:4px solid #fff;
+  border-radius:34px;padding:26px 18px 30px;box-shadow:var(--shadow);position:relative;overflow:hidden;}
+header::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.08) 0 16px,transparent 16px 32px);pointer-events:none;}
+.hosts{display:flex;justify-content:center;gap:8px;font-size:30px;margin-bottom:6px;}
+h1{font-size:clamp(28px,7vw,46px);color:#fff;font-weight:900;text-shadow:0 3px 0 #1567a8,0 6px 12px rgba(0,0,0,.25);line-height:1.05;}
+.ball-spin{display:inline-block;animation:spin 4s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.subtitle{margin-top:10px;display:inline-block;background:var(--sun);color:var(--ink);font-weight:900;padding:7px 18px;border-radius:999px;font-size:16px;box-shadow:0 4px 0 var(--sun-deep);}
+
+.toptabs{display:flex;gap:10px;justify-content:center;margin:22px 0 18px;flex-wrap:wrap;}
+.toptab{border:3px solid var(--ink);background:#fff;color:var(--ink);font-family:inherit;font-weight:900;
+  font-size:17px;padding:12px 20px;border-radius:18px;cursor:pointer;box-shadow:var(--shadow-sm);
+  transition:transform .12s,background .2s;display:flex;align-items:center;gap:7px;}
+.toptab:hover{transform:translateY(-3px) rotate(-1deg);}
+.toptab.active{background:var(--sun);transform:translateY(-2px) scale(1.04);}
+.tabpanel{display:none;animation:pop .35s ease;}
+.tabpanel.show{display:block;}
+@keyframes pop{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+
+.teamtabs{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:20px;}
+.teamtab{border:3px solid var(--ink);background:#fff;cursor:pointer;font-family:inherit;font-weight:900;
+  font-size:16px;padding:9px 16px;border-radius:999px;box-shadow:var(--shadow-sm);transition:transform .12s;
+  display:flex;align-items:center;gap:6px;}
+.teamtab .fl{font-size:22px;}
+.teamtab:hover{transform:translateY(-3px);}
+.teamtab.active{color:#fff;transform:scale(1.05);}
+
+.hero{border-radius:28px;border:4px solid #fff;color:#fff;padding:22px;box-shadow:var(--shadow);
+  margin-bottom:22px;position:relative;overflow:hidden;display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% -10%,rgba(255,255,255,.35),transparent 50%);}
+.hero .big-flag{font-size:74px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.3));position:relative;}
+.hero-txt{position:relative;flex:1;min-width:200px;}
+.hero-txt h2{font-size:34px;font-weight:900;text-shadow:0 3px 0 rgba(0,0,0,.25);}
+.hero-txt .nick{font-size:18px;font-weight:700;opacity:.95;}
+.funstat{margin-top:10px;background:rgba(255,255,255,.95);color:var(--ink);font-weight:700;padding:9px 14px;
+  border-radius:14px;font-size:15px;display:inline-block;box-shadow:0 4px 0 rgba(0,0,0,.15);}
+.funstat b{color:var(--coral);}
+
+.section-title{font-size:22px;font-weight:900;margin:6px 4px 14px;display:flex;align-items:center;gap:8px;}
+.section-title .line{flex:1;height:5px;border-radius:5px;background:repeating-linear-gradient(90deg,var(--sun) 0 14px,var(--coral) 14px 28px);}
+
+/* FEATURED CARDS (click -> modal) */
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:14px;margin-bottom:8px;}
+.pcard{background:#fff;border:4px solid #fff;border-radius:20px;box-shadow:var(--shadow-sm);overflow:hidden;
+  cursor:pointer;transition:transform .14s;display:flex;flex-direction:column;align-items:center;padding:10px 8px 12px;position:relative;}
+.pcard:hover{transform:translateY(-5px) rotate(-1deg);}
+.pcard .star-badge{position:absolute;top:6px;inset-inline-start:8px;font-size:22px;animation:twinkle 1.6s ease-in-out infinite;}
+@keyframes twinkle{0%,100%{transform:scale(1) rotate(0)}50%{transform:scale(1.25) rotate(12deg)}}
+.pcard .pic{width:104px;height:104px;border-radius:50%;overflow:hidden;margin-top:6px;border:3px solid;}
+.pcard .pic img{width:100%;height:100%;object-fit:cover;}
+.pname{font-weight:900;font-size:15.5px;text-align:center;margin-top:8px;line-height:1.15;}
+.prole{font-size:12px;font-weight:700;color:#fff;padding:3px 11px;border-radius:999px;margin-top:6px;text-align:center;}
+.tap-hint{margin-top:8px;font-size:11px;font-weight:700;color:var(--ink-soft);background:#f1f6fc;padding:3px 10px;border-radius:999px;}
+
+/* ROSTER */
+.roster{background:#fff;border:4px solid var(--ink);border-radius:24px;padding:16px;box-shadow:var(--shadow-sm);margin-bottom:22px;}
+.posgroup{margin-bottom:12px;}.posgroup:last-child{margin-bottom:0;}
+.poshead{display:inline-block;color:#fff;font-weight:900;font-size:14px;padding:5px 14px;border-radius:999px;margin-bottom:8px;}
+.chips{display:flex;flex-wrap:wrap;gap:8px;}
+.chip{background:#f1f6fc;border:2px solid #e0e9f4;border-radius:12px;padding:7px 11px;font-weight:700;
+  font-size:13.5px;display:flex;align-items:center;gap:6px;cursor:pointer;transition:transform .1s,background .15s;}
+.chip:hover{transform:translateY(-2px);background:#e7f0fb;}
+.chip .jn{background:var(--ink);color:#fff;font-size:11px;width:21px;height:21px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:900;}
+.chip .crole{font-size:11px;color:var(--ink-soft);font-weight:700;}
+.chip.is-star{background:#fff7df;border-color:var(--sun-deep);}
+
+/* MODAL */
+.modal-bg{position:fixed;inset:0;background:rgba(10,20,38,.55);backdrop-filter:blur(3px);z-index:100;
+  display:none;align-items:center;justify-content:center;padding:18px;}
+.modal-bg.show{display:flex;animation:fadein .2s;}
+@keyframes fadein{from{opacity:0}to{opacity:1}}
+.modal{background:#fff;border:5px solid #fff;border-radius:28px;max-width:430px;width:100%;max-height:90vh;
+  overflow-y:auto;box-shadow:0 30px 60px rgba(0,0,0,.4);animation:popin .35s cubic-bezier(.34,1.56,.64,1);position:relative;}
+@keyframes popin{from{transform:scale(.8) translateY(30px);opacity:0}to{transform:none;opacity:1}}
+.modal-top{padding:24px 22px 18px;color:#fff;text-align:center;position:relative;}
+.modal-close{position:absolute;top:12px;inset-inline-end:14px;width:36px;height:36px;border-radius:50%;border:none;
+  background:rgba(255,255,255,.9);font-size:20px;font-weight:900;cursor:pointer;color:var(--ink);box-shadow:0 3px 8px rgba(0,0,0,.2);}
+.modal-close:hover{transform:scale(1.1);}
+.modal-pic{width:120px;height:120px;border-radius:50%;overflow:hidden;margin:6px auto 10px;border:5px solid #fff;box-shadow:0 6px 16px rgba(0,0,0,.3);}
+.modal-pic img{width:100%;height:100%;object-fit:cover;}
+.modal-name{font-size:26px;font-weight:900;text-shadow:0 2px 0 rgba(0,0,0,.2);}
+.modal-flag{font-size:20px;}
+.modal-role{display:inline-block;margin-top:8px;background:rgba(255,255,255,.95);color:var(--ink);font-weight:900;
+  font-size:14px;padding:5px 16px;border-radius:999px;box-shadow:0 3px 0 rgba(0,0,0,.15);}
+.modal-body{padding:18px 22px 24px;}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;}
+.stat{background:#f1f6fc;border:2px solid #e0e9f4;border-radius:14px;padding:10px 6px;text-align:center;}
+.stat .lab{font-size:11px;font-weight:700;color:var(--ink-soft);}
+.stat .val{font-size:20px;font-weight:900;margin-top:2px;}
+.factbox{border-radius:16px;padding:14px;font-weight:700;font-size:14.5px;line-height:1.5;margin-bottom:12px;}
+.factbox.fun{background:#fff7df;border:2px solid var(--sun-deep);}
+.factbox.know{background:#e7f7ec;border:2px solid var(--grass);}
+.factbox .h{display:block;font-weight:900;font-size:13px;margin-bottom:4px;}
+
+/* QUIZ */
+.quiz{background:linear-gradient(135deg,#fff,#eef7ff);border:4px solid var(--ink);border-radius:24px;padding:18px;box-shadow:var(--shadow-sm);margin-bottom:10px;}
+.quiz h3{font-size:20px;font-weight:900;margin-bottom:4px;}
+.qsub{font-size:13px;color:var(--ink-soft);font-weight:700;margin-bottom:14px;}
+.qtext{font-weight:900;font-size:17px;margin-bottom:12px;}
+.qopts{display:grid;gap:9px;}
+.qopt{font-family:inherit;font-weight:700;font-size:15px;text-align:right;background:#fff;border:3px solid var(--ink);
+  border-radius:14px;padding:11px 14px;cursor:pointer;box-shadow:0 4px 0 rgba(19,35,59,.15);transition:transform .1s;}
+.qopt:hover{transform:translateY(-2px);}
+.qopt.correct{background:#caf7d3;border-color:var(--grass-dark);animation:rightpop .4s;}
+.qopt.wrong{background:#ffd6d6;border-color:var(--coral);animation:shake .4s;}
+.qopt:disabled{cursor:default;}
+@keyframes rightpop{0%,100%{transform:scale(1)}40%{transform:scale(1.07)}}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
+.qfoot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;gap:10px;flex-wrap:wrap;}
+.qscore{font-weight:900;font-size:15px;}
+.qnext{font-family:inherit;font-weight:900;font-size:15px;background:var(--sun);border:3px solid var(--ink);border-radius:14px;padding:9px 18px;cursor:pointer;box-shadow:0 4px 0 var(--sun-deep);transition:transform .1s;}
+.qnext:hover{transform:translateY(-2px);}
+.qdone{text-align:center;font-weight:900;font-size:20px;padding:14px;}
+
+.info-card{background:#fff;border:4px solid var(--ink);border-radius:24px;padding:20px;box-shadow:var(--shadow-sm);margin-bottom:18px;}
+.info-card h3{font-size:22px;font-weight:900;margin-bottom:10px;display:flex;align-items:center;gap:8px;}
+.info-card p{font-size:15.5px;line-height:1.6;font-weight:500;margin-bottom:8px;}
+.points-calc{background:linear-gradient(135deg,#1f8fe0,#36bdf6);border-radius:18px;padding:18px;color:#fff;text-align:center;margin-top:6px;}
+.points-calc .res{font-size:54px;font-weight:900;text-shadow:0 4px 0 rgba(0,0,0,.2);line-height:1;margin:6px 0;}
+.points-calc .res small{font-size:18px;}
+.pc-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:6px;}
+.pc-btn{font-family:inherit;font-weight:900;font-size:15px;border:3px solid #fff;border-radius:14px;padding:10px 16px;cursor:pointer;box-shadow:0 4px 0 rgba(0,0,0,.2);transition:transform .1s;color:#fff;}
+.pc-btn:hover{transform:translateY(-2px);}
+.pc-win{background:var(--grass);}.pc-draw{background:var(--sun-deep);}.pc-loss{background:var(--coral);}
+
+.timeline{position:relative;padding:10px 0;}
+.tnode{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;cursor:pointer;}
+.tdot{flex-shrink:0;width:56px;height:56px;border-radius:50%;border:4px solid #fff;display:flex;align-items:center;justify-content:center;font-size:26px;box-shadow:var(--shadow-sm);transition:transform .15s;}
+.tnode:hover .tdot{transform:scale(1.12) rotate(-6deg);}
+.tcontent{flex:1;background:#fff;border:3px solid var(--ink);border-radius:18px;padding:12px 15px;box-shadow:var(--shadow-sm);}
+.tcontent .tdate{font-weight:900;color:var(--sky-2);font-size:14px;}
+.tcontent .ttitle{font-weight:900;font-size:18px;margin:2px 0;}
+.tdesc{font-size:14px;line-height:1.5;font-weight:500;max-height:0;overflow:hidden;transition:max-height .35s ease,margin .35s;}
+.tdesc-hint{font-size:12px;font-weight:700;color:var(--ink-soft);}
+.tnode.open .tdesc{max-height:140px;margin-top:6px;}
+
+.confetti{position:fixed;width:11px;height:11px;z-index:160;pointer-events:none;border-radius:2px;}
+footer{text-align:center;margin-top:30px;font-size:13px;font-weight:700;color:var(--ink-soft);}
+</style>
+</head>
+<body>
+<span class="bg-ball" style="top:20%;left:4%;">⚽</span>
+<span class="bg-ball" style="top:55%;right:3%;animation-delay:2s;">🏆</span>
+<span class="bg-ball" style="top:80%;left:8%;animation-delay:4s;">⚽</span>
+
+<div class="wrap">
+  <header>
+    <div class="hosts">🇺🇸 🇨🇦 🇲🇽</div>
+    <h1>המדריך הגדול למונדיאל <span class="ball-spin">⚽</span> 2026</h1>
+    <div class="subtitle">הטורניר הכי גדול בהיסטוריה — 48 נבחרות!</div>
+  </header>
+
+  <nav class="toptabs">
+    <button class="toptab active" data-panel="teams">⚽ הנבחרות</button>
+    <button class="toptab" data-panel="how">📊 איך זה עובד</button>
+    <button class="toptab" data-panel="time">📅 קו הזמן</button>
+  </nav>
+
+  <section class="tabpanel show" id="panel-teams">
+    <div class="teamtabs" id="teamtabs"></div>
+    <div id="teamContent"></div>
+  </section>
+
+  <section class="tabpanel" id="panel-how">
+    <div class="info-card">
+      <h3>🗂️ שלב הבתים</h3>
+      <p>48 הנבחרות מחולקות ל-12 בתים, 4 נבחרות בכל בית. כל נבחרת משחקת 3 משחקים — אחד נגד כל יריבה בבית שלה.</p>
+      <p><b>שתי הראשונות בכל בית</b> עולות אוטומטית, ואיתן <b>8 הנבחרות הטובות ביותר ממקום שלישי</b>. סך הכל 32 נבחרות ממשיכות!</p>
+    </div>
+    <div class="info-card">
+      <h3>🧮 מחשבון הנקודות</h3>
+      <p>נסה בעצמך! לחץ על תוצאה וראה כמה נקודות מקבלים:</p>
+      <div class="points-calc">
+        <div>הנבחרת שלך קיבלה</div>
+        <div class="res" id="pcRes">0<small> נק'</small></div>
+        <div id="pcLabel" style="font-weight:700">לחץ על כפתור 👇</div>
+        <div class="pc-btns">
+          <button class="pc-btn pc-win" onclick="calcPoints(3,'ניצחון! 🎉')">ניצחון = 3</button>
+          <button class="pc-btn pc-draw" onclick="calcPoints(1,'תיקו 🤝')">תיקו = 1</button>
+          <button class="pc-btn pc-loss" onclick="calcPoints(0,'הפסד... 😅')">הפסד = 0</button>
+        </div>
+      </div>
+    </div>
+    <div class="info-card">
+      <h3>⚔️ שלב הנוקאאוט</h3>
+      <p>מכאן זה "המפסיד יוצא הביתה". אין יותר נקודות — משחק אחד מכריע!</p>
+      <p>תיקו אחרי 90 דקות? הולכים ל<b>הארכה</b> (עוד 30 דקות). עדיין תיקו? <b>פנדלים</b> מותחים! 🥅</p>
+    </div>
+  </section>
+
+  <section class="tabpanel" id="panel-time">
+    <div class="section-title">📅 כל התחנות בדרך לגמר <span class="line"></span></div>
+    <div class="timeline" id="timeline"></div>
+  </section>
+
+  <footer>נבנה לכבוד מונדיאל 2026 · דוגמת עיצוב (3 נבחרות) · המידע הוא להמחשה</footer>
+</div>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modalBg">
+  <div class="modal" id="modal"></div>
+</div>
+
+<script>
+/* ===== POSITION LINES (for grouping + color) ===== */
+const LINE = {
+  gk:{name:'שוערים',color:'#f59e0b'},
+  def:{name:'הגנה',color:'#2563eb'},
+  mid:{name:'קישור',color:'#16a34a'},
+  att:{name:'התקפה',color:'#dc2626'}
+};
+
+/* ===== TEAMS DATA =====
+   each player: n=name, num, line(gk/def/mid/att), role=specific position,
+   age, club, star(featured?), fact, know(הידעת? extra), img(optional photo URL)
+   To add a real photo later: set img:'https://...'  (it replaces the avatar) */
+const TEAMS = [
+  {
+    id:'arg', name:'ארגנטינה', flag:'🇦🇷', nick:'האלביסלסטה ⚪🩵',
+    c1:'#75aadb', c2:'#1c5fa8',
+    funstat:'אלופי העולם הנוכחיים! זכו ב-<b>3 מונדיאלים</b> בהיסטוריה.',
+    players:[
+      {n:'ליונל מסי',num:10,line:'att',role:'חלוץ / קשר קדמי',age:38,club:'אינטר מיאמי',star:true,img:'',
+        fact:'נחשב לאחד השחקנים הגדולים בהיסטוריה. הוביל את ארגנטינה לזכייה במונדיאל 2022.',
+        know:'מכונה "לה פולגה" — "הפרעוש" — כי הוא נמוך וזריז ומחליק בין המגינים בקלות מדהימה.'},
+      {n:'חוליאן אלבארס',num:9,line:'att',role:'חלוץ מרכזי',age:26,club:'אתלטיקו מדריד',star:true,img:'',
+        fact:'חלוץ צעיר, מהיר וחרוץ — רץ ולוחץ על כל כדור בלי לוותר.',
+        know:'הכינוי שלו הוא "העכביש" כי הוא נמצא בכל מקום במגרש בו זמנית.'},
+      {n:'דיבו מרטינס',num:23,line:'gk',role:'שוער',age:33,club:'אסטון וילה',star:true,img:'',
+        fact:'מלך הפנדלים! עצר כדורים מכריעים בגמר המונדיאל וזכה בתואר השוער הטוב בטורניר.',
+        know:'הוא ידוע בכך שהוא "מבלבל" את הבועטים בפנדלים עם דיבורים וריקודים על הקו.'},
+      {n:'לאוטרו מרטינס',num:22,line:'att',role:'חלוץ מרכזי',age:28,club:'אינטר מילאן',star:true,img:'',
+        fact:'קפטן וסקורר מטורף שיודע למצוא את הרשת מכל זווית.',
+        know:'מכונה "אל טורו" — הפר — בגלל הכוח והנחישות שלו ברחבה.'},
+      {n:'חרונימו רולי',num:12,line:'gk',role:'שוער',age:33,club:'מארסיי',img:'',
+        fact:'שוער מנוסה ששומר על המסגרת כשצריך אותו.'},
+      {n:'קריסטיאן רומרו',num:13,line:'def',role:'בלם',age:27,club:'טוטנהאם',img:'',
+        fact:'בלם קשוח שלא מפחד מאף חלוץ בעולם.'},
+      {n:'נהואל מולינה',num:26,line:'def',role:'מגן ימני',age:27,club:'אתלטיקו מדריד',img:'',
+        fact:'מגן מהיר שעולה לתקוף באגף הימני.'},
+      {n:'ניקולאס טגליאפיקו',num:3,line:'def',role:'מגן שמאלי',age:33,club:'ליון',img:'',
+        fact:'מגן שמאלי אמין שתמיד נמצא במקום הנכון.'},
+      {n:'ליסנדרו מרטינס',num:25,line:'def',role:'בלם',age:28,club:"מנצ'סטר יונייטד",img:'',
+        fact:'מכונה "הקצב" בגלל ההגנה הנחושה והאגרסיבית שלו!'},
+      {n:'רודריגו דה פול',num:7,line:'mid',role:'קשר מרכזי',age:31,club:'אתלטיקו מדריד',img:'',
+        fact:'ה"שומר ראש" של מסי במגרש — רץ בשבילו לכל מקום.'},
+      {n:'אלכסיס מק אליסטר',num:20,line:'mid',role:'קשר מרכזי',age:27,club:'ליברפול',img:'',
+        fact:'קשר חכם שמחבר בין ההגנה להתקפה בצורה חלקה.'},
+      {n:'אנצו פרננדס',num:24,line:'mid',role:'קשר אחורי',age:25,club:"צ'לסי",img:'',
+        fact:'נבחר לשחקן הצעיר של המונדיאל ב-2022!'},
+    ],
+    quiz:[
+      {q:'באיזה מספר חולצה משחק ליונל מסי?',o:['7','10','22'],a:1},
+      {q:'כמה מונדיאלים זכתה ארגנטינה?',o:['1','3','5'],a:1},
+      {q:'מי מכונה "מלך הפנדלים"?',o:['דיבו מרטינס','חוליאן אלבארס','אנצו פרננדס'],a:0},
+    ]
+  },
+  {
+    id:'bra', name:'ברזיל', flag:'🇧🇷', nick:'הסלסאו 💛💚',
+    c1:'#fcdb3a', c2:'#1f8a3b',
+    funstat:'הכי הרבה זכיות בעולם — <b>5 מונדיאלים!</b> משחקים כדורגל יפה ושמח.',
+    players:[
+      {n:"ויניסיוס ג'וניור",num:7,line:'att',role:'כנף שמאלית',age:25,club:'ריאל מדריד',star:true,img:'',
+        fact:'קוסם הדריבלים! עושה "בית ספר" למגינים עם הרגליים המהירות והתרגילים שלו.',
+        know:'התחיל לשחק כדורגל ברחובות ובחופים של ריו דה ז\'ניירו בברזיל.'},
+      {n:'רודריגו',num:11,line:'att',role:'כנף ימנית',age:25,club:'ריאל מדריד',star:true,img:'',
+        fact:'השותף של ויניסיוס — ביחד הם זוג קטלני שמפחיד כל הגנה.',
+        know:'בקיע שערים חשובים מאוד במשחקי הגביע הגדולים של אירופה.'},
+      {n:'אליסון בקר',num:1,line:'gk',role:'שוער',age:33,club:'ליברפול',star:true,img:'',
+        fact:'נחשב לאחד השוערים הטובים בעולם — חומה אנושית בשער!',
+        know:'פעם אחת אפילו הבקיע שער בעצמו בדקה האחרונה של משחק עם הראש!'},
+      {n:'אנדריק',num:9,line:'att',role:'חלוץ מרכזי',age:19,club:'ריאל מדריד',star:true,img:'',
+        fact:'ילד הפלא החדש של ברזיל — כישרון ענק שכבר מבקיע בגיל צעיר מאוד.',
+        know:'ריאל מדריד קנתה אותו עוד כשהיה בן 16, ורק חיכתה שיגדל כדי שיצטרף!'},
+      {n:'אדרסון',num:23,line:'gk',role:'שוער',age:32,club:"מנצ'סטר סיטי",img:'',
+        fact:'שוער שגם בועט כדורים ארוכים ומדויקים כמו קשר!'},
+      {n:'מרקיניוס',num:4,line:'def',role:'בלם',age:31,club:"פ.ס.ז'",img:'',
+        fact:'הקפטן והמנהיג הרגוע של ההגנה הברזילאית.'},
+      {n:'גבריאל מגאלייש',num:3,line:'def',role:'בלם',age:28,club:'ארסנל',img:'',
+        fact:'בלם גבוה וחזק שמנצח כמעט בכל כדור ראש.'},
+      {n:'דנילו',num:2,line:'def',role:'מגן ימני',age:34,club:'פלמנגו',img:'',
+        fact:'מגן מנוסה שיכול לשחק בכל מקום בקו ההגנה.'},
+      {n:'יאן קוטו',num:13,line:'def',role:'מגן ימני',age:23,club:"בורנמות'",img:'',
+        fact:'מגן צעיר ומהיר עם המון אנרגיה לעלות ולתקוף.'},
+      {n:'ברונו גימראייש',num:8,line:'mid',role:'קשר אחורי',age:28,club:'ניוקאסל',img:'',
+        fact:'מנהל את המשחק מאחור — המוח של הקישור.'},
+      {n:'לוקאס פאקטה',num:10,line:'mid',role:'קשר התקפי',age:28,club:'וסטהאם',img:'',
+        fact:'קשר טכני שאוהב להבקיע שערים יפים מרחוק.'},
+      {n:'ראפיניה',num:19,line:'att',role:'כנף ימנית',age:29,club:'ברצלונה',img:'',
+        fact:'קיצוני נחוש שגם מבקיע וגם מבשל שערים לחברים.'},
+    ],
+    quiz:[
+      {q:'כמה מונדיאלים זכתה ברזיל?',o:['3','5','7'],a:1},
+      {q:'מי ילד הפלא הצעיר של ברזיל?',o:['אנדריק','אליסון','דנילו'],a:0},
+      {q:"באיזו קבוצה משחק ויניסיוס ג'וניור?",o:['ברצלונה','ריאל מדריד','ליברפול'],a:1},
+    ]
+  },
+  {
+    id:'fra', name:'צרפת', flag:'🇫🇷', nick:'הטריקולור 🔵⚪🔴',
+    c1:'#2c5fc4', c2:'#16307a',
+    funstat:'נבחרת מהירה ואתלטית שכמעט תמיד מגיעה לגמר. זכו ב-<b>2 מונדיאלים</b>.',
+    players:[
+      {n:'קיליאן אמבפה',num:10,line:'att',role:'חלוץ / כנף שמאלית',age:27,club:'ריאל מדריד',star:true,img:'',
+        fact:'אחד השחקנים הכי מהירים על כדור הארץ — והקפטן של הנבחרת!',
+        know:'במונדיאל 2018, בגיל 19 בלבד, הבקיע בגמר וזכה באליפות העולם.'},
+      {n:'עוסמאן דמבלה',num:11,line:'att',role:'כנף ימנית',age:28,club:"פ.ס.ז'",star:true,img:'',
+        fact:'מלך הדריבלים — יודע לבעוט בשתי הרגליים באותה רמה מושלמת.',
+        know:'הוא "אמביגוס" — כלומר חזק בשתי הרגליים, וזה נדיר מאוד בכדורגל!'},
+      {n:'אנטואן גריזמן',num:7,line:'att',role:'קשר התקפי',age:35,club:'אתלטיקו מדריד',star:true,img:'',
+        fact:'"המוח" של הקבוצה — חכם, יצירתי ומנוסה, רואה מסירות שאף אחד לא רואה.',
+        know:'הוא חובב ענק של אומנויות לחימה (NBA וגם MMA) וחוגג שערים בריקודים.'},
+      {n:'תיאו הרננדס',num:22,line:'def',role:'מגן שמאלי',age:28,club:'מילאן',star:true,img:'',
+        fact:'מגן שטס קדימה במהירות מטורפת ומבקיע שערים יפים מהאגף.',
+        know:'גם אחיו, לוקא הרננדס, משחק בנבחרת צרפת — אחים בנבחרת אחת!'},
+      {n:'מייק מניאן',num:16,line:'gk',role:'שוער',age:30,club:'מילאן',img:'',
+        fact:'שוער זריז עם רפלקסים מהירים מאוד.'},
+      {n:'בריס סמבה',num:1,line:'gk',role:'שוער',age:31,club:'רן',img:'',
+        fact:'שוער מנוסה ורגוע מתחת לקורה.'},
+      {n:'דאיו אופמקאנו',num:5,line:'def',role:'בלם',age:27,club:'באיירן מינכן',img:'',
+        fact:'בלם חזק ומהיר שעוצר את החלוצים הכי טובים בעולם.'},
+      {n:"ז'ול קונדה",num:4,line:'def',role:'מגן ימני',age:27,club:'ברצלונה',img:'',
+        fact:'מגן רב-תכליתי שמעולה גם בהגנה וגם בהתקפה.'},
+      {n:'וויליאם סאליבה',num:17,line:'def',role:'בלם',age:25,club:'ארסנל',img:'',
+        fact:'בלם רגוע ובטוח בעצמו עם עתיד ענק לפניו.'},
+      {n:'אורליאן טשואמני',num:8,line:'mid',role:'קשר אחורי',age:26,club:'ריאל מדריד',img:'',
+        fact:'מכונה "הגרזן" — קוטע התקפות יריבות באמצע המגרש.'},
+      {n:'אדוארדו קמבינגה',num:6,line:'mid',role:'קשר מרכזי',age:23,club:'ריאל מדריד',img:'',
+        fact:'קשר אתלטי שמכסה המון שטח ורץ בלי הפסקה.'},
+      {n:'מרקוס תוראם',num:9,line:'att',role:'חלוץ מרכזי',age:28,club:'אינטר מילאן',img:'',
+        fact:'חלוץ גבוה וחזק — בנו של אגדת נבחרת צרפת ליליאן תוראם!'},
+    ],
+    quiz:[
+      {q:'מהו הכינוי המקובל בישראל לנבחרת צרפת?',o:['הסלסאו','הטריקולור','האלביסלסטה'],a:1},
+      {q:'מי מכונה "הגרזן" של הקישור?',o:['אמבפה','טשואמני','גריזמן'],a:1},
+      {q:'מי קפטן הנבחרת?',o:['קיליאן אמבפה',"ז'ול קונדה",'בריס סמבה'],a:0},
+    ]
+  }
+];
+
+const TIMELINE = [
+  {emoji:'🎉',color:'#dc2626',date:'11 ביוני 2026',title:'משחק הפתיחה',desc:'הטורניר יוצא לדרך באצטדיון האצטקה ההיסטורי במקסיקו סיטי!'},
+  {emoji:'🗂️',color:'#2563eb',date:'11–27 ביוני',title:'שלב הבתים',desc:'שבועיים וחצי של כדורגל מסביב לשעון. נקבעות 32 הנבחרות שממשיכות.'},
+  {emoji:'⚔️',color:'#7c3aed',date:'28 ביוני – 3 ביולי',title:'שלב 32 האחרונות',desc:'שלב הנוקאאוט הראשון — חצי מהנבחרות שנשארו נופלות מיד!'},
+  {emoji:'🔥',color:'#ea580c',date:'4–7 ביולי',title:'שמינית הגמר',desc:'16 הנבחרות הטובות נלחמות על כרטיס לשלבים המכריעים.'},
+  {emoji:'💪',color:'#16a34a',date:'9–11 ביולי',title:'רבע הגמר',desc:'רק 8 נבחרות נשארות — המתח בשיא והמשחקים ענקיים.'},
+  {emoji:'🤩',color:'#0891b2',date:'14–15 ביולי',title:'חצי הגמר',desc:'ארבע האחרונות נלחמות על הזכות לשחק על התואר.'},
+  {emoji:'🏆',color:'#ca8a04',date:'19 ביולי 2026',title:'הגמר הגדול!',desc:"באצטדיון MetLife בניו ג'רזי — מי תהיה אלופת העולם החדשה?"},
+];
+
+/* ===== SOUNDS ===== */
+let actx;
+function tone(freq,dur,type='sine',vol=0.15,delay=0){
+  try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();
+    const o=actx.createOscillator(),g=actx.createGain();o.type=type;o.frequency.value=freq;
+    o.connect(g);g.connect(actx.destination);const t=actx.currentTime+delay;
+    g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(vol,t+0.01);
+    g.gain.exponentialRampToValueAtTime(0.0001,t+dur);o.start(t);o.stop(t+dur);}catch(e){}
+}
+const sfx={
+  click:()=>tone(520,0.08,'triangle',0.12),
+  open:()=>{tone(440,0.08,'sine',0.13);tone(660,0.1,'sine',0.11,0.06);},
+  tab:()=>{tone(660,0.07,'square',0.08);tone(880,0.08,'square',0.07,0.06);},
+  right:()=>{[523,659,784,1046].forEach((f,i)=>tone(f,0.16,'triangle',0.14,i*0.08));},
+  wrong:()=>tone(160,0.28,'sawtooth',0.12),
+  win:()=>{[523,659,784,1046,1318].forEach((f,i)=>tone(f,0.25,'triangle',0.15,i*0.1));}
+};
+
+/* ===== AVATAR (used when no real photo provided) ===== */
+function avatarSVG(c1,c2,num,star){
+  const skin='#f1c9a5';
+  return `<svg viewBox="0 0 120 120" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+    <rect width="120" height="120" fill="${c1}"/>
+    <circle cx="60" cy="44" r="20" fill="${skin}"/>
+    <path d="M40 40 q20 -22 40 0 q-6 -16 -20 -16 q-14 0 -20 16Z" fill="#3a2a1c"/>
+    <circle cx="52" cy="44" r="2.6" fill="#2b2b2b"/><circle cx="68" cy="44" r="2.6" fill="#2b2b2b"/>
+    <path d="M54 52 q6 5 12 0" stroke="#b5654b" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+    <path d="M28 120 q2 -40 32 -44 q30 4 32 44Z" fill="${c2}"/>
+    <path d="M52 74 q8 6 16 0 l4 6 q-12 9 -24 0Z" fill="${c1}"/>
+    <text x="60" y="106" font-family="Rubik,sans-serif" font-size="24" font-weight="900" fill="#fff" text-anchor="middle">${num}</text>
+    ${star?'<text x="100" y="28" font-size="22" text-anchor="middle">⭐</text>':''}
+  </svg>`;
+}
+function picInner(p,t){
+  return p.img ? `<img src="${p.img}" alt="${p.n}">` : avatarSVG(t.c1,t.c2,p.num,p.star);
+}
+
+/* ===== RENDER TEAMS ===== */
+const teamtabs=document.getElementById('teamtabs');
+const teamContent=document.getElementById('teamContent');
+let activeTeam=TEAMS[0].id;
+
+TEAMS.forEach((t,i)=>{
+  const b=document.createElement('button');
+  b.className='teamtab'+(i===0?' active':'');
+  b.style.background=i===0?t.c2:'#fff';b.style.color=i===0?'#fff':'var(--ink)';
+  b.innerHTML=`<span class="fl">${t.flag}</span> ${t.name}`;
+  b.dataset.id=t.id;b.dataset.c2=t.c2;
+  b.onclick=()=>{selectTeam(t.id);sfx.tab();};
+  teamtabs.appendChild(b);
+});
+function selectTeam(id){
+  activeTeam=id;
+  document.querySelectorAll('.teamtab').forEach(b=>{
+    const on=b.dataset.id===id;b.classList.toggle('active',on);
+    b.style.background=on?b.dataset.c2:'#fff';b.style.color=on?'#fff':'var(--ink)';
+  });
+  renderTeam(id);
+}
+function renderTeam(id){
+  const t=TEAMS.find(x=>x.id===id);
+  const order=['gk','def','mid','att'];
+  const byLine={};order.forEach(l=>byLine[l]=[]);
+  t.players.forEach(p=>byLine[p.line].push(p));
+  const stars=t.players.filter(p=>p.star);
+
+  const starCards=stars.map(p=>`
+    <div class="pcard" data-team="${t.id}" data-num="${p.num}">
+      ${p.star?'<span class="star-badge">⭐</span>':''}
+      <div class="pic" style="border-color:${t.c2}">${picInner(p,t)}</div>
+      <div class="pname">${p.n}</div>
+      <div class="prole" style="background:${LINE[p.line].color}">${p.role}</div>
+      <div class="tap-hint">👆 לחץ לכל הפרטים</div>
+    </div>`).join('');
+
+  const roster=order.map(l=>{
+    if(!byLine[l].length)return'';
+    const chips=byLine[l].map(p=>`
+      <span class="chip ${p.star?'is-star':''}" data-team="${t.id}" data-num="${p.num}">
+        <span class="jn">${p.num}</span>${p.n}${p.star?' ⭐':''}
+        <span class="crole">· ${p.role}</span>
+      </span>`).join('');
+    return `<div class="posgroup">
+      <span class="poshead" style="background:${LINE[l].color}">${LINE[l].name}</span>
+      <div class="chips">${chips}</div></div>`;
+  }).join('');
+
+  teamContent.innerHTML=`
+    <div class="hero" style="background:linear-gradient(135deg,${t.c2},${t.c1})">
+      <div class="big-flag">${t.flag}</div>
+      <div class="hero-txt"><h2>${t.name}</h2><div class="nick">${t.nick}</div>
+      <div class="funstat">${t.funstat}</div></div>
+    </div>
+    <div class="section-title">⭐ הכוכבים הבולטים <span class="line"></span></div>
+    <div class="cards">${starCards}</div>
+    <div class="section-title">👥 כל הסגל — לחץ על שם לפרטים <span class="line"></span></div>
+    <div class="roster">${roster}</div>
+    <div class="section-title">🧠 חידון על ${t.name} <span class="line"></span></div>
+    <div class="quiz" id="quizBox"></div>`;
+
+  teamContent.querySelectorAll('[data-num]').forEach(el=>{
+    el.onclick=()=>openModal(el.dataset.team,+el.dataset.num);
+  });
+  buildQuiz(t);
+}
+
+/* ===== MODAL ===== */
+const modalBg=document.getElementById('modalBg');
+const modalEl=document.getElementById('modal');
+function openModal(teamId,num){
+  const t=TEAMS.find(x=>x.id===teamId);
+  const p=t.players.find(x=>x.num===num);
+  modalEl.innerHTML=`
+    <div class="modal-top" style="background:linear-gradient(140deg,${t.c2},${t.c1})">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-pic">${picInner(p,t)}</div>
+      <div class="modal-name">${p.n} <span class="modal-flag">${t.flag}</span></div>
+      <div class="modal-role">${p.role}</div>
+    </div>
+    <div class="modal-body">
+      <div class="stat-grid">
+        <div class="stat"><div class="lab">מספר</div><div class="val">#${p.num}</div></div>
+        <div class="stat"><div class="lab">גיל</div><div class="val">${p.age}</div></div>
+        <div class="stat"><div class="lab">קו</div><div class="val" style="font-size:15px">${LINE[p.line].name}</div></div>
+      </div>
+      <div class="factbox fun"><span class="h">⚽ קבוצת מועדון</span>${p.club}</div>
+      <div class="factbox fun"><span class="h">💡 עובדה מגניבה</span>${p.fact}</div>
+      ${p.know?`<div class="factbox know"><span class="h">🤩 הידעת?</span>${p.know}</div>`:''}
+    </div>`;
+  modalBg.classList.add('show');sfx.open();
+}
+function closeModal(){modalBg.classList.remove('show');}
+modalBg.onclick=(e)=>{if(e.target===modalBg)closeModal();};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
+
+/* ===== QUIZ ===== */
+function buildQuiz(t){
+  const box=document.getElementById('quizBox');
+  let idx=0,score=0;
+  function render(){
+    if(idx>=t.quiz.length){
+      box.innerHTML=`<h3>🧠 חידון על ${t.name}</h3>
+        <div class="qdone">🎉 סיימת! קיבלת ${score} מתוך ${t.quiz.length}!
+        <div style="margin-top:12px"><button class="qnext" id="again">שחק שוב 🔄</button></div></div>`;
+      document.getElementById('again').onclick=()=>{idx=0;score=0;render();sfx.click();};
+      if(score===t.quiz.length){sfx.win();confetti();}
+      return;
+    }
+    const q=t.quiz[idx];
+    box.innerHTML=`<h3>🧠 חידון על ${t.name}</h3>
+      <div class="qsub">שאלה ${idx+1} מתוך ${t.quiz.length}</div>
+      <div class="qtext">${q.q}</div>
+      <div class="qopts">${q.o.map((o,i)=>`<button class="qopt" data-i="${i}">${o}</button>`).join('')}</div>
+      <div class="qfoot"><span class="qscore">⭐ ניקוד: ${score}</span></div>`;
+    box.querySelectorAll('.qopt').forEach(btn=>{
+      btn.onclick=()=>{
+        const i=+btn.dataset.i;
+        box.querySelectorAll('.qopt').forEach(b=>b.disabled=true);
+        if(i===q.a){btn.classList.add('correct');score++;sfx.right();}
+        else{btn.classList.add('wrong');sfx.wrong();box.querySelectorAll('.qopt')[q.a].classList.add('correct');}
+        const foot=box.querySelector('.qfoot');
+        const nx=document.createElement('button');nx.className='qnext';
+        nx.textContent=idx===t.quiz.length-1?'לתוצאה הסופית 🏁':'השאלה הבאה ⏭️';
+        nx.onclick=()=>{idx++;render();sfx.click();};
+        foot.appendChild(nx);box.querySelector('.qscore').textContent='⭐ ניקוד: '+score;
+      };
+    });
+  }
+  render();
+}
+
+/* ===== TIMELINE ===== */
+const tl=document.getElementById('timeline');
+TIMELINE.forEach(e=>{
+  const node=document.createElement('div');node.className='tnode';
+  node.innerHTML=`<div class="tdot" style="background:${e.color}">${e.emoji}</div>
+    <div class="tcontent"><div class="tdate">${e.date}</div><div class="ttitle">${e.title}</div>
+    <div class="tdesc-hint">👆 לחץ לפרטים</div><div class="tdesc">${e.desc}</div></div>`;
+  node.onclick=()=>{node.classList.toggle('open');sfx.open();};
+  tl.appendChild(node);
+});
+
+/* ===== TOP TABS ===== */
+document.querySelectorAll('.toptab').forEach(tab=>{
+  tab.onclick=()=>{
+    document.querySelectorAll('.toptab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.tabpanel').forEach(p=>p.classList.remove('show'));
+    tab.classList.add('active');
+    document.getElementById('panel-'+tab.dataset.panel).classList.add('show');sfx.tab();
+  };
+});
+
+/* ===== POINTS CALC ===== */
+function calcPoints(pts,label){
+  document.getElementById('pcRes').innerHTML=pts+"<small> נק'</small>";
+  document.getElementById('pcLabel').textContent=label;
+  if(pts===3){sfx.right();confetti();}else if(pts===1){sfx.click();}else{sfx.wrong();}
+}
+
+/* ===== CONFETTI ===== */
+function confetti(){
+  const colors=['#ffd23f','#ff5d5d','#2bb24c','#36bdf6','#fff','#7c3aed'];
+  for(let i=0;i<40;i++){
+    const c=document.createElement('div');c.className='confetti';
+    c.style.left=(40+Math.random()*20)+'%';c.style.top='40%';
+    c.style.background=colors[i%colors.length];document.body.appendChild(c);
+    const x=(Math.random()-0.5)*600,y=300+Math.random()*300,r=Math.random()*720;
+    c.animate([{transform:'translate(0,0) rotate(0)',opacity:1},
+      {transform:`translate(${x}px,${y}px) rotate(${r}deg)`,opacity:0}],
+      {duration:1100+Math.random()*700,easing:'cubic-bezier(.2,.6,.3,1)'}).onfinish=()=>c.remove();
+  }
+}
+
+renderTeam(activeTeam);
+</script>
+</body>
+</html>
