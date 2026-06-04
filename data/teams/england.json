@@ -1,5 +1,5 @@
 {
-  "id":"eng","name":"אנגליה","flag":"🏴","nick":"שלושת האריות",
+  "id":"eng","name":"אנגליה","flag":"<svg class='flagimg' viewBox='0 0 50 30'><rect width='50' height='30' fill='#fff'/><rect x='20' width='10' height='30' fill='#ce1124'/><rect y='10' width='50' height='10' fill='#ce1124'/></svg>","nick":"שלושת האריות",
   "colors":{"c1":"#ffffff","c2":"#1d3a8a"},
   "funstat":"ממציאי הכדורגל המודרני! זכו במונדיאל פעם אחת — ב-<b>1966</b> בבית.",
   "players":[

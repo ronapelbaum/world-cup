@@ -188,6 +188,27 @@ h1{font-size:clamp(32px,7.5vw,50px);color:#fff;font-weight:900;text-shadow:0 3px
 .brk-stage.active .l{color:var(--ink);}
 .brk-arrow{font-size:22px;color:var(--ink-soft);}
 
+/* inline flag images (for subdivision flags like England/Scotland that emoji renders inconsistently) */
+.flagimg{display:inline-block;width:1.45em;height:auto;vertical-align:-0.22em;border-radius:3px;box-shadow:0 0 0 1px rgba(0,0,0,.15);}
+
+/* GROUP TABLES */
+.groups-note{font-size:16px;font-weight:700;color:var(--ink-soft);margin:0 4px 16px;line-height:1.5;}
+.groups-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(310px,1fr));gap:16px;margin-bottom:18px;}
+.gcard{background:#fff;border:4px solid var(--ink);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-sm);}
+.ghead2{color:#fff;font-weight:900;font-size:21px;padding:11px 16px;display:flex;align-items:center;gap:8px;}
+.gtable{width:100%;border-collapse:collapse;font-weight:700;}
+.gtable th{font-size:13px;color:var(--ink-soft);padding:9px 4px;border-bottom:2px solid #e0e9f4;}
+.gtable td{font-size:15.5px;padding:10px 4px;text-align:center;border-bottom:1px solid #eef3f9;color:var(--ink-soft);}
+.gtable tbody tr:last-child td{border-bottom:none;}
+.gtable .tm{text-align:start;font-weight:900;color:var(--ink);padding-inline-start:10px;}
+.gtable .tm .gf{font-size:21px;margin-inline-end:7px;}
+.gtable .rk{color:var(--ink-soft);font-weight:900;width:30px;}
+.gtable .pts{font-weight:900;color:var(--ink);font-size:17px;}
+.grow{transition:background .12s;}
+.grow.haspage{cursor:pointer;}
+.grow.haspage:hover{background:#f1f6fc;}
+.grow .goarrow{font-size:13px;opacity:.7;}
+
 /* STADIUM MAP */
 .map-card{background:#fff;border:4px solid var(--ink);border-radius:24px;padding:16px;box-shadow:var(--shadow-sm);margin-bottom:18px;}
 .smap-wrap{background:#cdeafe;border:3px solid var(--ink);border-radius:18px;overflow:hidden;}
@@ -241,6 +262,7 @@ footer{text-align:center;margin-top:30px;font-size:15px;font-weight:700;color:va
 
   <nav class="toptabs">
     <button class="toptab active" data-panel="teams">⚽ הנבחרות</button>
+    <button class="toptab" data-panel="groups">🗂️ הבתים</button>
     <button class="toptab" data-panel="how">📊 איך זה עובד</button>
     <button class="toptab" data-panel="time">📅 קו הזמן</button>
     <button class="toptab" data-panel="map">🗺️ מפת האצטדיונים</button>
@@ -253,6 +275,12 @@ footer{text-align:center;margin-top:30px;font-size:15px;font-weight:700;color:va
         <div class="loading"><span class="ball-spin">⚽</span>טוען נבחרות...</div>
       </div>
     </div>
+  </section>
+
+  <section class="tabpanel" id="panel-groups">
+    <div class="section-title">🗂️ שלב הבתים — 12 בתים, 48 נבחרות <span class="line"></span></div>
+    <p class="groups-note">ההגרלה הרשמית של מונדיאל 2026! הטורניר עוד לא התחיל — לכן כל הנתונים מתחילים מ-0. נבחרות שמסומנות 👆 מובילות עם עמוד מלא — לחצו עליהן כדי לגלות את הסגל!</p>
+    <div class="groups-grid" id="groupsWrap"></div>
   </section>
 
   <section class="tabpanel" id="panel-how">
@@ -309,6 +337,8 @@ let TEAMS = [];         // data/teams/*.json
 let TIMELINE = [];      // schedule.json
 let STRUCTURE = {};     // structure.json
 let STADIUMS = [];      // stadiums.json
+let GROUPS = [];        // groups.json
+let NATIONS = {};       // nations.json (flag+name for all 48)
 let activeTeam = null;
 
 /* ===== DATA LOADER ===== */
@@ -320,15 +350,17 @@ async function loadJSON(path){
 async function bootstrap(){
   try{
     const base='./data/';
-    const [positions,structure,schedule,stadiums,manifest] = await Promise.all([
+    const [positions,structure,schedule,stadiums,groups,nations,manifest] = await Promise.all([
       loadJSON(base+'positions.json'),
       loadJSON(base+'structure.json'),
       loadJSON(base+'schedule.json'),
       loadJSON(base+'stadiums.json'),
+      loadJSON(base+'groups.json'),
+      loadJSON(base+'nations.json'),
       loadJSON(base+'manifest.json'),
     ]);
     const teams = await Promise.all(manifest.map(id=>loadJSON(base+'teams/'+id+'.json')));
-    LINE = positions; STRUCTURE = structure; TIMELINE = schedule; STADIUMS = stadiums;
+    LINE = positions; STRUCTURE = structure; TIMELINE = schedule; STADIUMS = stadiums; GROUPS = groups; NATIONS = nations;
     // flatten team colors to c1/c2 (prototype expects them at top level)
     teams.forEach(t=>{ if(t.colors){ t.c1=t.colors.c1; t.c2=t.colors.c2; } });
     TEAMS = teams;
@@ -350,6 +382,44 @@ function init(){
   renderBracket();
   renderPointsButtons();
   renderStadiumMap();
+  renderGroups();
+}
+
+/* ===== GROUP TABLES ===== */
+function goToTeam(id){
+  document.querySelectorAll('.toptab').forEach(t=>t.classList.toggle('active',t.dataset.panel==='teams'));
+  document.querySelectorAll('.tabpanel').forEach(p=>p.classList.remove('show'));
+  document.getElementById('panel-teams').classList.add('show');
+  selectTeam(id);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+/* flag + name for any of the 48; marks whether a full team page exists */
+function teamInfo(id){
+  const full=TEAMS.find(x=>x.id===id);
+  if(full) return {name:full.name,flag:full.flag,full:true};
+  const n=NATIONS[id];
+  return n?{name:n.name,flag:n.flag,full:false}:{name:id,flag:'🏳️',full:false};
+}
+function renderGroups(){
+  const el=document.getElementById('groupsWrap'); if(!el)return;
+  el.innerHTML=GROUPS.map(grp=>{
+    const rows=grp.teams.map((id,i)=>{
+      const t=teamInfo(id);
+      return `<tr class="grow${t.full?' haspage':''}" data-id="${id}">
+        <td class="rk">${i+1}</td>
+        <td class="tm"><span class="gf">${t.flag}</span>${t.name}${t.full?' <span class="goarrow">👆</span>':''}</td>
+        <td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td>
+      </tr>`;
+    }).join('');
+    return `<div class="gcard">
+      <div class="ghead2" style="background:${grp.color}">🗂️ בית ${grp.g}</div>
+      <table class="gtable">
+        <thead><tr><th></th><th style="text-align:start;padding-inline-start:10px">נבחרת</th><th>מש׳</th><th>נצ׳</th><th>תי׳</th><th>הפ׳</th><th>נק׳</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>
+    </div>`;
+  }).join('');
+  el.querySelectorAll('.grow.haspage').forEach(r=>{ r.onclick=()=>{ goToTeam(r.dataset.id); sfx.tab(); }; });
 }
 
 /* ===== SOUNDS ===== */
