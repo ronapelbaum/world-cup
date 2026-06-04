@@ -1,0 +1,24 @@
+{
+  "id":"arg","name":"ארגנטינה","flag":"🇦🇷","nick":"האלביסלסטה",
+  "colors":{"c1":"#75aadb","c2":"#1c5fa8"},
+  "funstat":"אלופי העולם הנוכחיים! זכו ב-<b>3 מונדיאלים</b> בהיסטוריה.",
+  "players":[
+    {"n":"ליונל מסי","en":"Lionel Messi","num":10,"line":"att","role":"חלוץ / קשר קדמי","age":38,"club":"אינטר מיאמי","star":true,"img":"./player_images/Lionel Messi.jpg","fact":"נחשב לאחד השחקנים הגדולים בהיסטוריה. הוביל את ארגנטינה לזכייה במונדיאל 2022.","know":"מכונה 'לה פולגה' — 'הפרעוש' — כי הוא נמוך וזריז ומחליק בין המגינים בקלות מדהימה."},
+    {"n":"חוליאן אלבארס","en":"Julian Alvarez","num":9,"line":"att","role":"חלוץ מרכזי","age":26,"club":"אתלטיקו מדריד","star":true,"img":"./player_images/Julian Alvarez.jpg","fact":"חלוץ צעיר, מהיר וחרוץ — רץ ולוחץ על כל כדור בלי לוותר.","know":"הכינוי שלו הוא 'העכביש' כי הוא נמצא בכל מקום במגרש בו זמנית."},
+    {"n":"דיבו מרטינס","en":"Emiliano Martinez","num":23,"line":"gk","role":"שוער","age":33,"club":"אסטון וילה","star":true,"img":"./player_images/Emiliano Martinez.jpg","fact":"מלך הפנדלים! עצר כדורים מכריעים בגמר המונדיאל וזכה בתואר השוער הטוב בטורניר.","know":"ידוע ב'בלבול' הבועטים בפנדלים עם דיבורים וריקודים על הקו."},
+    {"n":"לאוטרו מרטינס","en":"Lautaro Martinez","num":22,"line":"att","role":"חלוץ מרכזי","age":28,"club":"אינטר מילאן","star":true,"img":"./player_images/Lautaro Martinez.jpg","fact":"קפטן וסקורר מטורף שיודע למצוא את הרשת מכל זווית.","know":"מכונה 'אל טורו' — הפר — בגלל הכוח והנחישות שלו ברחבה."},
+    {"n":"חרונימו רולי","en":"Geronimo Rulli","num":12,"line":"gk","role":"שוער","age":33,"club":"מארסיי","star":false,"img":"./player_images/Geronimo Rulli.jpg","fact":"שוער מנוסה ששומר על המסגרת כשצריך אותו."},
+    {"n":"קריסטיאן רומרו","en":"Cristian Romero","num":13,"line":"def","role":"בלם","age":27,"club":"טוטנהאם","star":false,"img":"./player_images/Cristian Romero.jpg","fact":"בלם קשוח שלא מפחד מאף חלוץ בעולם."},
+    {"n":"נהואל מולינה","en":"Nahuel Molina","num":26,"line":"def","role":"מגן ימני","age":27,"club":"אתלטיקו מדריד","star":false,"img":"./player_images/Nahuel Molina.jpg","fact":"מגן מהיר שעולה לתקוף באגף הימני."},
+    {"n":"ניקולאס טגליאפיקו","en":"Nicolas Tagliafico","num":3,"line":"def","role":"מגן שמאלי","age":33,"club":"ליון","star":false,"img":"./player_images/Nicolas Tagliafico.jpg","fact":"מגן שמאלי אמין שתמיד נמצא במקום הנכון."},
+    {"n":"ליסנדרו מרטינס","en":"Lisandro Martinez","num":25,"line":"def","role":"בלם","age":28,"club":"מנצ'סטר יונייטד","star":false,"img":"./player_images/Lisandro Martinez.jpg","fact":"מכונה 'הקצב' בגלל ההגנה הנחושה והאגרסיבית שלו!"},
+    {"n":"רודריגו דה פול","en":"Rodrigo De Paul","num":7,"line":"mid","role":"קשר מרכזי","age":31,"club":"אתלטיקו מדריד","star":false,"img":"./player_images/Rodrigo De Paul.jpg","fact":"ה'שומר ראש' של מסי במגרש — רץ בשבילו לכל מקום."},
+    {"n":"אלכסיס מק אליסטר","en":"Alexis Mac Allister","num":20,"line":"mid","role":"קשר מרכזי","age":27,"club":"ליברפול","star":false,"img":"./player_images/Alexis Mac Allister.jpg","fact":"קשר חכם שמחבר בין ההגנה להתקפה בצורה חלקה."},
+    {"n":"אנצו פרננדס","en":"Enzo Fernandez","num":24,"line":"mid","role":"קשר אחורי","age":25,"club":"צ'לסי","star":false,"img":"./player_images/Enzo Fernandez.jpg","fact":"נבחר לשחקן הצעיר של המונדיאל ב-2022!"}
+  ],
+  "quiz":[
+    {"q":"באיזה מספר חולצה משחק ליונל מסי?","o":["7","10","22"],"a":1},
+    {"q":"כמה מונדיאלים זכתה ארגנטינה?","o":["1","3","5"],"a":1},
+    {"q":"מי מכונה 'מלך הפנדלים'?","o":["דיבו מרטינס","חוליאן אלבארס","אנצו פרננדס"],"a":0}
+  ]
+}

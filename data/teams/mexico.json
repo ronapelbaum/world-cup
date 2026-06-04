@@ -1,0 +1,24 @@
+{
+  "id":"mex","name":"מקסיקו","flag":"🇲🇽","nick":"","nickNote":"TODO: לאמת כינוי ישראלי",
+  "colors":{"c1":"#1a8a4a","c2":"#0b5a2e"},
+  "funstat":"המארחת הראשית! משחק הפתיחה יתקיים אצלם ב<b>אצטדיון האצטקה</b> המיתולוגי.",
+  "players":[
+    {"n":"גיירמו אוצ'ואה","en":"Guillermo Ochoa","num":13,"line":"gk","role":"שוער","age":40,"club":"אא\"ל סלבדורנו","star":true,"img":"./player_images/Guillermo Ochoa.jpg","fact":"שוער אגדי שמשחק במונדיאל כבר עשרות שנים!","know":"מכונה 'ממו' — מפורסם בהצלות מטורפות שמשאירות את מקסיקו במשחק."},
+    {"n":"סנטיאגו חימנס","en":"Santiago Gimenez","num":9,"line":"att","role":"חלוץ מרכזי","age":24,"club":"מילאן","star":true,"img":"./player_images/Santiago Gimenez.jpg","fact":"חלוץ צעיר ומבקיע — מכונה 'הבמבינו'.","know":"בנו של שחקן כדורגל לשעבר — הכדורגל זורם לו בדם."},
+    {"n":"אירווינג לוסאנו","en":"Hirving Lozano","num":22,"line":"att","role":"כנף שמאלית","age":30,"club":"סן דייגו","star":true,"img":"./player_images/Hirving Lozano.jpg","fact":"כנף מהיר שהבקיע שער מפורסם נגד גרמניה במונדיאל.","know":"הכינוי שלו הוא 'צ'אקי' על שם הבובה מהסרטים, כי הוא היה שובב כילד."},
+    {"n":"אדסון אלוארס","en":"Edson Alvarez","num":4,"line":"mid","role":"קשר אחורי","age":28,"club":"וסטהאם","star":true,"img":"./player_images/Edson Alvarez.jpg","fact":"קפטן וקשר הגנתי שעוצר כל התקפה.","know":"מכונה 'המכונה' בגלל הריצות הבלתי נגמרות שלו במגרש."},
+    {"n":"לואיס מאלאגון","en":"Luis Malagon","num":1,"line":"gk","role":"שוער","age":29,"club":"אמריקה","star":false,"img":"./player_images/Luis Malagon.jpg","fact":"שוער זריז שתפס מקום קבוע בנבחרת."},
+    {"n":"סזאר מונטס","en":"Cesar Montes","num":3,"line":"def","role":"בלם","age":28,"club":"אלמריה","star":false,"img":"./player_images/Cesar Montes.jpg","fact":"בלם גבוה שמסוכן גם בכדורים נייחים."},
+    {"n":"יוהאן ואסקס","en":"Johan Vasquez","num":5,"line":"def","role":"בלם","age":27,"club":"ג'נואה","star":false,"img":"./player_images/Johan Vasquez.jpg","fact":"בלם שמאלי חזק עם משחק רגל טוב."},
+    {"n":"חורחה סאנצ'ס","en":"Jorge Sanchez","num":19,"line":"def","role":"מגן ימני","age":28,"club":"קרוס אסול","star":false,"img":"./player_images/Jorge Sanchez.jpg","fact":"מגן אנרגטי שאוהב לעלות לאגף."},
+    {"n":"חסוס גאיארדו","en":"Jesus Gallardo","num":23,"line":"def","role":"מגן שמאלי","age":31,"club":"טולוקה","star":false,"img":"./player_images/Jesus Gallardo.jpg","fact":"מגן שמאלי מנוסה ומהיר."},
+    {"n":"לואיס צ'אבס","en":"Luis Chavez","num":14,"line":"mid","role":"קשר מרכזי","age":30,"club":"דינמו מוסקבה","star":false,"img":"./player_images/Luis Chavez.jpg","fact":"מומחה לבעיטות חופשיות חזקות ומדויקות."},
+    {"n":"אורבלין פינדה","en":"Orbelin Pineda","num":10,"line":"mid","role":"קשר התקפי","age":29,"club":"אא\"ק אתונה","star":false,"img":"./player_images/Orbelin Pineda.jpg","fact":"קשר יצירתי שמספק מסירות מפתח."},
+    {"n":"אלכסיס וגה","en":"Alexis Vega","num":11,"line":"att","role":"כנף ימנית","age":28,"club":"טולוקה","star":false,"img":"./player_images/Alexis Vega.jpg","fact":"כנף זריז שמבקיע ומבשל בליגה המקסיקנית."}
+  ],
+  "quiz":[
+    {"q":"באיזה אצטדיון מפורסם ייערך משחק הפתיחה?","o":["האצטקה","MetLife","SoFi"],"a":0},
+    {"q":"מה הכינוי של השוער גיירמו אוצ'ואה?","o":["ממו","צ'אקי","הבמבינו"],"a":0},
+    {"q":"מקסיקו היא...","o":["המארחת הראשית","נבחרת אירופית","אלופת העולם"],"a":0}
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id":"mar","name":"מרוקו","flag":"🇲🇦","nick":"אריות האטלס",
+  "colors":{"c1":"#c1272d","c2":"#006233"},
+  "funstat":"גאוות אפריקה והעולם הערבי! הנבחרת הראשונה מאפריקה שהגיעה ל<b>חצי גמר מונדיאל</b> (2022).",
+  "players":[
+    {"n":"אשרף חכימי","en":"Achraf Hakimi","num":2,"line":"def","role":"מגן ימני","age":27,"club":"פ.ס.ז'","star":true,"img":"./player_images/Achraf Hakimi.jpg","fact":"מגן ענק שטס באגף ומבקיע שערים חשובים.","know":"מהיר כל כך שמדדו אותו כאחד השחקנים המהירים במונדיאל."},
+    {"n":"יאסין בונו","en":"Yassine Bounou","num":1,"line":"gk","role":"שוער","age":34,"club":"אל-הילאל","star":true,"img":"./player_images/Yassine Bounou.jpg","fact":"גיבור הפנדלים של מרוקו במונדיאל 2022.","know":"מכונה 'בונו' — עצר פנדלים ושלח את מרוקו לחצי הגמר ההיסטורי."},
+    {"n":"חכים זיאש","en":"Hakim Ziyech","num":7,"line":"att","role":"כנף ימנית","age":32,"club":"אל-דוחיל","star":true,"img":"./player_images/Hakim Ziyech.jpg","fact":"קוסם עם רגל שמאל שמגיש ובועט בעיטות חופשיות מדהימות.","know":"נולד בהולנד ובחר לשחק למרוקו, ארץ מולדת משפחתו."},
+    {"n":"יוסף אן-נסירי","en":"Youssef En-Nesyri","num":19,"line":"att","role":"חלוץ מרכזי","age":28,"club":"פנרבחצ'ה","star":true,"img":"./player_images/Youssef En-Nesyri.jpg","fact":"חלוץ גבוה שקופץ גבוה במיוחד לכדורי ראש.","know":"הבקיע נגד פורטוגל בקפיצת ראש מטורפת ששלחה את מרוקו לחצי הגמר."},
+    {"n":"מוניר מוחמדי","en":"Munir Mohamedi","num":12,"line":"gk","role":"שוער","age":36,"club":"חטאפה","star":false,"img":"./player_images/Munir Mohamedi.jpg","fact":"שוער מנוסה שתומך בקבוצה מהספסל."},
+    {"n":"נאיף אגרד","en":"Nayef Aguerd","num":5,"line":"def","role":"בלם","age":29,"club":"מארסיי","star":false,"img":"./player_images/Nayef Aguerd.jpg","fact":"בלם רגוע וחזק שמנהיג את ההגנה."},
+    {"n":"רומאן סייס","en":"Romain Saiss","num":6,"line":"def","role":"בלם","age":35,"club":"אל-שבאב","star":false,"img":"./player_images/Romain Saiss.jpg","fact":"קפטן ותיק ומנהיג בלב ההגנה."},
+    {"n":"נוסייר מזרואי","en":"Noussair Mazraoui","num":3,"line":"def","role":"מגן שמאלי","age":28,"club":"מנצ'סטר יונייטד","star":false,"img":"./player_images/Noussair Mazraoui.jpg","fact":"מגן רב-תכליתי שמשחק בשני האגפים."},
+    {"n":"סופיאן אמרבט","en":"Sofyan Amrabat","num":4,"line":"mid","role":"קשר אחורי","age":29,"club":"פנרבחצ'ה","star":false,"img":"./player_images/Sofyan Amrabat.jpg","fact":"קשר לוחם שהיה מהבולטים במונדיאל 2022."},
+    {"n":"אזדין אונאחי","en":"Azzedine Ounahi","num":8,"line":"mid","role":"קשר מרכזי","age":25,"club":"חטאפה","star":false,"img":"./player_images/Azzedine Ounahi.jpg","fact":"קשר זריז שחומק בין יריבים בקלות."},
+    {"n":"בראהים דיאז","en":"Brahim Diaz","num":10,"line":"mid","role":"קשר התקפי","age":26,"club":"ריאל מדריד","star":false,"img":"./player_images/Brahim Diaz.jpg","fact":"קשר טכני וזריז שיוצר הזדמנויות מכלום."},
+    {"n":"סופיאן בופאל","en":"Sofiane Boufal","num":17,"line":"att","role":"כנף שמאלית","age":32,"club":"אל-רייאן","star":false,"img":"./player_images/Sofiane Boufal.jpg","fact":"קוסם דריבלים שמשמח את הקהל עם תרגילים."}
+  ],
+  "quiz":[
+    {"q":"לאיזה שלב הגיעה מרוקו במונדיאל 2022?","o":["חצי הגמר","רבע הגמר","שלב הבתים"],"a":0},
+    {"q":"מי היה גיבור הפנדלים של מרוקו?","o":["בונו","חכימי","זיאש"],"a":0},
+    {"q":"מה הכינוי של נבחרת מרוקו?","o":["אריות האטלס","השדים האדומים","הסלסאו"],"a":0}
+  ]
+}

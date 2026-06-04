@@ -1,0 +1,24 @@
+{
+  "id":"ger","name":"גרמניה","flag":"🇩🇪","nick":"המאנשאפט",
+  "colors":{"c1":"#2b2b2b","c2":"#c8a24a"},
+  "funstat":"מכונת ניצחונות! זכו ב-<b>4 מונדיאלים</b> וכמעט תמיד מגיעים רחוק.",
+  "players":[
+    {"n":"ג'מאל מוסיאלה","en":"Jamal Musiala","num":10,"line":"att","role":"קשר התקפי","age":22,"club":"באיירן מינכן","star":true,"img":"./player_images/Jamal Musiala.jpg","fact":"חומק בין מגינים בקלילות כאילו הכדור דבוק לרגל.","know":"גדל באנגליה ובחר לשחק לגרמניה — כינוי החיבה שלו הוא 'במבי'."},
+    {"n":"פלוריאן וירץ","en":"Florian Wirtz","num":17,"line":"mid","role":"קשר התקפי","age":22,"club":"ליברפול","star":true,"img":"./player_images/Florian Wirtz.jpg","fact":"קשר יצירתי שרואה מסירות מדהימות לפני כולם.","know":"חזר בכוח אחרי פציעה קשה והפך לאחד הצעירים הכי טובים בעולם."},
+    {"n":"יושוע קימיך","en":"Joshua Kimmich","num":6,"line":"def","role":"מגן ימני","age":30,"club":"באיירן מינכן","star":true,"img":"./player_images/Joshua Kimmich.jpg","fact":"מנהיג ולוחם שיכול לשחק כמעט בכל תפקיד בקבוצה.","know":"מדויק כל כך בהגשות שהוא כמעט תמיד מוצא את החלוץ."},
+    {"n":"אנטוניו רודיגר","en":"Antonio Rudiger","num":2,"line":"def","role":"בלם","age":32,"club":"ריאל מדריד","star":true,"img":"./player_images/Antonio Rudiger.jpg","fact":"בלם קשוח ואגרסיבי שאף חלוץ לא אוהב לפגוש.","know":"מפורסם בחיוך הענק שלו שמופיע רגע לפני שהוא לוקח כדור."},
+    {"n":"מארק-אנדרה טר שטגן","en":"Marc-Andre ter Stegen","num":1,"line":"gk","role":"שוער","age":33,"club":"ברצלונה","star":false,"img":"./player_images/Marc-Andre ter Stegen.jpg","fact":"שוער עם רפלקסים מעולים ומשחק רגל מצוין."},
+    {"n":"אוליבר באומן","en":"Oliver Baumann","num":12,"line":"gk","role":"שוער","age":35,"club":"הופנהיים","star":false,"img":"./player_images/Oliver Baumann.jpg","fact":"שוער ותיק ורגוע שמחכה להזדמנות שלו."},
+    {"n":"יונתן טה","en":"Jonathan Tah","num":4,"line":"def","role":"בלם","age":29,"club":"באיירן מינכן","star":false,"img":"./player_images/Jonathan Tah.jpg","fact":"בלם גבוה וחזק שמנצח בכדורי ראש."},
+    {"n":"דויד ראום","en":"David Raum","num":3,"line":"def","role":"מגן שמאלי","age":27,"club":"לייפציג","star":false,"img":"./player_images/David Raum.jpg","fact":"מגן שמאלי שמגיש המון כדורים מסוכנים לרחבה."},
+    {"n":"אילקאי גונדואן","en":"Ilkay Gundogan","num":21,"line":"mid","role":"קשר מרכזי","age":35,"club":"מנצ'סטר סיטי","star":false,"img":"./player_images/Ilkay Gundogan.jpg","fact":"קשר חכם ומנוסה שיודע מתי לעלות ולהבקיע."},
+    {"n":"רוברט אנדריך","en":"Robert Andrich","num":23,"line":"mid","role":"קשר אחורי","age":31,"club":"באייר לברקוזן","star":false,"img":"./player_images/Robert Andrich.jpg","fact":"קשר לוחם שמגן על ההגנה ולא נרתע מאף יריב."},
+    {"n":"לירוי סאנה","en":"Leroy Sane","num":19,"line":"att","role":"כנף ימנית","age":29,"club":"גלאטסראיי","star":false,"img":"./player_images/Leroy Sane.jpg","fact":"כנף מהיר עם בעיטה חזקה מאוד מחוץ לרחבה."},
+    {"n":"קאי האברץ","en":"Kai Havertz","num":7,"line":"att","role":"חלוץ מרכזי","age":26,"club":"ארסנל","star":false,"img":"./player_images/Kai Havertz.jpg","fact":"חלוץ גבוה וטכני שהבקיע בגמר ליגת האלופות."}
+  ],
+  "quiz":[
+    {"q":"כמה מונדיאלים זכתה גרמניה?","o":["2","4","6"],"a":1},
+    {"q":"מה כינוי החיבה של ג'מאל מוסיאלה?","o":["במבי","הפר","העכביש"],"a":0},
+    {"q":"מה הכינוי של נבחרת גרמניה?","o":["המאנשאפט","האורנייה","האדזורי"],"a":0}
+  ]
+}

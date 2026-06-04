@@ -1,0 +1,24 @@
+{
+  "id":"bel","name":"בלגיה","flag":"🇧🇪","nick":"השדים האדומים",
+  "colors":{"c1":"#e23b3b","c2":"#111111"},
+  "funstat":"'דור הזהב' של בלגיה — נבחרת מלאת כוכבים שתמיד נלחמת על המקומות הראשונים.",
+  "players":[
+    {"n":"קווין דה בראונה","en":"Kevin De Bruyne","num":7,"line":"mid","role":"קשר התקפי","age":34,"club":"נאפולי","star":true,"img":"./player_images/Kevin De Bruyne.jpg","fact":"מלך הבישולים — מוסר כדורים מדויקים כאילו יש לו מצפן ברגל.","know":"נחשב לאחד הקשרים ההתקפיים הטובים בעולם בעשור האחרון."},
+    {"n":"תיבו קורטואה","en":"Thibaut Courtois","num":1,"line":"gk","role":"שוער","age":33,"club":"ריאל מדריד","star":true,"img":"./player_images/Thibaut Courtois.jpg","fact":"שוער ענק (כמעט 2 מטר!) שכמעט בלתי אפשרי להבקיע מולו.","know":"היה השחקן הטוב בגמר ליגת האלופות בזכות הצלות מטורפות."},
+    {"n":"רומלו לוקאקו","en":"Romelu Lukaku","num":9,"line":"att","role":"חלוץ מרכזי","age":32,"club":"נאפולי","star":true,"img":"./player_images/Romelu Lukaku.jpg","fact":"חלוץ ענק וחזק — מלך השערים ההיסטורי של בלגיה.","know":"מהיר באופן מפתיע לגודלו — קשה מאוד לעצור אותו בריצה."},
+    {"n":"ז'רמי דוקו","en":"Jeremy Doku","num":11,"line":"att","role":"כנף ימנית","age":23,"club":"מנצ'סטר סיטי","star":true,"img":"./player_images/Jeremy Doku.jpg","fact":"כנף מהיר עם דריבל מסחרר שמשגע מגינים.","know":"אחד השחקנים שעוברים הכי הרבה יריבים בדריבל באירופה."},
+    {"n":"סנה לאמנס","en":"Senne Lammens","num":12,"line":"gk","role":"שוער","age":23,"club":"מנצ'סטר יונייטד","star":false,"img":"./player_images/Senne Lammens.jpg","fact":"שוער צעיר ומבטיח שממתין לתורו."},
+    {"n":"תומאס מונייה","en":"Thomas Meunier","num":15,"line":"def","role":"מגן ימני","age":34,"club":"ליל","star":false,"img":"./player_images/Thomas Meunier.jpg","fact":"מגן מנוסה שעולה לתקוף ומגיש לרחבה."},
+    {"n":"ארתור תיאט","en":"Arthur Theate","num":4,"line":"def","role":"בלם","age":25,"club":"פרנקפורט","star":false,"img":"./player_images/Arthur Theate.jpg","fact":"בלם צעיר עם רגל שמאל וחוזק פיזי."},
+    {"n":"זנו דבאסט","en":"Zeno Debast","num":5,"line":"def","role":"בלם","age":22,"club":"ספורטינג","star":false,"img":"./player_images/Zeno Debast.jpg","fact":"בלם צעיר ורגוע שגם יודע למסור היטב."},
+    {"n":"מקסים דה קויפר","en":"Maxim De Cuyper","num":3,"line":"def","role":"מגן שמאלי","age":25,"club":"ברייטון","star":false,"img":"./player_images/Maxim De Cuyper.jpg","fact":"מגן שמאלי אנרגטי שתורם גם בהתקפה."},
+    {"n":"יורי טילמנס","en":"Youri Tielemans","num":8,"line":"mid","role":"קשר מרכזי","age":28,"club":"אסטון וילה","star":false,"img":"./player_images/Youri Tielemans.jpg","fact":"קשר חכם עם בעיטה חזקה מרחוק."},
+    {"n":"אמדו אונאנה","en":"Amadou Onana","num":6,"line":"mid","role":"קשר אחורי","age":24,"club":"אסטון וילה","star":false,"img":"./player_images/Amadou Onana.jpg","fact":"קשר ענק וחזק ששולט באמצע המגרש."},
+    {"n":"ליאנדרו טרוסאר","en":"Leandro Trossard","num":17,"line":"att","role":"כנף שמאלית","age":31,"club":"ארסנל","star":false,"img":"./player_images/Leandro Trossard.jpg","fact":"כנף חכם שמבקיע שערים חשובים מהספסל ומההרכב."}
+  ],
+  "quiz":[
+    {"q":"מי מכונה 'מלך הבישולים' בנבחרת בלגיה?","o":["דה בראונה","לוקאקו","דוקו"],"a":0},
+    {"q":"מה גובהו המיוחד של השוער קורטואה?","o":["1.70 מ'","כמעט 2 מטר","1.50 מ'"],"a":1},
+    {"q":"מה הכינוי של נבחרת בלגיה?","o":["השדים האדומים","אריות האטלס","האורנייה"],"a":0}
+  ]
+}

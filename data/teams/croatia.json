@@ -1,0 +1,24 @@
+{
+  "id":"cro","name":"קרואטיה","flag":"🇭🇷","nick":"","nickNote":"TODO: לאמת כינוי ישראלי",
+  "colors":{"c1":"#e23b3b","c2":"#1b1b8f"},
+  "funstat":"מדינה קטנה עם הישגים ענקיים — <b>סגנית אלופת העולם 2018</b> ומדליה ב-2022!",
+  "players":[
+    {"n":"לוקה מודריץ'","en":"Luka Modric","num":10,"line":"mid","role":"קשר מרכזי","age":40,"club":"מילאן","star":true,"img":"./player_images/Luka Modric.jpg","fact":"הקפטן והאגדה — זכה בכדור הזהב לשחקן הטוב בעולם.","know":"ממשיך לשחק ברמה הגבוהה ביותר גם בגיל 40 — מנהיג אמיתי."},
+    {"n":"יושקו גווארדיול","en":"Josko Gvardiol","num":20,"line":"def","role":"בלם","age":24,"club":"מנצ'סטר סיטי","star":true,"img":"./player_images/Josko Gvardiol.jpg","fact":"בלם צעיר, מהיר וחזק — מהטובים בעולם בתפקידו.","know":"מכונה 'פפו' — מצטיין גם בהגנה וגם בעלייה להתקפה."},
+    {"n":"איוון פרישיץ'","en":"Ivan Perisic","num":4,"line":"att","role":"כנף שמאלית","age":37,"club":"האיידוק ספליט","star":true,"img":"./player_images/Ivan Perisic.jpg","fact":"כנף ותיק שמבקיע שערים גדולים במונדיאלים.","know":"גם שחקן כדורעף חובב מצוין — אתלט אמיתי!"},
+    {"n":"דומיניק ליבאקוביץ'","en":"Dominik Livakovic","num":1,"line":"gk","role":"שוער","age":31,"club":"פנרבחצ'ה","star":true,"img":"./player_images/Dominik Livakovic.jpg","fact":"גיבור הפנדלים של קרואטיה במונדיאל 2022.","know":"עצר שלושה פנדלים במשחק אחד נגד יפן — שיא מדהים!"},
+    {"n":"איבו גרביץ'","en":"Ivo Grbic","num":12,"line":"gk","role":"שוער","age":29,"club":"לאנס","star":false,"img":"./player_images/Ivo Grbic.jpg","fact":"שוער גבוה ובטוח מתחת לקורה."},
+    {"n":"יוסיפ סטאנישיץ'","en":"Josip Stanisic","num":2,"line":"def","role":"מגן ימני","age":25,"club":"באיירן מינכן","star":false,"img":"./player_images/Josip Stanisic.jpg","fact":"מגן רב-תכליתי שמשחק בכמה תפקידים בהגנה."},
+    {"n":"יוסיפ שוטאלו","en":"Josip Sutalo","num":5,"line":"def","role":"בלם","age":25,"club":"אייאקס","star":false,"img":"./player_images/Josip Sutalo.jpg","fact":"בלם צעיר ורגוע עם עתיד גדול."},
+    {"n":"בורנה סוסה","en":"Borna Sosa","num":3,"line":"def","role":"מגן שמאלי","age":28,"club":"אייאקס","star":false,"img":"./player_images/Borna Sosa.jpg","fact":"מגן שמאלי שמתמחה בהגשות מדויקות לרחבה."},
+    {"n":"מטאו קובאצ'יץ'","en":"Mateo Kovacic","num":8,"line":"mid","role":"קשר מרכזי","age":31,"club":"מנצ'סטר סיטי","star":false,"img":"./player_images/Mateo Kovacic.jpg","fact":"קשר טכני שחומק מלחץ עם סיבובים יפים."},
+    {"n":"לוקה סוצ'יץ'","en":"Luka Sucic","num":6,"line":"mid","role":"קשר אחורי","age":23,"club":"ריאל סוסיאדד","star":false,"img":"./player_images/Luka Sucic.jpg","fact":"קשר צעיר ומוכשר שמחליף את הדור הוותיק."},
+    {"n":"אנדריי קרמאריץ'","en":"Andrej Kramaric","num":9,"line":"att","role":"חלוץ מרכזי","age":34,"club":"הופנהיים","star":false,"img":"./player_images/Andrej Kramaric.jpg","fact":"חלוץ חכם שיודע למצוא את הרשת ברגעים החשובים."},
+    {"n":"אנטה בודימיר","en":"Ante Budimir","num":17,"line":"att","role":"חלוץ מרכזי","age":34,"club":"אוססונה","star":false,"img":"./player_images/Ante Budimir.jpg","fact":"חלוץ גבוה וחזק שמסוכן בכדורי ראש."}
+  ],
+  "quiz":[
+    {"q":"לאיזה מקום הגיעה קרואטיה במונדיאל 2018?","o":["סגנית אלופה","אלופה","מקום שלישי"],"a":0},
+    {"q":"מי הקפטן שזכה בכדור הזהב?","o":["לוקה מודריץ'","פרישיץ'","גווארדיול"],"a":0},
+    {"q":"כמה פנדלים עצר ליבאקוביץ' נגד יפן?","o":["1","2","3"],"a":2}
+  ]
+}

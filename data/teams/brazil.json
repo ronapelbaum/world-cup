@@ -1,0 +1,24 @@
+{
+  "id":"bra","name":"ברזיל","flag":"🇧🇷","nick":"הסלסאו",
+  "colors":{"c1":"#fcdb3a","c2":"#1f8a3b"},
+  "funstat":"הכי הרבה זכיות בעולם — <b>5 מונדיאלים!</b> משחקים כדורגל יפה ושמח.",
+  "players":[
+    {"n":"ויניסיוס ג'וניור","en":"Vinicius Junior","num":7,"line":"att","role":"כנף שמאלית","age":25,"club":"ריאל מדריד","star":true,"img":"./player_images/Vinicius Junior.jpg","fact":"קוסם הדריבלים! עושה 'בית ספר' למגינים עם הרגליים המהירות שלו.","know":"התחיל לשחק כדורגל ברחובות ובחופים של ריו דה ז'ניירו."},
+    {"n":"רודריגו","en":"Rodrygo","num":11,"line":"att","role":"כנף ימנית","age":25,"club":"ריאל מדריד","star":true,"img":"./player_images/Rodrygo.jpg","fact":"השותף של ויניסיוס — ביחד הם זוג קטלני שמפחיד כל הגנה.","know":"בקיע שערים חשובים במשחקי הגביע הגדולים של אירופה."},
+    {"n":"אליסון בקר","en":"Alisson Becker","num":1,"line":"gk","role":"שוער","age":33,"club":"ליברפול","star":true,"img":"./player_images/Alisson Becker.jpg","fact":"נחשב לאחד השוערים הטובים בעולם — חומה אנושית בשער!","know":"פעם אפילו הבקיע שער בעצמו בדקה האחרונה עם הראש!"},
+    {"n":"אנדריק","en":"Endrick","num":9,"line":"att","role":"חלוץ מרכזי","age":19,"club":"ריאל מדריד","star":true,"img":"./player_images/Endrick.jpg","fact":"ילד הפלא החדש של ברזיל — כישרון ענק שכבר מבקיע בגיל צעיר.","know":"ריאל מדריד קנתה אותו כשהיה בן 16 וחיכתה שיגדל כדי שיצטרף!"},
+    {"n":"אדרסון","en":"Ederson","num":23,"line":"gk","role":"שוער","age":32,"club":"מנצ'סטר סיטי","star":false,"img":"./player_images/Ederson.jpg","fact":"שוער שגם בועט כדורים ארוכים ומדויקים כמו קשר!"},
+    {"n":"מרקיניוס","en":"Marquinhos","num":4,"line":"def","role":"בלם","age":31,"club":"פ.ס.ז'","star":false,"img":"./player_images/Marquinhos.jpg","fact":"הקפטן והמנהיג הרגוע של ההגנה הברזילאית."},
+    {"n":"גבריאל מגאלייש","en":"Gabriel Magalhaes","num":3,"line":"def","role":"בלם","age":28,"club":"ארסנל","star":false,"img":"./player_images/Gabriel Magalhaes.jpg","fact":"בלם גבוה וחזק שמנצח כמעט בכל כדור ראש."},
+    {"n":"דנילו","en":"Danilo","num":2,"line":"def","role":"מגן ימני","age":34,"club":"פלמנגו","star":false,"img":"./player_images/Danilo.jpg","fact":"מגן מנוסה שיכול לשחק בכל מקום בקו ההגנה."},
+    {"n":"וונדרסון","en":"Wendell","num":6,"line":"def","role":"מגן שמאלי","age":32,"club":"פורטו","star":false,"img":"./player_images/Wendell.jpg","fact":"מגן שמאלי חרוץ שרץ לאורך כל האגף."},
+    {"n":"ברונו גימראייש","en":"Bruno Guimaraes","num":8,"line":"mid","role":"קשר אחורי","age":28,"club":"ניוקאסל","star":false,"img":"./player_images/Bruno Guimaraes.jpg","fact":"מנהל את המשחק מאחור — המוח של הקישור."},
+    {"n":"לוקאס פאקטה","en":"Lucas Paqueta","num":10,"line":"mid","role":"קשר התקפי","age":28,"club":"וסטהאם","star":false,"img":"./player_images/Lucas Paqueta.jpg","fact":"קשר טכני שאוהב להבקיע שערים יפים מרחוק."},
+    {"n":"ראפיניה","en":"Raphinha","num":19,"line":"att","role":"כנף ימנית","age":29,"club":"ברצלונה","star":false,"img":"./player_images/Raphinha.jpg","fact":"קיצוני נחוש שגם מבקיע וגם מבשל שערים לחברים."}
+  ],
+  "quiz":[
+    {"q":"כמה מונדיאלים זכתה ברזיל?","o":["3","5","7"],"a":1},
+    {"q":"מי ילד הפלא הצעיר של ברזיל?","o":["אנדריק","אליסון","דנילו"],"a":0},
+    {"q":"באיזו קבוצה משחק ויניסיוס ג'וניור?","o":["ברצלונה","ריאל מדריד","ליברפול"],"a":1}
+  ]
+}

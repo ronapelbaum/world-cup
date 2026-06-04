@@ -1,0 +1,8 @@
+{
+  "teams": 48,
+  "groups": 12,
+  "teamsPerGroup": 4,
+  "advance": { "auto": "2 ראשונות מכל בית", "thirds": "8 שלישיות הטובות", "total": 32 },
+  "points": { "win": 3, "draw": 1, "loss": 0 },
+  "knockout": ["שלב 32", "שמינית הגמר", "רבע הגמר", "חצי הגמר", "גמר"]
+}

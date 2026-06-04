@@ -1,0 +1,24 @@
+{
+  "id":"fra","name":"צרפת","flag":"🇫🇷","nick":"הטריקולור",
+  "colors":{"c1":"#2c5fc4","c2":"#16307a"},
+  "funstat":"נבחרת מהירה ואתלטית שכמעט תמיד מגיעה לגמר. זכו ב-<b>2 מונדיאלים</b>.",
+  "players":[
+    {"n":"קיליאן אמבפה","en":"Kylian Mbappe","num":10,"line":"att","role":"חלוץ / כנף שמאלית","age":27,"club":"ריאל מדריד","star":true,"img":"./player_images/Kylian Mbappe.jpg","fact":"אחד השחקנים הכי מהירים על כדור הארץ — והקפטן של הנבחרת!","know":"במונדיאל 2018, בגיל 19 בלבד, הבקיע בגמר וזכה באליפות העולם."},
+    {"n":"עוסמאן דמבלה","en":"Ousmane Dembele","num":11,"line":"att","role":"כנף ימנית","age":28,"club":"פ.ס.ז'","star":true,"img":"./player_images/Ousmane Dembele.jpg","fact":"מלך הדריבלים — יודע לבעוט בשתי הרגליים באותה רמה.","know":"הוא 'אמביגוס' — חזק בשתי הרגליים, וזה נדיר מאוד בכדורגל!"},
+    {"n":"אנטואן גריזמן","en":"Antoine Griezmann","num":7,"line":"att","role":"קשר התקפי","age":35,"club":"אתלטיקו מדריד","star":true,"img":"./player_images/Antoine Griezmann.jpg","fact":"'המוח' של הקבוצה — חכם ויצירתי, רואה מסירות שאף אחד לא רואה.","know":"חובב גדול של ספורט אמריקאי וחוגג שערים בריקודים."},
+    {"n":"תיאו הרננדס","en":"Theo Hernandez","num":22,"line":"def","role":"מגן שמאלי","age":28,"club":"מילאן","star":true,"img":"./player_images/Theo Hernandez.jpg","fact":"מגן שטס קדימה במהירות מטורפת ומבקיע שערים יפים מהאגף.","know":"גם אחיו, לוקא הרננדס, משחק בנבחרת צרפת — אחים בנבחרת אחת!"},
+    {"n":"מייק מניאן","en":"Mike Maignan","num":16,"line":"gk","role":"שוער","age":30,"club":"מילאן","star":false,"img":"./player_images/Mike Maignan.jpg","fact":"שוער זריז עם רפלקסים מהירים מאוד."},
+    {"n":"בריס סמבה","en":"Brice Samba","num":1,"line":"gk","role":"שוער","age":31,"club":"רן","star":false,"img":"./player_images/Brice Samba.jpg","fact":"שוער מנוסה ורגוע מתחת לקורה."},
+    {"n":"דאיו אופמקאנו","en":"Dayot Upamecano","num":5,"line":"def","role":"בלם","age":27,"club":"באיירן מינכן","star":false,"img":"./player_images/Dayot Upamecano.jpg","fact":"בלם חזק ומהיר שעוצר את החלוצים הכי טובים בעולם."},
+    {"n":"ז'ול קונדה","en":"Jules Kounde","num":4,"line":"def","role":"מגן ימני","age":27,"club":"ברצלונה","star":false,"img":"./player_images/Jules Kounde.jpg","fact":"מגן רב-תכליתי שמעולה גם בהגנה וגם בהתקפה."},
+    {"n":"וויליאם סאליבה","en":"William Saliba","num":17,"line":"def","role":"בלם","age":25,"club":"ארסנל","star":false,"img":"./player_images/William Saliba.jpg","fact":"בלם רגוע ובטוח בעצמו עם עתיד ענק לפניו."},
+    {"n":"אורליאן טשואמני","en":"Aurelien Tchouameni","num":8,"line":"mid","role":"קשר אחורי","age":26,"club":"ריאל מדריד","star":false,"img":"./player_images/Aurelien Tchouameni.jpg","fact":"מכונה 'הגרזן' — קוטע התקפות יריבות באמצע המגרש."},
+    {"n":"אדוארדו קמבינגה","en":"Eduardo Camavinga","num":6,"line":"mid","role":"קשר מרכזי","age":23,"club":"ריאל מדריד","star":false,"img":"./player_images/Eduardo Camavinga.jpg","fact":"קשר אתלטי שמכסה המון שטח ורץ בלי הפסקה."},
+    {"n":"מרקוס תוראם","en":"Marcus Thuram","num":9,"line":"att","role":"חלוץ מרכזי","age":28,"club":"אינטר מילאן","star":false,"img":"./player_images/Marcus Thuram.jpg","fact":"חלוץ גבוה וחזק — בנו של אגדת נבחרת צרפת ליליאן תוראם!"}
+  ],
+  "quiz":[
+    {"q":"מהו הכינוי המקובל בישראל לנבחרת צרפת?","o":["הסלסאו","הטריקולור","האלביסלסטה"],"a":1},
+    {"q":"מי מכונה 'הגרזן' של הקישור?","o":["אמבפה","טשואמני","גריזמן"],"a":1},
+    {"q":"מי קפטן הנבחרת?","o":["קיליאן אמבפה","ז'ול קונדה","בריס סמבה"],"a":0}
+  ]
+}

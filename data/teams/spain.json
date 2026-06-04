@@ -1,0 +1,25 @@
+{
+  "id":"esp","name":"ספרד","flag":"🇪🇸","nick":"לה רוחה",
+  "colors":{"c1":"#e23b3b","c2":"#8a1420"},
+  "funstat":"אלופת אירופה ואלופת מונדיאל <b>2010</b> — מומחים למסירות קצרות ומדויקות.",
+  "players":[
+    {"n":"לאמין ימאל","en":"Lamine Yamal","num":19,"line":"att","role":"כנף ימנית","age":18,"club":"ברצלונה","star":true,"img":"./player_images/Lamine Yamal.jpg","fact":"ילד פלא שהפך לכוכב ענק בגיל צעיר במיוחד.","know":"שיחק לנבחרת הבוגרת והבקיע שערים עוד לפני שמלאו לו 17!"},
+    {"n":"רודרי","en":"Rodri","num":16,"line":"mid","role":"קשר אחורי","age":29,"club":"מנצ'סטר סיטי","star":true,"img":"./player_images/Rodri.jpg","fact":"זכה בכדור הזהב — נחשב לקשר ההגנתי הטוב בעולם.","know":"כמעט לא מפסיד משחקים כשהוא על המגרש — קמע אמיתי לקבוצה."},
+    {"n":"פדרי","en":"Pedri","num":8,"line":"mid","role":"קשר מרכזי","age":23,"club":"ברצלונה","star":true,"img":"./player_images/Pedri.jpg","fact":"מנצח את המשחק עם ראייה וטכניקה מדהימות.","know":"מזכיר לרבים את האגדה אינייסטה בסגנון המשחק הרגוע שלו."},
+    {"n":"ניקו ויליאמס","en":"Nico Williams","num":17,"line":"att","role":"כנף שמאלית","age":23,"club":"אתלטיק בילבאו","star":true,"img":"./player_images/Nico Williams.jpg","fact":"מהיר כמו ברק וקשה לעצירה באגף.","know":"אחיו הגדול אינאקי משחק לנבחרת גאנה — שני אחים, שתי נבחרות!"},
+    {"n":"אונאי סימון","en":"Unai Simon","num":1,"line":"gk","role":"שוער","age":28,"club":"אתלטיק בילבאו","star":false,"img":"./player_images/Unai Simon.jpg","fact":"שוער מנוסה ובטוח שמוביל את ההגנה."},
+    {"n":"דויד ראיה","en":"David Raya","num":23,"line":"gk","role":"שוער","age":30,"club":"ארסנל","star":false,"img":"./player_images/David Raya.jpg","fact":"שוער מצוין במשחק רגל ובהוצאת כדורים."},
+    {"n":"דני קרבחאל","en":"Dani Carvajal","num":2,"line":"def","role":"מגן ימני","age":34,"club":"ריאל מדריד","star":false,"img":"./player_images/Dani Carvajal.jpg","fact":"מגן ותיק שזכה בכל גביע אפשרי עם המועדון."},
+    {"n":"רובין לה נורמן","en":"Robin Le Normand","num":3,"line":"def","role":"בלם","age":29,"club":"אתלטיקו מדריד","star":false,"img":"./player_images/Robin Le Normand.jpg","fact":"בלם חזק ויציב בלב ההגנה."},
+    {"n":"איימריק לאפורט","en":"Aymeric Laporte","num":14,"line":"def","role":"בלם","age":31,"club":"אתלטיק בילבאו","star":false,"img":"./player_images/Aymeric Laporte.jpg","fact":"בלם רגוע עם רגל שמאל שמתחילה התקפות."},
+    {"n":"אלכס באלדה","en":"Alejandro Balde","num":18,"line":"def","role":"מגן שמאלי","age":22,"club":"ברצלונה","star":false,"img":"./player_images/Alejandro Balde.jpg","fact":"מגן שמאלי צעיר ומהיר שעולה לתקוף."},
+    {"n":"גאבי","en":"Gavi","num":9,"line":"mid","role":"קשר מרכזי","age":21,"club":"ברצלונה","star":false,"img":"./player_images/Gavi.jpg","fact":"קשר לוחם עם לב ענק שלא מוותר על אף כדור."},
+    {"n":"דני אולמו","en":"Dani Olmo","num":10,"line":"att","role":"קשר התקפי","age":27,"club":"ברצלונה","star":false,"img":"./player_images/Dani Olmo.jpg","fact":"קשר יצירתי שמבקיע ומבשל ברגעים החשובים."},
+    {"n":"אלבארו מוראטה","en":"Alvaro Morata","num":7,"line":"att","role":"חלוץ מרכזי","age":33,"club":"קומו","star":false,"img":"./player_images/Alvaro Morata.jpg","fact":"חלוץ גבוה והקפטן שמוביל את הקבוצה באישיות."}
+  ],
+  "quiz":[
+    {"q":"באיזו שנה זכתה ספרד במונדיאל?","o":["2006","2010","2014"],"a":1},
+    {"q":"מי זכה בכדור הזהב מבין שחקני ספרד?","o":["רודרי","פדרי","גאבי"],"a":0},
+    {"q":"באיזו קבוצה משחק לאמין ימאל?","o":["ריאל מדריד","ברצלונה","אתלטיקו"],"a":1}
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id":"jpn","name":"יפן","flag":"🇯🇵","nick":"","nickNote":"TODO: לאמת כינוי ישראלי (נפוץ: 'הסמוראים הכחולים')",
+  "colors":{"c1":"#2b6cd4","c2":"#0a2a6b"},
+  "funstat":"נבחרת מהירה וממושמעת שאוהבת הפתעות — ניצחה את <b>גרמניה וספרד</b> במונדיאל 2022!",
+  "players":[
+    {"n":"טקפוסה קובו","en":"Takefusa Kubo","num":11,"line":"att","role":"כנף ימנית","age":24,"club":"ריאל סוסיאדד","star":true,"img":"./player_images/Takefusa Kubo.jpg","fact":"כנף קטן וזריז עם דריבל וטכניקה מסחררים.","know":"מכונה 'המסי היפני' כי התאמן כילד באקדמיה של ברצלונה."},
+    {"n":"קאורו מיטומה","en":"Kaoru Mitoma","num":9,"line":"att","role":"כנף שמאלית","age":28,"club":"ברייטון","star":true,"img":"./player_images/Kaoru Mitoma.jpg","fact":"מומחה דריבל שעובר מגינים כאילו הם לא שם.","know":"כתב עבודת מחקר באוניברסיטה על... איך לעבור מגינים בדריבל!"},
+    {"n":"וטארו אנדו","en":"Wataru Endo","num":6,"line":"mid","role":"קשר אחורי","age":32,"club":"ליברפול","star":true,"img":"./player_images/Wataru Endo.jpg","fact":"הקפטן והלוחם — מנוע הקישור שלא מפסיק לרוץ.","know":"מנהיג שקט ורגוע שמוביל את הנבחרת באישיות."},
+    {"n":"זיון סוזוקי","en":"Zion Suzuki","num":1,"line":"gk","role":"שוער","age":23,"club":"פארמה","star":true,"img":"./player_images/Zion Suzuki.jpg","fact":"שוער צעיר, גבוה ומוכשר — העתיד של השער היפני.","know":"גבוה במיוחד ובעל רפלקסים מהירים שעוצרים בעיטות קשות."},
+    {"n":"דאניאל שמידט","en":"Daniel Schmidt","num":12,"line":"gk","role":"שוער","age":33,"club":"חנט","star":false,"img":"./player_images/Daniel Schmidt.jpg","fact":"שוער מנוסה וגבוה ששומר על המסגרת."},
+    {"n":"טאקהירו טומיאסו","en":"Takehiro Tomiyasu","num":16,"line":"def","role":"מגן ימני","age":27,"club":"ארסנל","star":false,"img":"./player_images/Takehiro Tomiyasu.jpg","fact":"מגן רב-תכליתי שמשחק בשני האגפים ובבלימה."},
+    {"n":"קו איטקורה","en":"Ko Itakura","num":4,"line":"def","role":"בלם","age":28,"club":"אייאקס","star":false,"img":"./player_images/Ko Itakura.jpg","fact":"בלם רגוע שמוביל את ההגנה היפנית."},
+    {"n":"הירוקי איטו","en":"Hiroki Ito","num":3,"line":"def","role":"בלם","age":26,"club":"באיירן מינכן","star":false,"img":"./player_images/Hiroki Ito.jpg","fact":"בלם שמאלי עם משחק רגל ובעיטות חופשיות."},
+    {"n":"יוקינארי סוגאווארה","en":"Yukinari Sugawara","num":5,"line":"def","role":"מגן שמאלי","age":25,"club":"סאות'המפטון","star":false,"img":"./player_images/Yukinari Sugawara.jpg","fact":"מגן מהיר ואנרגטי שעולה לתקוף."},
+    {"n":"דאיצ'י קמאדה","en":"Daichi Kamada","num":15,"line":"mid","role":"קשר התקפי","age":29,"club":"קריסטל פאלאס","star":false,"img":"./player_images/Daichi Kamada.jpg","fact":"קשר חכם שמבקיע ומבשל שערים חשובים."},
+    {"n":"ריטסו דואן","en":"Ritsu Doan","num":8,"line":"att","role":"כנף ימנית","age":27,"club":"פרייבורג","star":false,"img":"./player_images/Ritsu Doan.jpg","fact":"כנף שהבקיע גם נגד גרמניה וגם נגד ספרד במונדיאל!"},
+    {"n":"איאסה אואדה","en":"Ayase Ueda","num":20,"line":"att","role":"חלוץ מרכזי","age":27,"club":"פיינורד","star":false,"img":"./player_images/Ayase Ueda.jpg","fact":"חלוץ מרכזי חרוץ שלוחץ על ההגנה היריבה."}
+  ],
+  "quiz":[
+    {"q":"אילו נבחרות גדולות ניצחה יפן במונדיאל 2022?","o":["גרמניה וספרד","ברזיל וצרפת","ארגנטינה ואנגליה"],"a":0},
+    {"q":"מי מכונה 'המסי היפני'?","o":["טקפוסה קובו","קאורו מיטומה","וטארו אנדו"],"a":0},
+    {"q":"על מה כתב קאורו מיטומה עבודת מחקר?","o":["איך לעבור מגינים בדריבל","תזונה","שוערים"],"a":0}
+  ]
+}

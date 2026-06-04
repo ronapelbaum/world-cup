@@ -1,0 +1,24 @@
+{
+  "id":"por","name":"פורטוגל","flag":"🇵🇹","nick":"","nickNote":"TODO: לאמת כינוי ישראלי",
+  "colors":{"c1":"#d42a2a","c2":"#006847"},
+  "funstat":"זכו באליפות אירופה ב-<b>2016</b>! נבחרת מלאת כישרון התקפי.",
+  "players":[
+    {"n":"קריסטיאנו רונאלדו","en":"Cristiano Ronaldo","num":7,"line":"att","role":"חלוץ מרכזי","age":41,"club":"אל-נאסר","star":true,"img":"./player_images/Cristiano Ronaldo.jpg","fact":"אחד השחקנים הגדולים בכל הזמנים — מכונת שערים אמיתית.","know":"הבקיע יותר שערים מכל שחקן אחר בהיסטוריה של נבחרות העולם!"},
+    {"n":"ברונו פרננדש","en":"Bruno Fernandes","num":8,"line":"mid","role":"קשר התקפי","age":31,"club":"מנצ'סטר יונייטד","star":true,"img":"./player_images/Bruno Fernandes.jpg","fact":"מנוע ההתקפה — מבשל ומבקיע שערים בלי הפסקה.","know":"הקפטן של מנצ'סטר יונייטד וגם מנהיג בנבחרת פורטוגל."},
+    {"n":"רפאל לאאו","en":"Rafael Leao","num":15,"line":"att","role":"כנף שמאלית","age":26,"club":"מילאן","star":true,"img":"./player_images/Rafael Leao.jpg","fact":"כנף ענק, מהיר וחזק שאי אפשר להזיז מהכדור.","know":"מלבד כדורגל הוא גם יוצר מוזיקת ראפ בזמנו הפנוי!"},
+    {"n":"ויטיניה","en":"Vitinha","num":16,"line":"mid","role":"קשר מרכזי","age":25,"club":"פ.ס.ז'","star":true,"img":"./player_images/Vitinha.jpg","fact":"קשר קטן וזריז ששולט בקצב המשחק.","know":"זכה בליגת האלופות והיה מהשחקנים הבולטים בדרך לתואר."},
+    {"n":"דיוגו קושטה","en":"Diogo Costa","num":22,"line":"gk","role":"שוער","age":26,"club":"פורטו","star":false,"img":"./player_images/Diogo Costa.jpg","fact":"שוער צעיר ומוכשר שעצר פנדלים חשובים במונדיאל."},
+    {"n":"ז'וזה סה","en":"Jose Sa","num":1,"line":"gk","role":"שוער","age":33,"club":"וולבס","star":false,"img":"./player_images/Jose Sa.jpg","fact":"שוער אמין עם רפלקסים טובים."},
+    {"n":"רובן דיאש","en":"Ruben Dias","num":3,"line":"def","role":"בלם","age":28,"club":"מנצ'סטר סיטי","star":false,"img":"./player_images/Ruben Dias.jpg","fact":"בלם מנהיג שמארגן את כל ההגנה סביבו."},
+    {"n":"ז'ואאו קנסלו","en":"Joao Cancelo","num":20,"line":"def","role":"מגן ימני","age":31,"club":"אל-הילאל","star":false,"img":"./player_images/Joao Cancelo.jpg","fact":"מגן התקפי שאוהב לעלות ולמסור כדורים מסוכנים."},
+    {"n":"נונו מנדש","en":"Nuno Mendes","num":19,"line":"def","role":"מגן שמאלי","age":23,"club":"פ.ס.ז'","star":false,"img":"./player_images/Nuno Mendes.jpg","fact":"מגן שמאלי מהיר עם המון אנרגיה."},
+    {"n":"גונסאלו אינסיו","en":"Goncalo Inacio","num":4,"line":"def","role":"בלם","age":24,"club":"ספורטינג","star":false,"img":"./player_images/Goncalo Inacio.jpg","fact":"בלם צעיר ורגוע עם רגל שמאל מצוינת."},
+    {"n":"ברנרדו סילבה","en":"Bernardo Silva","num":10,"line":"mid","role":"קשר התקפי","age":31,"club":"מנצ'סטר סיטי","star":false,"img":"./player_images/Bernardo Silva.jpg","fact":"קוסם קטן שלא מאבד כדורים וחומק מלחץ בקלות."},
+    {"n":"פדרו נטו","en":"Pedro Neto","num":17,"line":"att","role":"כנף ימנית","age":25,"club":"צ'לסי","star":false,"img":"./player_images/Pedro Neto.jpg","fact":"כנף מהיר ומלא טריקים שמסעיר את האגף."}
+  ],
+  "quiz":[
+    {"q":"מי הבקיע הכי הרבה שערים בנבחרות בהיסטוריה?","o":["קריסטיאנו רונאלדו","ברונו פרננדש","רפאל לאאו"],"a":0},
+    {"q":"באיזו אליפות זכתה פורטוגל ב-2016?","o":["מונדיאל","אליפות אירופה","קופה אמריקה"],"a":1},
+    {"q":"מה התחביב הנוסף של רפאל לאאו?","o":["ציור","מוזיקת ראפ","בישול"],"a":1}
+  ]
+}
