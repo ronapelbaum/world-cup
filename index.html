@@ -188,6 +188,27 @@ h1{font-size:clamp(32px,7.5vw,50px);color:#fff;font-weight:900;text-shadow:0 3px
 .brk-stage.active .l{color:var(--ink);}
 .brk-arrow{font-size:22px;color:var(--ink-soft);}
 
+/* STADIUM MAP */
+.map-card{background:#fff;border:4px solid var(--ink);border-radius:24px;padding:16px;box-shadow:var(--shadow-sm);margin-bottom:18px;}
+.smap-wrap{background:#cdeafe;border:3px solid var(--ink);border-radius:18px;overflow:hidden;}
+#smap{display:block;width:100%;height:auto;}
+.smap-detail{background:#fff7df;border:2px solid var(--sun-deep);border-radius:14px;padding:12px 15px;font-weight:800;font-size:17px;margin-bottom:12px;text-align:center;min-height:24px;}
+.smap-detail b{color:var(--coral);}
+.sland{fill:#bfe6a9;stroke:#7fb46a;stroke-width:2;stroke-linejoin:round;}
+.scountry{font-family:'Rubik',sans-serif;font-weight:900;fill:#3a5172;opacity:.32;}
+.spin{cursor:pointer;}
+.spin circle{stroke:#fff;stroke-width:2.5;transition:r .12s;}
+.spin:hover circle,.spin.sel circle{r:11;}
+.spin.sel circle{stroke:var(--ink);stroke-width:3.5;}
+.spin text{font-family:'Rubik',sans-serif;font-size:12px;font-weight:800;fill:var(--ink);paint-order:stroke;stroke:#fff;stroke-width:3px;stroke-linejoin:round;pointer-events:none;}
+.cc-us{fill:#1f8fe0;}.cc-mx{fill:#1a8a4a;}.cc-ca{fill:#d52b1e;}
+.smap-legend{display:flex;flex-wrap:wrap;gap:7px;margin-top:12px;}
+.scity{display:flex;align-items:center;gap:6px;background:#f1f6fc;border:2px solid #e0e9f4;border-radius:12px;
+  padding:6px 11px;font-weight:800;font-size:14.5px;cursor:pointer;transition:transform .1s,background .15s;}
+.scity:hover{transform:translateY(-2px);background:#e7f0fb;}
+.scity.sel{background:#fff7df;border-color:var(--sun-deep);}
+.scity .dot{width:13px;height:13px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.15);}
+
 .loading{text-align:center;padding:60px 20px;font-weight:900;font-size:22px;color:var(--ink-soft);}
 .loading .ball-spin{font-size:44px;display:block;margin-bottom:10px;}
 
@@ -222,6 +243,7 @@ footer{text-align:center;margin-top:30px;font-size:15px;font-weight:700;color:va
     <button class="toptab active" data-panel="teams">⚽ הנבחרות</button>
     <button class="toptab" data-panel="how">📊 איך זה עובד</button>
     <button class="toptab" data-panel="time">📅 קו הזמן</button>
+    <button class="toptab" data-panel="map">🗺️ מפת האצטדיונים</button>
   </nav>
 
   <section class="tabpanel show" id="panel-teams">
@@ -263,6 +285,15 @@ footer{text-align:center;margin-top:30px;font-size:15px;font-weight:700;color:va
     <div class="timeline" id="timeline"></div>
   </section>
 
+  <section class="tabpanel" id="panel-map">
+    <div class="section-title">🗺️ 16 הערים המארחות <span class="line"></span></div>
+    <div class="map-card">
+      <div class="smap-detail" id="smapDetail">👆 לחץ על נקודה במפה או על עיר ברשימה כדי לגלות פרטים</div>
+      <div class="smap-wrap"><svg id="smap" viewBox="0 0 760 560" role="img" aria-label="מפת ערי האירוח"></svg></div>
+      <div class="smap-legend" id="smapLegend"></div>
+    </div>
+  </section>
+
   <footer>נבנה לכבוד מונדיאל 2026 · 16 נבחרות נבחרות · המידע להמחשה ולומדה</footer>
 </div>
 
@@ -277,6 +308,7 @@ let LINE = {};          // positions.json
 let TEAMS = [];         // data/teams/*.json
 let TIMELINE = [];      // schedule.json
 let STRUCTURE = {};     // structure.json
+let STADIUMS = [];      // stadiums.json
 let activeTeam = null;
 
 /* ===== DATA LOADER ===== */
@@ -288,14 +320,15 @@ async function loadJSON(path){
 async function bootstrap(){
   try{
     const base='./data/';
-    const [positions,structure,schedule,manifest] = await Promise.all([
+    const [positions,structure,schedule,stadiums,manifest] = await Promise.all([
       loadJSON(base+'positions.json'),
       loadJSON(base+'structure.json'),
       loadJSON(base+'schedule.json'),
+      loadJSON(base+'stadiums.json'),
       loadJSON(base+'manifest.json'),
     ]);
     const teams = await Promise.all(manifest.map(id=>loadJSON(base+'teams/'+id+'.json')));
-    LINE = positions; STRUCTURE = structure; TIMELINE = schedule;
+    LINE = positions; STRUCTURE = structure; TIMELINE = schedule; STADIUMS = stadiums;
     // flatten team colors to c1/c2 (prototype expects them at top level)
     teams.forEach(t=>{ if(t.colors){ t.c1=t.colors.c1; t.c2=t.colors.c2; } });
     TEAMS = teams;
@@ -316,6 +349,7 @@ function init(){
   renderGroupDiagram();
   renderBracket();
   renderPointsButtons();
+  renderStadiumMap();
 }
 
 /* ===== SOUNDS ===== */
@@ -573,6 +607,53 @@ function calcPoints(pts,label){
   if(pts===STRUCTURE.points.win){sfx.right();confetti();}
   else if(pts===STRUCTURE.points.draw){sfx.click();}
   else{sfx.wrong();}
+}
+
+/* ===== STADIUM MAP (schematic SVG, no map library) ===== */
+function projNA(lon,lat){
+  const W=760,H=560,M=26,lonMin=-140,lonMax=-60,latMin=14,latMax=62;
+  return {x:M+(lon-lonMin)/(lonMax-lonMin)*(W-2*M),
+          y:M+(latMax-lat)/(latMax-latMin)*(H-2*M)};
+}
+/* coarse North-America silhouette (lon,lat) — schematic, not precise */
+const NA_OUTLINE=[[-140,60],[-125,49],[-124,40],[-120,34],[-117,32.5],[-114,30],[-112,26],
+  [-110,23],[-106,20],[-103,18],[-97,16],[-92,15],[-88,18],[-87,21],[-91,25],[-97,26],
+  [-94,29.5],[-89,29],[-84,30],[-82,27],[-80,25],[-81,31],[-78,33],[-76,37],[-74,40],
+  [-71,42],[-67,45],[-60,47],[-64,52],[-79,52],[-95,60],[-120,60],[-140,60]];
+function renderStadiumMap(){
+  const svg=document.getElementById('smap'); if(!svg)return;
+  const detail=document.getElementById('smapDetail');
+  const legend=document.getElementById('smapLegend');
+  const pts=NA_OUTLINE.map(([lo,la])=>{const p=projNA(lo,la);return p.x.toFixed(1)+','+p.y.toFixed(1);}).join(' ');
+  let h=`<polygon class="sland" points="${pts}"/>`;
+  [['קנדה 🇨🇦',-104,57],['ארצות הברית 🇺🇸',-99,42],['מקסיקו 🇲🇽',-104,22.5]].forEach(([t,lo,la])=>{
+    const p=projNA(lo,la);
+    h+=`<text class="scountry" x="${p.x.toFixed(1)}" y="${p.y.toFixed(1)}" font-size="26" text-anchor="middle">${t}</text>`;
+  });
+  STADIUMS.forEach((s,i)=>{
+    const p=projNA(s.lon,s.lat);
+    h+=`<g class="spin" data-i="${i}" tabindex="0" role="button" aria-label="${s.city}">
+      <circle class="cc-${s.cc}" cx="${p.x.toFixed(1)}" cy="${p.y.toFixed(1)}" r="8"/>
+      <text x="${p.x.toFixed(1)}" y="${(p.y-13).toFixed(1)}" text-anchor="middle">${s.city}</text>
+    </g>`;
+  });
+  svg.innerHTML=h;
+  const dotColor={us:'#1f8fe0',mx:'#1a8a4a',ca:'#d52b1e'};
+  legend.innerHTML=STADIUMS.map((s,i)=>
+    `<span class="scity" data-i="${i}"><span class="dot" style="background:${dotColor[s.cc]}"></span>${s.flag} ${s.city}</span>`
+  ).join('');
+  function select(i){
+    const s=STADIUMS[i];
+    detail.innerHTML=`${s.flag} <b>${s.stadium}</b> — ${s.city}, ${s.state} (${s.country})`;
+    svg.querySelectorAll('.spin').forEach(g=>g.classList.toggle('sel',+g.dataset.i===i));
+    legend.querySelectorAll('.scity').forEach(c=>c.classList.toggle('sel',+c.dataset.i===i));
+    sfx.open();
+  }
+  svg.querySelectorAll('.spin').forEach(g=>{
+    g.onclick=()=>select(+g.dataset.i);
+    g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select(+g.dataset.i);}});
+  });
+  legend.querySelectorAll('.scity').forEach(c=>{c.onclick=()=>select(+c.dataset.i);});
 }
 
 /* ===== TOP TABS ===== */
