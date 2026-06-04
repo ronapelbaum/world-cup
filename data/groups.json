@@ -1,6 +1,14 @@
 [
-  {"g":"A","color":"#1f8fe0","teams":["arg","eng","mar","jpn"]},
-  {"g":"B","color":"#16a34a","teams":["bra","esp","usa","cro"]},
-  {"g":"C","color":"#ff5d5d","teams":["fra","ned","uru","mex"]},
-  {"g":"D","color":"#7c3aed","teams":["ger","por","bel","ita"]}
+  {"g":"A","color":"#1f8fe0","teams":["mex","rsa","kor","cze"]},
+  {"g":"B","color":"#16a34a","teams":["can","bih","qat","sui"]},
+  {"g":"C","color":"#ff5d5d","teams":["bra","mar","hai","sco"]},
+  {"g":"D","color":"#7c3aed","teams":["usa","par","aus","tur"]},
+  {"g":"E","color":"#ea580c","teams":["ger","cuw","civ","ecu"]},
+  {"g":"F","color":"#0891b2","teams":["ned","jpn","swe","tun"]},
+  {"g":"G","color":"#d52b1e","teams":["bel","egy","irn","nzl"]},
+  {"g":"H","color":"#ca8a04","teams":["esp","cpv","ksa","uru"]},
+  {"g":"I","color":"#2563eb","teams":["fra","sen","irq","nor"]},
+  {"g":"J","color":"#db2777","teams":["arg","alg","aut","jor"]},
+  {"g":"K","color":"#15803d","teams":["por","cod","uzb","col"]},
+  {"g":"L","color":"#4f46e5","teams":["eng","cro","gha","pan"]}
 ]

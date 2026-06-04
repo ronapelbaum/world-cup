@@ -201,8 +201,10 @@ h1{font-size:clamp(32px,7.5vw,50px);color:#fff;font-weight:900;text-shadow:0 3px
 .gtable .tm .gf{font-size:21px;margin-inline-end:7px;}
 .gtable .rk{color:var(--ink-soft);font-weight:900;width:30px;}
 .gtable .pts{font-weight:900;color:var(--ink);font-size:17px;}
-.grow{cursor:pointer;transition:background .12s;}
-.grow:hover{background:#f1f6fc;}
+.grow{transition:background .12s;}
+.grow.haspage{cursor:pointer;}
+.grow.haspage:hover{background:#f1f6fc;}
+.grow .goarrow{font-size:13px;opacity:.7;}
 
 /* STADIUM MAP */
 .map-card{background:#fff;border:4px solid var(--ink);border-radius:24px;padding:16px;box-shadow:var(--shadow-sm);margin-bottom:18px;}
@@ -273,8 +275,8 @@ footer{text-align:center;margin-top:30px;font-size:15px;font-weight:700;color:va
   </section>
 
   <section class="tabpanel" id="panel-groups">
-    <div class="section-title">🗂️ שלב הבתים — 4 בתים, 4 נבחרות בכל בית <span class="line"></span></div>
-    <p class="groups-note">הגרלת בתים לדוגמה (16 הנבחרות שבמדריך). הטורניר עוד לא התחיל — לכן כל הנתונים מתחילים מ-0. לחצו על נבחרת כדי לעבור אליה! 👇</p>
+    <div class="section-title">🗂️ שלב הבתים — 12 בתים, 48 נבחרות <span class="line"></span></div>
+    <p class="groups-note">ההגרלה הרשמית של מונדיאל 2026! הטורניר עוד לא התחיל — לכן כל הנתונים מתחילים מ-0. נבחרות שמסומנות 👆 מובילות עם עמוד מלא — לחצו עליהן כדי לגלות את הסגל!</p>
     <div class="groups-grid" id="groupsWrap"></div>
   </section>
 
@@ -333,6 +335,7 @@ let TIMELINE = [];      // schedule.json
 let STRUCTURE = {};     // structure.json
 let STADIUMS = [];      // stadiums.json
 let GROUPS = [];        // groups.json
+let NATIONS = {};       // nations.json (flag+name for all 48)
 let activeTeam = null;
 
 /* ===== DATA LOADER ===== */
@@ -344,16 +347,17 @@ async function loadJSON(path){
 async function bootstrap(){
   try{
     const base='./data/';
-    const [positions,structure,schedule,stadiums,groups,manifest] = await Promise.all([
+    const [positions,structure,schedule,stadiums,groups,nations,manifest] = await Promise.all([
       loadJSON(base+'positions.json'),
       loadJSON(base+'structure.json'),
       loadJSON(base+'schedule.json'),
       loadJSON(base+'stadiums.json'),
       loadJSON(base+'groups.json'),
+      loadJSON(base+'nations.json'),
       loadJSON(base+'manifest.json'),
     ]);
     const teams = await Promise.all(manifest.map(id=>loadJSON(base+'teams/'+id+'.json')));
-    LINE = positions; STRUCTURE = structure; TIMELINE = schedule; STADIUMS = stadiums; GROUPS = groups;
+    LINE = positions; STRUCTURE = structure; TIMELINE = schedule; STADIUMS = stadiums; GROUPS = groups; NATIONS = nations;
     // flatten team colors to c1/c2 (prototype expects them at top level)
     teams.forEach(t=>{ if(t.colors){ t.c1=t.colors.c1; t.c2=t.colors.c2; } });
     TEAMS = teams;
@@ -386,15 +390,21 @@ function goToTeam(id){
   selectTeam(id);
   window.scrollTo({top:0,behavior:'smooth'});
 }
+/* flag + name for any of the 48; marks whether a full team page exists */
+function teamInfo(id){
+  const full=TEAMS.find(x=>x.id===id);
+  if(full) return {name:full.name,flag:full.flag,full:true};
+  const n=NATIONS[id];
+  return n?{name:n.name,flag:n.flag,full:false}:{name:id,flag:'🏳️',full:false};
+}
 function renderGroups(){
   const el=document.getElementById('groupsWrap'); if(!el)return;
   el.innerHTML=GROUPS.map(grp=>{
     const rows=grp.teams.map((id,i)=>{
-      const t=TEAMS.find(x=>x.id===id);
-      if(!t) return '';
-      return `<tr class="grow" data-id="${id}">
+      const t=teamInfo(id);
+      return `<tr class="grow${t.full?' haspage':''}" data-id="${id}">
         <td class="rk">${i+1}</td>
-        <td class="tm"><span class="gf">${t.flag}</span>${t.name}</td>
+        <td class="tm"><span class="gf">${t.flag}</span>${t.name}${t.full?' <span class="goarrow">👆</span>':''}</td>
         <td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td>
       </tr>`;
     }).join('');
@@ -406,7 +416,7 @@ function renderGroups(){
       </table>
     </div>`;
   }).join('');
-  el.querySelectorAll('.grow').forEach(r=>{ r.onclick=()=>{ goToTeam(r.dataset.id); sfx.tab(); }; });
+  el.querySelectorAll('.grow.haspage').forEach(r=>{ r.onclick=()=>{ goToTeam(r.dataset.id); sfx.tab(); }; });
 }
 
 /* ===== SOUNDS ===== */
