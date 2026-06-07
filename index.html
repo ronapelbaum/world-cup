@@ -806,7 +806,9 @@ function refreshFavViewIfOpen(){ const v=document.getElementById('fun-favs'); if
 
 /* ===== MATCHES (next 3 viewable, 16:00–23:00 IL) ===== */
 const HE_MONTH=['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
+const HE_DAY=['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
 function heDate(iso){ const p=iso.split('-').map(Number); return p[2]+' ב'+HE_MONTH[p[1]-1]+' '+p[0]; }
+function heWeekday(iso){ const p=iso.split('-').map(Number); return 'יום '+HE_DAY[new Date(p[0],p[1]-1,p[2]).getDay()]; }
 function renderMatches(){
   const el=document.getElementById('matchesWrap'); if(!el)return;
   const now=new Date();   // device assumed to be in Israel time
@@ -819,7 +821,7 @@ function renderMatches(){
     const side=(t,id)=>`<div class="match-side${t.full?' clk':''}" ${t.full?`data-id="${id}"`:''}>
       <span class="mflag">${t.flag}</span><span class="mname">${t.name}</span></div>`;
     return `<div class="match-card">
-      <div class="match-when">🗓️ ${heDate(m.date)} <span>⏰ ${m.time}</span>
+      <div class="match-when">🗓️ ${heWeekday(m.date)}, ${heDate(m.date)} <span>⏰ ${m.time}</span>
         <span class="grp">בית ${m.group}</span><span class="city">📍 ${m.cityHe}</span></div>
       <div class="match-teams">${side(h,m.home)}<span class="match-vs">VS</span>${side(a,m.away)}</div>
     </div>`;
