@@ -209,6 +209,41 @@ h1{font-size:clamp(32px,7.5vw,50px);color:#fff;font-weight:900;text-shadow:0 3px
 .grow.haspage:hover{background:#f1f6fc;}
 .grow .goarrow{font-size:13px;opacity:.7;}
 
+/* FUN HUB */
+.subpills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
+.subpill{border:3px solid var(--ink);background:#fff;color:var(--ink);font-family:inherit;font-weight:900;
+  font-size:16px;padding:9px 16px;border-radius:999px;cursor:pointer;box-shadow:var(--shadow-sm);transition:transform .12s,background .2s;}
+.subpill:hover{transform:translateY(-2px);}
+.subpill.active{background:var(--sun);transform:scale(1.04);}
+.fav-empty{background:#fff;border:3px dashed var(--ink-soft);border-radius:18px;padding:26px;text-align:center;font-weight:800;font-size:17px;color:var(--ink-soft);line-height:1.6;}
+.fav-sec-title{font-weight:900;font-size:19px;margin:14px 2px 10px;display:flex;align-items:center;gap:8px;}
+.fav-chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:8px;}
+.heart{cursor:pointer;border:none;background:rgba(255,255,255,.92);font-size:24px;line-height:1;padding:4px 8px;border-radius:999px;box-shadow:0 3px 0 rgba(0,0,0,.15);transition:transform .12s;}
+.heart:hover{transform:scale(1.18);}
+.legend-era{display:inline-block;font-size:12.5px;font-weight:800;color:#fff;background:rgba(0,0,0,.28);padding:2px 10px;border-radius:999px;margin-top:6px;}
+
+/* RECORDS */
+.records-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px;}
+.record-card{background:#fff;border:4px solid var(--ink);border-radius:20px;padding:16px;box-shadow:var(--shadow-sm);text-align:center;}
+.record-card .ic{font-size:40px;line-height:1;}
+.record-card .rt{font-weight:900;font-size:15.5px;margin-top:6px;color:var(--ink-soft);}
+.record-card .rv{font-weight:900;font-size:22px;margin:6px 0;color:var(--coral);}
+.record-card .rd{font-size:14.5px;font-weight:600;line-height:1.45;}
+
+/* MATCHES */
+.match-card{background:#fff;border:4px solid var(--ink);border-radius:20px;padding:14px 16px;box-shadow:var(--shadow-sm);margin-bottom:14px;}
+.match-when{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-weight:900;color:var(--sky-2);font-size:15.5px;margin-bottom:12px;}
+.match-when .grp{background:var(--ink);color:#fff;border-radius:999px;padding:3px 11px;font-size:13px;}
+.match-when .city{color:var(--ink-soft);font-weight:800;}
+.match-teams{display:flex;align-items:center;justify-content:center;gap:12px;}
+.match-side{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;transition:transform .12s;}
+.match-side.clk{cursor:pointer;}
+.match-side.clk:hover{transform:translateY(-3px);}
+.match-side .mflag{font-size:48px;line-height:1;}
+.match-side .mflag .flagimg{width:1em;}
+.match-side .mname{font-weight:900;font-size:16.5px;text-align:center;}
+.match-vs{font-weight:900;font-size:18px;color:var(--coral);background:#fff7df;border:2px solid var(--sun-deep);border-radius:12px;padding:7px 12px;}
+
 /* STADIUM MAP */
 .map-card{background:#fff;border:4px solid var(--ink);border-radius:24px;padding:16px;box-shadow:var(--shadow-sm);margin-bottom:18px;}
 .smap-wrap{background:#cdeafe;border:3px solid var(--ink);border-radius:18px;overflow:hidden;}
@@ -263,9 +298,10 @@ footer{text-align:center;margin-top:30px;font-size:15px;font-weight:700;color:va
   <nav class="toptabs">
     <button class="toptab active" data-panel="teams">⚽ הנבחרות</button>
     <button class="toptab" data-panel="groups">🗂️ הבתים</button>
+    <button class="toptab" data-panel="fun">🎮 כיף</button>
     <button class="toptab" data-panel="how">📊 איך זה עובד</button>
-    <button class="toptab" data-panel="time">📅 קו הזמן</button>
     <button class="toptab" data-panel="map">🗺️ מפת האצטדיונים</button>
+    <button class="toptab" data-panel="matches">📺 משחקים</button>
   </nav>
 
   <section class="tabpanel show" id="panel-teams">
@@ -306,10 +342,7 @@ footer{text-align:center;margin-top:30px;font-size:15px;font-weight:700;color:va
       <p>תיקו אחרי 90 דקות? הולכים ל<b>הארכה</b> (עוד 30 דקות). עדיין תיקו? <b>פנדלים</b> מותחים! 🥅</p>
       <div id="knockoutBracket"></div>
     </div>
-  </section>
-
-  <section class="tabpanel" id="panel-time">
-    <div class="section-title">📅 כל התחנות בדרך לגמר <span class="line"></span></div>
+    <div class="section-title">📅 קו הזמן — כל התחנות בדרך לגמר <span class="line"></span></div>
     <div class="timeline" id="timeline"></div>
   </section>
 
@@ -322,7 +355,26 @@ footer{text-align:center;margin-top:30px;font-size:15px;font-weight:700;color:va
     </div>
   </section>
 
-  <footer>נבנה לכבוד מונדיאל 2026 · 16 נבחרות נבחרות · המידע להמחשה ולומדה</footer>
+  <section class="tabpanel" id="panel-fun">
+    <div class="subpills" id="funPills">
+      <button class="subpill active" data-fun="favs">⭐ המועדפים שלי</button>
+      <button class="subpill" data-fun="quiz">🧠 חידון ענק</button>
+      <button class="subpill" data-fun="legends">🏆 אגדות</button>
+      <button class="subpill" data-fun="records">🥇 שיאים</button>
+    </div>
+    <div class="funview" id="fun-favs"></div>
+    <div class="funview" id="fun-quiz" style="display:none"></div>
+    <div class="funview" id="fun-legends" style="display:none"></div>
+    <div class="funview" id="fun-records" style="display:none"></div>
+  </section>
+
+  <section class="tabpanel" id="panel-matches">
+    <div class="section-title">📺 המשחקים הקרובים לצפייה <span class="line"></span></div>
+    <p class="groups-note">המשחקים הבאים שמשחקים בשעה נוחה לצפייה בישראל (בין 16:00 ל-23:00). שאר המשחקים באמצע הלילה 😴</p>
+    <div id="matchesWrap"></div>
+  </section>
+
+  <footer>נבנה לכבוד מונדיאל 2026 · 16 נבחרות מובחרות + כל 48 בהגרלה · המידע להמחשה ולומדה</footer>
 </div>
 
 <!-- MODAL -->
@@ -339,7 +391,14 @@ let STRUCTURE = {};     // structure.json
 let STADIUMS = [];      // stadiums.json
 let GROUPS = [];        // groups.json
 let NATIONS = {};       // nations.json (flag+name for all 48)
+let MATCHES = [];       // matches.json
+let LEGENDS = [];       // legends.json
+let RECORDS = [];       // records.json
 let activeTeam = null;
+
+/* ===== localStorage helpers (state: favorites, quiz best) ===== */
+function lsGet(key,def){ try{ const v=localStorage.getItem(key); return v==null?def:JSON.parse(v); }catch(e){ return def; } }
+function lsSet(key,val){ try{ localStorage.setItem(key,JSON.stringify(val)); }catch(e){} }
 
 /* ===== DATA LOADER ===== */
 async function loadJSON(path){
@@ -350,17 +409,21 @@ async function loadJSON(path){
 async function bootstrap(){
   try{
     const base='./data/';
-    const [positions,structure,schedule,stadiums,groups,nations,manifest] = await Promise.all([
+    const [positions,structure,schedule,stadiums,groups,nations,matches,legends,records,manifest] = await Promise.all([
       loadJSON(base+'positions.json'),
       loadJSON(base+'structure.json'),
       loadJSON(base+'schedule.json'),
       loadJSON(base+'stadiums.json'),
       loadJSON(base+'groups.json'),
       loadJSON(base+'nations.json'),
+      loadJSON(base+'matches.json'),
+      loadJSON(base+'legends.json'),
+      loadJSON(base+'records.json'),
       loadJSON(base+'manifest.json'),
     ]);
     const teams = await Promise.all(manifest.map(id=>loadJSON(base+'teams/'+id+'.json')));
     LINE = positions; STRUCTURE = structure; TIMELINE = schedule; STADIUMS = stadiums; GROUPS = groups; NATIONS = nations;
+    MATCHES = matches; LEGENDS = legends; RECORDS = records;
     // flatten team colors to c1/c2 (prototype expects them at top level)
     teams.forEach(t=>{ if(t.colors){ t.c1=t.colors.c1; t.c2=t.colors.c2; } });
     TEAMS = teams;
@@ -383,6 +446,8 @@ function init(){
   renderPointsButtons();
   renderStadiumMap();
   renderGroups();
+  renderMatches();
+  initFunHub();
 }
 
 /* ===== GROUP TABLES ===== */
@@ -530,7 +595,7 @@ function renderTeam(id){
   teamContent.innerHTML=`
     <div class="hero" style="background:linear-gradient(135deg,${t.c2},${t.c1})">
       <div class="big-flag">${t.flag}</div>
-      <div class="hero-txt"><h2>${t.name}</h2>${t.nick?`<div class="nick">${t.nick}</div>`:''}
+      <div class="hero-txt"><h2>${t.name} <button class="heart" data-fav-team="${t.id}">${isFavTeam(t.id)?'❤️':'🤍'}</button></h2>${t.nick?`<div class="nick">${t.nick}</div>`:''}
       <div class="funstat">${t.funstat}</div></div>
     </div>
     <div class="section-title">⭐ הכוכבים הבולטים <span class="line"></span></div>
@@ -544,6 +609,8 @@ function renderTeam(id){
     el.onclick=()=>openModal(el.dataset.team,+el.dataset.num);
   });
   attachFallbacks(teamContent);
+  const th=teamContent.querySelector('.heart[data-fav-team]');
+  if(th) th.onclick=(e)=>{ e.stopPropagation(); th.textContent=toggleFavTeam(t.id)?'❤️':'🤍'; };
   buildQuiz(t);
 }
 
@@ -559,6 +626,7 @@ function openModal(teamId,num){
       <div class="modal-pic">${picInner(p,t)}</div>
       <div class="modal-name">${p.n} <span class="modal-flag">${t.flag}</span></div>
       <div class="modal-role">${p.role}</div>
+      <button class="heart" data-fav-player="${teamId}:${num}" style="margin-top:8px">${isFavPlayer(teamId+':'+num)?'❤️ במועדפים':'🤍 הוסף למועדפים'}</button>
     </div>
     <div class="modal-body">
       <div class="stat-grid">
@@ -571,6 +639,8 @@ function openModal(teamId,num){
       ${p.know?`<div class="factbox know"><span class="h">🤩 הידעת?</span>${p.know}</div>`:''}
     </div>`;
   attachFallbacks(modalEl);
+  const ph=modalEl.querySelector('.heart[data-fav-player]');
+  if(ph) ph.onclick=()=>{ const on=toggleFavPlayer(teamId+':'+num); ph.textContent=on?'❤️ במועדפים':'🤍 הוסף למועדפים'; };
   modalBg.classList.add('show');sfx.open();
 }
 function closeModal(){modalBg.classList.remove('show');}
@@ -724,6 +794,179 @@ function renderStadiumMap(){
     g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();select(+g.dataset.i);}});
   });
   legend.querySelectorAll('.scity').forEach(c=>{c.onclick=()=>select(+c.dataset.i);});
+}
+
+/* ===== FAVORITES (localStorage: wc_favs) ===== */
+function getFavs(){ const f=lsGet('wc_favs',{teams:[],players:[]}); f.teams=f.teams||[]; f.players=f.players||[]; return f; }
+function isFavTeam(id){ return getFavs().teams.includes(id); }
+function isFavPlayer(key){ return getFavs().players.includes(key); }
+function toggleFavTeam(id){ const f=getFavs(); const i=f.teams.indexOf(id); if(i<0)f.teams.push(id); else f.teams.splice(i,1); lsSet('wc_favs',f); sfx.click(); refreshFavViewIfOpen(); return i<0; }
+function toggleFavPlayer(key){ const f=getFavs(); const i=f.players.indexOf(key); if(i<0)f.players.push(key); else f.players.splice(i,1); lsSet('wc_favs',f); sfx.click(); refreshFavViewIfOpen(); return i<0; }
+function refreshFavViewIfOpen(){ const v=document.getElementById('fun-favs'); if(v && v.style.display!=='none' && document.getElementById('panel-fun').classList.contains('show')) renderFavs(); }
+
+/* ===== MATCHES (next 3 viewable, 16:00–23:00 IL) ===== */
+const HE_MONTH=['ינואר','פברואר','מרץ','אפריל','מאי','יוני','יולי','אוגוסט','ספטמבר','אוקטובר','נובמבר','דצמבר'];
+const HE_DAY=['ראשון','שני','שלישי','רביעי','חמישי','שישי','שבת'];
+function heDate(iso){ const p=iso.split('-').map(Number); return p[2]+' ב'+HE_MONTH[p[1]-1]+' '+p[0]; }
+function heWeekday(iso){ const p=iso.split('-').map(Number); return 'יום '+HE_DAY[new Date(p[0],p[1]-1,p[2]).getDay()]; }
+function renderMatches(){
+  const el=document.getElementById('matchesWrap'); if(!el)return;
+  const now=new Date();   // device assumed to be in Israel time
+  const up=MATCHES.filter(m=>m.viewable)
+    .map(m=>({m,dt:new Date(m.date+'T'+m.time+':00')}))
+    .filter(x=>x.dt>=now).sort((a,b)=>a.dt-b.dt).slice(0,3);
+  if(!up.length){ el.innerHTML='<div class="fav-empty">אין כרגע משחקים קרובים לצפייה 📺<br>נתראה במונדיאל הבא!</div>'; return; }
+  el.innerHTML=up.map(({m})=>{
+    const h=teamInfo(m.home), a=teamInfo(m.away);
+    const side=(t,id)=>`<div class="match-side${t.full?' clk':''}" ${t.full?`data-id="${id}"`:''}>
+      <span class="mflag">${t.flag}</span><span class="mname">${t.name}</span></div>`;
+    return `<div class="match-card">
+      <div class="match-when">🗓️ ${heWeekday(m.date)}, ${heDate(m.date)} <span>⏰ ${m.time}</span>
+        <span class="grp">בית ${m.group}</span><span class="city">📍 ${m.cityHe}</span></div>
+      <div class="match-teams">${side(h,m.home)}<span class="match-vs">VS</span>${side(a,m.away)}</div>
+    </div>`;
+  }).join('');
+  el.querySelectorAll('.match-side.clk').forEach(s=>{ s.onclick=()=>{ goToTeam(s.dataset.id); sfx.tab(); }; });
+}
+
+/* ===== FUN HUB ===== */
+function initFunHub(){
+  renderFavs(); renderLegends(); renderRecords();
+  document.querySelectorAll('#funPills .subpill').forEach(p=>{
+    p.onclick=()=>{
+      document.querySelectorAll('#funPills .subpill').forEach(x=>x.classList.toggle('active',x===p));
+      const which=p.dataset.fun;
+      ['favs','quiz','legends','records'].forEach(k=>{ document.getElementById('fun-'+k).style.display = k===which?'block':'none'; });
+      if(which==='quiz') startGlobalQuiz();
+      if(which==='favs') renderFavs();
+      sfx.tab();
+    };
+  });
+}
+
+function renderFavs(){
+  const el=document.getElementById('fun-favs'); if(!el)return;
+  const f=getFavs();
+  if(!f.teams.length && !f.players.length){
+    el.innerHTML='<div class="fav-empty">עוד לא אספת מועדפים ⭐<br>היכנסו לנבחרת או לשחקן ולחצו על הלב 🤍 כדי להוסיף אותם לכאן!</div>';
+    return;
+  }
+  let h='';
+  if(f.teams.length){
+    const chips=f.teams.map(id=>{ const t=TEAMS.find(x=>x.id===id); if(!t)return'';
+      return `<span class="teamtab" style="background:${t.c2};color:#fff;width:auto" data-goid="${id}"><span class="fl">${t.flag}</span> ${t.name}</span>`; }).join('');
+    h+=`<div class="fav-sec-title">⭐ הנבחרות שלי</div><div class="fav-chips">${chips}</div>`;
+  }
+  if(f.players.length){
+    const cards=f.players.map(key=>{
+      const ci=key.lastIndexOf(':'); const tid=key.slice(0,ci), num=key.slice(ci+1);
+      const t=TEAMS.find(x=>x.id===tid); if(!t)return'';
+      const p=t.players.find(x=>String(x.num)===num); if(!p)return'';
+      return `<div class="pcard" data-team="${tid}" data-num="${num}">
+        <div class="pic" style="border-color:${t.c2}">${picInner(p,t)}</div>
+        <div class="pname">${p.n} ${t.flag}</div>
+        <div class="prole" style="background:${LINE[p.line].color}">${p.role}</div></div>`;
+    }).join('');
+    h+=`<div class="fav-sec-title">⭐ השחקנים שלי</div><div class="cards">${cards}</div>`;
+  }
+  el.innerHTML=h;
+  el.querySelectorAll('[data-goid]').forEach(c=>{ c.style.cursor='pointer'; c.onclick=()=>{ goToTeam(c.dataset.goid); sfx.tab(); }; });
+  el.querySelectorAll('.pcard[data-num]').forEach(c=>{ c.onclick=()=>openModal(c.dataset.team,+c.dataset.num); });
+  attachFallbacks(el);
+}
+
+/* ===== GLOBAL QUIZ (pool from all team quizzes; best in localStorage) ===== */
+function startGlobalQuiz(){
+  const el=document.getElementById('fun-quiz'); if(!el)return;
+  let pool=[];
+  TEAMS.forEach(t=>{ (t.quiz||[]).forEach(q=>pool.push({q:q.q,o:q.o,a:q.a,team:t.name})); });
+  for(let i=pool.length-1;i>0;i--){ const j=Math.floor(Math.random()*(i+1)); [pool[i],pool[j]]=[pool[j],pool[i]]; }
+  const qs=pool.slice(0,10); let idx=0,score=0; const best=lsGet('wc_quiz_best',0);
+  function render(){
+    if(idx>=qs.length){
+      const isBest=score>best; if(isBest) lsSet('wc_quiz_best',score);
+      const pct=score/qs.length; const medal=pct>=0.9?'🥇':pct>=0.6?'🥈':pct>=0.3?'🥉':'💪';
+      el.innerHTML=`<div class="quiz"><h3>🧠 חידון ענק</h3>
+        <div class="qdone">${medal} סיימת! ${score} מתוך ${qs.length}
+        <div style="font-size:15px;margin-top:6px">השיא שלך: ${Math.max(best,score)}</div>
+        ${isBest?'<div style="font-size:16px;margin-top:4px">🎉 שיא חדש!</div>':''}
+        <div style="margin-top:12px"><button class="qnext" id="gq-again">שחק שוב 🔄</button></div></div></div>`;
+      document.getElementById('gq-again').onclick=()=>{ startGlobalQuiz(); sfx.click(); };
+      if(isBest){ sfx.win(); confetti(); }
+      return;
+    }
+    const q=qs[idx];
+    el.innerHTML=`<div class="quiz"><h3>🧠 חידון ענק</h3>
+      <div class="qsub">שאלה ${idx+1} מתוך ${qs.length} · על ${q.team}</div>
+      <div class="qtext">${q.q}</div>
+      <div class="qopts">${q.o.map((o,i)=>`<button class="qopt" data-i="${i}">${o}</button>`).join('')}</div>
+      <div class="qfoot"><span class="qscore">⭐ ניקוד: ${score}</span></div></div>`;
+    el.querySelectorAll('.qopt').forEach(btn=>{
+      btn.onclick=()=>{
+        const i=+btn.dataset.i;
+        el.querySelectorAll('.qopt').forEach(b=>b.disabled=true);
+        if(i===q.a){ btn.classList.add('correct'); score++; sfx.right(); }
+        else{ btn.classList.add('wrong'); sfx.wrong(); el.querySelectorAll('.qopt')[q.a].classList.add('correct'); }
+        const foot=el.querySelector('.qfoot'); const nx=document.createElement('button'); nx.className='qnext';
+        nx.textContent=idx===qs.length-1?'לתוצאה הסופית 🏁':'הבאה ⏭️';
+        nx.onclick=()=>{ idx++; render(); sfx.click(); };
+        foot.appendChild(nx); el.querySelector('.qscore').textContent='⭐ ניקוד: '+score;
+      };
+    });
+  }
+  render();
+}
+
+/* ===== LEGENDS ===== */
+function legendAvatar(c){ return `<svg viewBox="0 0 120 120" width="100%" height="100%"><rect width="120" height="120" fill="${c}"/><text x="60" y="82" font-size="58" text-anchor="middle">🏆</text></svg>`; }
+const LEG_COLORS=['#1f8fe0','#16a34a','#ff5d5d','#7c3aed','#ea580c','#0891b2','#d52b1e','#ca8a04','#2563eb','#db2777'];
+function legendPic(lg,i){
+  const c=LEG_COLORS[i%LEG_COLORS.length];
+  return lg.en?`<img src="./player_images/${lg.en}.jpg" alt="${lg.name}" loading="lazy" data-lg="${i}">`:legendAvatar(c);
+}
+function attachLegendFallback(root){
+  root.querySelectorAll('img[data-lg]').forEach(img=>{
+    const swap=()=>{ img.outerHTML=legendAvatar(LEG_COLORS[(+img.dataset.lg)%LEG_COLORS.length]); };
+    img.addEventListener('error',swap);
+    if(img.complete && img.naturalWidth===0) swap();
+  });
+}
+function renderLegends(){
+  const el=document.getElementById('fun-legends'); if(!el)return;
+  el.innerHTML=`<div class="section-title">🏆 אגדות הכדורגל <span class="line"></span></div><div class="cards">`+
+    LEGENDS.map((lg,i)=>{ const c=LEG_COLORS[i%LEG_COLORS.length];
+      return `<div class="pcard" data-lg="${i}">
+        <div class="pic" style="border-color:${c}">${legendPic(lg,i)}</div>
+        <div class="pname">${lg.name} ${lg.flag}</div>
+        <div class="legend-era" style="background:${c}">${lg.era}</div></div>`;
+    }).join('')+`</div>`;
+  attachLegendFallback(el);
+  el.querySelectorAll('.pcard[data-lg]').forEach(c=>{ c.onclick=()=>openLegendModal(+c.dataset.lg); });
+}
+function openLegendModal(i){
+  const lg=LEGENDS[i];
+  modalEl.innerHTML=`
+    <div class="modal-top" style="background:linear-gradient(140deg,#13233b,#3a5172)">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-pic">${legendPic(lg,i)}</div>
+      <div class="modal-name">${lg.name} <span class="modal-flag">${lg.flag}</span></div>
+      <div class="modal-role">${lg.role} · ${lg.era}</div>
+    </div>
+    <div class="modal-body">
+      <div class="factbox fun"><span class="h">💡 עובדה מגניבה</span>${lg.fact}</div>
+      ${lg.know?`<div class="factbox know"><span class="h">🤩 הידעת?</span>${lg.know}</div>`:''}
+    </div>`;
+  attachLegendFallback(modalEl);
+  modalBg.classList.add('show'); sfx.open();
+}
+
+/* ===== RECORDS ===== */
+function renderRecords(){
+  const el=document.getElementById('fun-records'); if(!el)return;
+  el.innerHTML=`<div class="section-title">🥇 שיאים ושיאנים <span class="line"></span></div>
+    <div class="records-grid">`+RECORDS.map(r=>`<div class="record-card">
+      <div class="ic">${r.icon}</div><div class="rt">${r.title}</div>
+      <div class="rv">${r.value}</div><div class="rd">${r.detail}</div></div>`).join('')+`</div>`;
 }
 
 /* ===== TOP TABS ===== */

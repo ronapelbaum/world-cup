@@ -1,0 +1,402 @@
+[
+{
+"n": 1,
+"date": "2026-06-11",
+"time": "22:00",
+"group": "A",
+"home": "mex",
+"away": "rsa",
+"cityHe": "מקסיקו סיטי",
+"viewable": true
+},
+{
+"n": 2,
+"date": "2026-06-12",
+"time": "05:00",
+"group": "A",
+"home": "kor",
+"away": "cze",
+"cityHe": "גוודלחרה",
+"viewable": false
+},
+{
+"n": 3,
+"date": "2026-06-12",
+"time": "22:00",
+"group": "B",
+"home": "can",
+"away": "bih",
+"cityHe": "טורונטו",
+"viewable": true
+},
+{
+"n": 4,
+"date": "2026-06-13",
+"time": "04:00",
+"group": "D",
+"home": "usa",
+"away": "par",
+"cityHe": "לוס אנג'לס",
+"viewable": false
+},
+{
+"n": 5,
+"date": "2026-06-13",
+"time": "22:00",
+"group": "B",
+"home": "qat",
+"away": "sui",
+"cityHe": "מפרץ סן פרנסיסקו",
+"viewable": true
+},
+{
+"n": 6,
+"date": "2026-06-14",
+"time": "01:00",
+"group": "C",
+"home": "bra",
+"away": "mar",
+"cityHe": "ניו יורק / ניו ג'רזי",
+"viewable": false
+},
+{
+"n": 7,
+"date": "2026-06-14",
+"time": "04:00",
+"group": "C",
+"home": "hai",
+"away": "sco",
+"cityHe": "בוסטון",
+"viewable": false
+},
+{
+"n": 8,
+"date": "2026-06-14",
+"time": "07:00",
+"group": "D",
+"home": "aus",
+"away": "tur",
+"cityHe": "ונקובר",
+"viewable": false
+},
+{
+"n": 9,
+"date": "2026-06-14",
+"time": "20:00",
+"group": "E",
+"home": "ger",
+"away": "cuw",
+"cityHe": "יוסטון",
+"viewable": true
+},
+{
+"n": 10,
+"date": "2026-06-14",
+"time": "23:00",
+"group": "F",
+"home": "ned",
+"away": "jpn",
+"cityHe": "דאלאס",
+"viewable": true
+},
+{
+"n": 11,
+"date": "2026-06-15",
+"time": "02:00",
+"group": "E",
+"home": "civ",
+"away": "ecu",
+"cityHe": "פילדלפיה",
+"viewable": false
+},
+{
+"n": 12,
+"date": "2026-06-15",
+"time": "05:00",
+"group": "F",
+"home": "swe",
+"away": "tun",
+"cityHe": "מונטריי",
+"viewable": false
+},
+{
+"n": 13,
+"date": "2026-06-15",
+"time": "19:00",
+"group": "H",
+"home": "esp",
+"away": "cpv",
+"cityHe": "אטלנטה",
+"viewable": true
+},
+{
+"n": 14,
+"date": "2026-06-15",
+"time": "22:00",
+"group": "G",
+"home": "bel",
+"away": "egy",
+"cityHe": "סיאטל",
+"viewable": true
+},
+{
+"n": 15,
+"date": "2026-06-16",
+"time": "01:00",
+"group": "H",
+"home": "ksa",
+"away": "uru",
+"cityHe": "מיאמי",
+"viewable": false
+},
+{
+"n": 16,
+"date": "2026-06-16",
+"time": "04:00",
+"group": "G",
+"home": "irn",
+"away": "nzl",
+"cityHe": "לוס אנג'לס",
+"viewable": false
+},
+{
+"n": 17,
+"date": "2026-06-16",
+"time": "22:00",
+"group": "I",
+"home": "fra",
+"away": "sen",
+"cityHe": "ניו יורק / ניו ג'רזי",
+"viewable": true
+},
+{
+"n": 18,
+"date": "2026-06-17",
+"time": "01:00",
+"group": "I",
+"home": "irq",
+"away": "nor",
+"cityHe": "בוסטון",
+"viewable": false
+},
+{
+"n": 19,
+"date": "2026-06-17",
+"time": "04:00",
+"group": "J",
+"home": "arg",
+"away": "alg",
+"cityHe": "קנזס סיטי",
+"viewable": false
+},
+{
+"n": 20,
+"date": "2026-06-17",
+"time": "07:00",
+"group": "J",
+"home": "aut",
+"away": "jor",
+"cityHe": "מפרץ סן פרנסיסקו",
+"viewable": false
+},
+{
+"n": 21,
+"date": "2026-06-17",
+"time": "20:00",
+"group": "K",
+"home": "por",
+"away": "cod",
+"cityHe": "יוסטון",
+"viewable": true
+},
+{
+"n": 22,
+"date": "2026-06-17",
+"time": "23:00",
+"group": "L",
+"home": "eng",
+"away": "cro",
+"cityHe": "דאלאס",
+"viewable": true
+},
+{
+"n": 23,
+"date": "2026-06-18",
+"time": "02:00",
+"group": "L",
+"home": "gha",
+"away": "pan",
+"cityHe": "טורונטו",
+"viewable": false
+},
+{
+"n": 24,
+"date": "2026-06-18",
+"time": "05:00",
+"group": "K",
+"home": "uzb",
+"away": "col",
+"cityHe": "מקסיקו סיטי",
+"viewable": false
+},
+{
+"n": 25,
+"date": "2026-06-18",
+"time": "19:00",
+"group": "A",
+"home": "cze",
+"away": "rsa",
+"cityHe": "אטלנטה",
+"viewable": true
+},
+{
+"n": 26,
+"date": "2026-06-18",
+"time": "22:00",
+"group": "B",
+"home": "sui",
+"away": "bih",
+"cityHe": "לוס אנג'לס",
+"viewable": true
+},
+{
+"n": 27,
+"date": "2026-06-19",
+"time": "01:00",
+"group": "B",
+"home": "can",
+"away": "qat",
+"cityHe": "ונקובר",
+"viewable": false
+},
+{
+"n": 28,
+"date": "2026-06-19",
+"time": "04:00",
+"group": "A",
+"home": "mex",
+"away": "kor",
+"cityHe": "גוודלחרה",
+"viewable": false
+},
+{
+"n": 29,
+"date": "2026-06-19",
+"time": "22:00",
+"group": "D",
+"home": "usa",
+"away": "aus",
+"cityHe": "סיאטל",
+"viewable": true
+},
+{
+"n": 30,
+"date": "2026-06-20",
+"time": "01:00",
+"group": "C",
+"home": "sco",
+"away": "mar",
+"cityHe": "בוסטון",
+"viewable": false
+},
+{
+"n": 31,
+"date": "2026-06-20",
+"time": "03:30",
+"group": "C",
+"home": "bra",
+"away": "hai",
+"cityHe": "פילדלפיה",
+"viewable": false
+},
+{
+"n": 32,
+"date": "2026-06-20",
+"time": "06:00",
+"group": "D",
+"home": "tur",
+"away": "par",
+"cityHe": "מפרץ סן פרנסיסקו",
+"viewable": false
+},
+{
+"n": 33,
+"date": "2026-06-20",
+"time": "20:00",
+"group": "F",
+"home": "ned",
+"away": "swe",
+"cityHe": "יוסטון",
+"viewable": true
+},
+{
+"n": 34,
+"date": "2026-06-20",
+"time": "23:00",
+"group": "E",
+"home": "ger",
+"away": "civ",
+"cityHe": "טורונטו",
+"viewable": true
+},
+{
+"n": 35,
+"date": "2026-06-21",
+"time": "03:00",
+"group": "E",
+"home": "ecu",
+"away": "cuw",
+"cityHe": "קנזס סיטי",
+"viewable": false
+},
+{
+"n": 36,
+"date": "2026-06-21",
+"time": "07:00",
+"group": "F",
+"home": "tun",
+"away": "jpn",
+"cityHe": "מונטריי",
+"viewable": false
+},
+{
+"n": 37,
+"date": "2026-06-21",
+"time": "19:00",
+"group": "H",
+"home": "esp",
+"away": "ksa",
+"cityHe": "אטלנטה",
+"viewable": true
+},
+{
+"n": 38,
+"date": "2026-06-21",
+"time": "22:00",
+"group": "G",
+"home": "bel",
+"away": "irn",
+"cityHe": "לוס אנג'לס",
+"viewable": true
+},
+{
+"n": 39,
+"date": "2026-06-22",
+"time": "01:00",
+"group": "H",
+"home": "uru",
+"away": "cpv",
+"cityHe": "מיאמי",
+"viewable": false
+},
+{
+"n": 40,
+"date": "2026-06-22",
+"time": "04:00",
+"group": "G",
+"home": "nzl",
+"away": "egy",
+"cityHe": "ונקובר",
+"viewable": false
+}
+]
