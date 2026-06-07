@@ -1,5 +1,7 @@
 # המדריך הגדול למונדיאל 2026 ⚽
 
+[![Lint](https://github.com/ronapelbaum/world-cup/actions/workflows/lint.yml/badge.svg)](https://github.com/ronapelbaum/world-cup/actions/workflows/lint.yml)
+
 אפליקציית ווב חינוכית וכיפית בעברית (RTL) שמלמדת ילדים על מונדיאל 2026 — 16 נבחרות מובילות,
 שחקנים, חידונים, איך הטורניר עובד וקו זמן. בסגנון אלבום מדבקות צבעוני.
 
@@ -60,6 +62,18 @@ git push
 
 ואז ב-GitHub: **Settings → Pages → Deploy from branch → `main` / root**.
 כל הנתיבים יחסיים, כך שהאתר עובד גם תחת תת-נתיב כמו `/world-cup/`.
+
+## CI — בדיקת קישורים (lint)
+
+`scripts/lint_assets.py` (ספריית תקן בלבד, ללא תלויות) בודק שהאפליקציה לא מפנה לקבצים חסרים:
+
+- **נכשל** אם קובץ `data/*.json` שמופיע ב-`index.html` חסר, אם נבחרת ב-`manifest.json` חסרה קובץ, או אם JSON לא תקין.
+- **אזהרה** (לא מפיל) על שחקן/אגדה שאין לו תמונה ב-`player_images/`.
+
+הרצה מקומית: `python3 scripts/lint_assets.py`
+
+ה-workflow מחכה ב-`ci/lint.yml`. **להפעלה**: העבירו אותו ל-`.github/workflows/lint.yml`
+(`git mv ci/lint.yml .github/workflows/lint.yml` לאחר `gh auth refresh -s workflow`, או הדביקו דרך GitHub → Actions → New workflow). מאז הוא ירוץ על כל PR ו-push ל-main.
 
 > המידע (סגלים, גילאים, מועדונים) הוא להמחשה ולומדה ועשוי להשתנות עד יוני 2026.
 > כינויי נבחרות שלא אומתו בעברית הושארו ריקים (ראו שדה `nickNote`).

@@ -1,0 +1,22 @@
+# ⚠️ To activate CI, move this file to .github/workflows/lint.yml
+# (it's parked here because the current push token lacks the GitHub `workflow` scope).
+# Either:  git mv ci/lint.yml .github/workflows/lint.yml   (after: gh auth refresh -s workflow)
+# or paste its contents via GitHub → Actions → New workflow.
+name: Lint
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  lint-assets:
+    name: HTML / dead-reference lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Run asset / dead-reference linter
+        run: python3 scripts/lint_assets.py
