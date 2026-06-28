@@ -238,6 +238,7 @@ h1{font-size:clamp(32px,7.5vw,50px);color:#fff;font-weight:900;text-shadow:0 3px
 .match-when{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-weight:900;color:var(--sky-2);font-size:15.5px;margin-bottom:12px;}
 .match-when .grp{background:var(--ink);color:#fff;border-radius:999px;padding:3px 11px;font-size:13px;}
 .match-when .city{color:var(--ink-soft);font-weight:800;}
+.match-when .late{color:var(--ink-soft);font-weight:800;background:#eef3f9;border-radius:999px;padding:2px 9px;font-size:13px;}
 .match-teams{display:flex;align-items:center;justify-content:center;gap:12px;}
 .match-side{display:flex;flex-direction:column;align-items:center;gap:6px;flex:1;transition:transform .12s;}
 .match-side.clk{cursor:pointer;}
@@ -415,8 +416,8 @@ footer{text-align:center;margin-top:30px;font-size:15px;font-weight:700;color:va
   </section>
 
   <section class="tabpanel" id="panel-matches">
-    <div class="section-title">📺 המשחקים הקרובים לצפייה <span class="line"></span></div>
-    <p class="groups-note">המשחקים הבאים שמשחקים בשעה נוחה לצפייה בישראל (בין 16:00 ל-23:00). שאר המשחקים באמצע הלילה 😴</p>
+    <div class="section-title">📺 המשחקים הקרובים <span class="line"></span></div>
+    <p class="groups-note">כל המשחקים הבאים לפי הסדר (שעון ישראל). משחקים שמסומנים 🌙 מתקיימים בשעה מאוחרת בלילה.</p>
     <div id="matchesWrap"></div>
   </section>
 
@@ -859,16 +860,16 @@ function heWeekday(iso){ const p=iso.split('-').map(Number); return 'יום '+HE
 function renderMatches(){
   const el=document.getElementById('matchesWrap'); if(!el)return;
   const now=new Date();   // device assumed to be in Israel time
-  const up=MATCHES.filter(m=>m.viewable)
+  const up=MATCHES
     .map(m=>({m,dt:new Date(m.date+'T'+m.time+':00')}))
-    .filter(x=>x.dt>=now).sort((a,b)=>a.dt-b.dt).slice(0,3);
-  if(!up.length){ el.innerHTML='<div class="fav-empty">אין כרגע משחקים קרובים לצפייה 📺<br>נתראה במונדיאל הבא!</div>'; return; }
+    .filter(x=>x.dt>=now).sort((a,b)=>a.dt-b.dt);   // all upcoming matches, any hour
+  if(!up.length){ el.innerHTML='<div class="fav-empty">אין כרגע משחקים קרובים 📅<br>נתראה במונדיאל הבא!</div>'; return; }
   el.innerHTML=up.map(({m})=>{
     const h=teamInfo(m.home), a=teamInfo(m.away);
     const side=(t,id)=>`<div class="match-side${t.full?' clk':''}" ${t.full?`data-id="${id}"`:''}>
       <span class="mflag">${t.flag}</span><span class="mname">${t.name}</span></div>`;
     return `<div class="match-card">
-      <div class="match-when">🗓️ ${heWeekday(m.date)}, ${heDate(m.date)} <span>⏰ ${m.time}</span>
+      <div class="match-when">🗓️ ${heWeekday(m.date)}, ${heDate(m.date)} <span>⏰ ${m.time}</span>${m.viewable?'':' <span class="late">🌙 שעה מאוחרת</span>'}
         <span class="grp">בית ${m.group}</span><span class="city">📍 ${m.cityHe}</span></div>
       <div class="match-teams">${side(h,m.home)}<span class="match-vs">VS</span>${side(a,m.away)}</div>
     </div>`;
