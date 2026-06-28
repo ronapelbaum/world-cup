@@ -244,6 +244,33 @@ h1{font-size:clamp(32px,7.5vw,50px);color:#fff;font-weight:900;text-shadow:0 3px
 .match-side .mname{font-weight:900;font-size:16.5px;text-align:center;}
 .match-vs{font-weight:900;font-size:18px;color:var(--coral);background:#fff7df;border:2px solid var(--sun-deep);border-radius:12px;padding:7px 12px;}
 
+/* KNOCKOUT SIMULATOR */
+.sim-bar{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:12px;}
+.sim-champ-label{font-weight:900;font-size:19px;color:var(--grass-dark);}
+.sim-reset{font-family:inherit;font-weight:900;font-size:15px;border:3px solid var(--ink);background:#fff;border-radius:14px;padding:8px 16px;cursor:pointer;box-shadow:var(--shadow-sm);transition:transform .1s;}
+.sim-reset:hover{transform:translateY(-2px);}
+.bracket-scroll{overflow:auto;border:3px solid var(--ink);border-radius:18px;background:#eaf4ff;padding:14px;max-height:78vh;-webkit-overflow-scrolling:touch;}
+.bracket{display:flex;gap:20px;direction:rtl;align-items:stretch;min-width:max-content;}
+.bracket-col{display:flex;flex-direction:column;min-width:178px;}
+.col-head{flex-shrink:0;text-align:center;font-weight:900;font-size:15px;color:#fff;background:var(--ink);border-radius:999px;padding:6px 10px;margin-bottom:10px;}
+.col-body{flex:1;display:flex;flex-direction:column;justify-content:space-around;gap:10px;}
+.ko-match{background:#fff;border:3px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm);}
+.ko-side{display:flex;align-items:center;gap:8px;padding:9px 11px;font-weight:800;font-size:15px;cursor:pointer;transition:background .15s,opacity .15s;}
+.ko-side+.ko-side{border-top:2px solid #eef3f9;}
+.ko-side .kf{font-size:22px;flex-shrink:0;line-height:1;}
+.ko-side .kf .flagimg{width:1em;}
+.ko-side .kn{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ko-side.pickable:hover{background:#e7f0fb;}
+.ko-side.win{background:#caf7d3;}
+.ko-side.lose{opacity:.4;text-decoration:line-through;}
+.ko-side.tbd{color:var(--ink-soft);cursor:default;font-weight:700;justify-content:center;}
+.ko-fill{animation:kopop .35s cubic-bezier(.34,1.56,.64,1);}
+@keyframes kopop{from{transform:scale(.8);opacity:.2}to{transform:scale(1);opacity:1}}
+.ko-final .ko-match{border-color:var(--sun-deep);box-shadow:0 0 0 3px var(--sun),var(--shadow-sm);}
+.ko-champ{background:linear-gradient(135deg,var(--sun),var(--sun-deep));border:3px solid var(--ink);border-radius:16px;padding:14px;text-align:center;font-weight:900;font-size:18px;margin-top:10px;box-shadow:var(--shadow-sm);}
+.ko-champ .cflag{font-size:44px;display:block;margin-bottom:4px;}
+.ko-champ .cflag .flagimg{width:1em;}
+
 /* STADIUM MAP */
 .map-card{background:#fff;border:4px solid var(--ink);border-radius:24px;padding:16px;box-shadow:var(--shadow-sm);margin-bottom:18px;}
 .smap-wrap{background:#cdeafe;border:3px solid var(--ink);border-radius:18px;overflow:hidden;}
@@ -302,6 +329,7 @@ footer{text-align:center;margin-top:30px;font-size:15px;font-weight:700;color:va
     <button class="toptab" data-panel="how">📊 איך זה עובד</button>
     <button class="toptab" data-panel="map">🗺️ מפת האצטדיונים</button>
     <button class="toptab" data-panel="matches">📺 משחקים</button>
+    <button class="toptab" data-panel="sim">🏆 נחשו אלופה</button>
   </nav>
 
   <section class="tabpanel show" id="panel-teams">
@@ -374,6 +402,16 @@ footer{text-align:center;margin-top:30px;font-size:15px;font-weight:700;color:va
     <div id="matchesWrap"></div>
   </section>
 
+  <section class="tabpanel" id="panel-sim">
+    <div class="section-title">🏆 נחשו את אלופת העולם <span class="line"></span></div>
+    <p class="groups-note">שלב הנוקאאוט מתחיל מהתוצאות האמיתיות של שלב הבתים! לחצו על הנבחרת שלדעתכם תנצח בכל משחק — והיא תעלה לשלב הבא, עד הגמר. 👈 גללו שמאלה כדי לעקוב אחרי הדרך לאליפות.</p>
+    <div class="sim-bar">
+      <span id="simChampLabel" class="sim-champ-label"></span>
+      <button class="sim-reset" id="simReset">🔄 התחל מחדש</button>
+    </div>
+    <div class="bracket-scroll" id="bracketScroll"><div class="bracket" id="bracket"></div></div>
+  </section>
+
   <footer>נבנה לכבוד מונדיאל 2026 · 16 נבחרות מובחרות + כל 48 בהגרלה · המידע להמחשה ולומדה</footer>
 </div>
 
@@ -394,6 +432,7 @@ let NATIONS = {};       // nations.json (flag+name for all 48)
 let MATCHES = [];       // matches.json
 let LEGENDS = [];       // legends.json
 let RECORDS = [];       // records.json
+let KNOCKOUT = {};      // knockout.json (bracket structure)
 let activeTeam = null;
 
 /* ===== localStorage helpers (state: favorites, quiz best) ===== */
@@ -409,7 +448,7 @@ async function loadJSON(path){
 async function bootstrap(){
   try{
     const base='./data/';
-    const [positions,structure,schedule,stadiums,groups,nations,matches,legends,records,manifest] = await Promise.all([
+    const [positions,structure,schedule,stadiums,groups,nations,matches,legends,records,knockout,manifest] = await Promise.all([
       loadJSON(base+'positions.json'),
       loadJSON(base+'structure.json'),
       loadJSON(base+'schedule.json'),
@@ -419,11 +458,12 @@ async function bootstrap(){
       loadJSON(base+'matches.json'),
       loadJSON(base+'legends.json'),
       loadJSON(base+'records.json'),
+      loadJSON(base+'knockout.json'),
       loadJSON(base+'manifest.json'),
     ]);
     const teams = await Promise.all(manifest.map(id=>loadJSON(base+'teams/'+id+'.json')));
     LINE = positions; STRUCTURE = structure; TIMELINE = schedule; STADIUMS = stadiums; GROUPS = groups; NATIONS = nations;
-    MATCHES = matches; LEGENDS = legends; RECORDS = records;
+    MATCHES = matches; LEGENDS = legends; RECORDS = records; KNOCKOUT = knockout;
     // flatten team colors to c1/c2 (prototype expects them at top level)
     teams.forEach(t=>{ if(t.colors){ t.c1=t.colors.c1; t.c2=t.colors.c2; } });
     TEAMS = teams;
@@ -448,6 +488,8 @@ function init(){
   renderGroups();
   renderMatches();
   initFunHub();
+  renderKnockoutSim();
+  document.getElementById('simReset').onclick=resetKO;
 }
 
 /* ===== GROUP TABLES ===== */
@@ -968,6 +1010,69 @@ function renderRecords(){
       <div class="ic">${r.icon}</div><div class="rt">${r.title}</div>
       <div class="rv">${r.value}</div><div class="rd">${r.detail}</div></div>`).join('')+`</div>`;
 }
+
+/* ===== KNOCKOUT SIMULATOR (bracket; picks in localStorage wc_ko_picks) ===== */
+const KO_KEY='wc_ko_picks';
+function koPicks(){ return lsGet(KO_KEY,{}); }
+function koResolve(slot,picks){ if(slot.t) return slot.t; if(slot.w!=null) return picks[slot.w]||null; return null; }
+function koChildren(){
+  const ch={};
+  Object.entries(KNOCKOUT.matches).forEach(([num,m])=>{
+    [m.a,m.b].forEach(s=>{ if(s.w!=null){ (ch[s.w]=ch[s.w]||[]).push(+num); } });
+  });
+  return ch;
+}
+function koClearDownstream(matchNum,picks,ch){
+  (ch[matchNum]||[]).forEach(c=>{ if(picks[c]!=null){ delete picks[c]; koClearDownstream(c,picks,ch); } });
+}
+function koRoundComplete(rd,picks){ return rd.order.every(n=>picks[n]!=null); }
+
+function renderKnockoutSim(){
+  const wrap=document.getElementById('bracket'); if(!wrap)return;
+  const picks=koPicks();
+  wrap.innerHTML=KNOCKOUT.rounds.map(rd=>{
+    const cards=rd.order.map(num=>{
+      const m=KNOCKOUT.matches[num];
+      const aid=koResolve(m.a,picks), bid=koResolve(m.b,picks);
+      const winner=picks[num]||null;
+      const side=(id)=>{
+        if(!id) return `<div class="ko-side tbd">⏳ ממתין/ה...</div>`;
+        const t=teamInfo(id);
+        const cls = winner ? (winner===id?'win':'lose') : 'pickable';
+        const fill = (!winner) ? ' ko-fill' : '';
+        return `<div class="ko-side ${cls}${fill}" data-match="${num}" data-team="${id}"><span class="kf">${t.flag}</span><span class="kn">${t.name}</span></div>`;
+      };
+      return `<div class="ko-match" data-m="${num}">${side(aid)}${side(bid)}</div>`;
+    }).join('');
+    return `<div class="bracket-col ${rd.key==='final'?'ko-final':''}" data-round="${rd.key}">
+      <div class="col-head">${rd.name}</div><div class="col-body">${cards}</div></div>`;
+  }).join('');
+  // champion banner
+  const champ=picks[104]||null;
+  const lbl=document.getElementById('simChampLabel');
+  lbl.innerHTML = champ ? `🏆 האלופה שלך: ${teamInfo(champ).flag} ${teamInfo(champ).name}!` : '';
+  wrap.querySelectorAll('.ko-side.pickable').forEach(el=>{ el.onclick=()=>koPick(+el.dataset.match, el.dataset.team); });
+}
+
+function koPick(matchNum,teamId){
+  const picks=koPicks();
+  if(picks[matchNum]===teamId) return;
+  picks[matchNum]=teamId;
+  koClearDownstream(matchNum,picks,koChildren());
+  lsSet(KO_KEY,picks);
+  sfx.right();
+  renderKnockoutSim();
+  if(matchNum===104){ sfx.win(); confetti(); return; }
+  // when a round is fully decided, glide to the next round
+  const rounds=KNOCKOUT.rounds;
+  const ri=rounds.findIndex(r=>r.order.includes(matchNum));
+  if(ri>=0 && ri<rounds.length-1 && koRoundComplete(rounds[ri],picks)){
+    const next=document.querySelector(`.bracket-col[data-round="${rounds[ri+1].key}"]`);
+    if(next){ next.scrollIntoView({behavior:'smooth',inline:'center',block:'nearest'}); sfx.tab(); }
+  }
+}
+
+function resetKO(){ lsSet(KO_KEY,{}); renderKnockoutSim(); const r32=document.querySelector('.bracket-col[data-round="r32"]'); if(r32) r32.scrollIntoView({inline:'center',block:'nearest'}); sfx.click(); }
 
 /* ===== TOP TABS ===== */
 document.querySelectorAll('.toptab').forEach(tab=>{
