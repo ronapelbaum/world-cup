@@ -7,36 +7,41 @@
 
 ## הרצה מקומית
 
-האפליקציה טוענת את הנתונים מקבצי JSON, ולכן חייבים להגיש אותה דרך שרת (לא לפתוח `index.html` ישירות
-כקובץ — `file://` חוסם טעינת JSON). שרת סטטי קטן מספיק:
+האפליקציה **סטטית לחלוטין** — כל הנתונים מוטמעים בתוך `index.html` (אובייקט `window.WC`), אין שום
+קריאת `fetch`/רשת לנתונים. אפשר פשוט לפתוח את `index.html` בדפדפן, או להגיש דרך כל שרת קבצים סטטי:
 
 ```bash
 cd world-cup
-python3 -m http.server 8000
-# ואז פותחים בדפדפן:  http://localhost:8000
+python3 -m http.server 8000   # ואז: http://localhost:8000
 ```
 
-(אפשר גם `npx serve` במקום.)
+הנתונים נשמרים כקבצי מקור ב-`data/` ומוטמעים ל-`index.html` ע"י סקריפט בנייה. **אחרי כל עריכת נתונים
+הריצו**:
+
+```bash
+python3 scripts/build_inline.py   # מטמיע מחדש את data/ לתוך index.html
+```
 
 ## מבנה
 
 ```
-index.html            # האפליקציה (עיצוב + לוגיקה + טעינת נתונים אסינכרונית)
-data/
+index.html            # האפליקציה — עיצוב + לוגיקה + נתונים מוטמעים (window.WC). סטטי, ללא fetch
+data/                 # מקור הנתונים (נערך ידנית; מוטמע ל-index.html ע"י build_inline.py)
   manifest.json       # רשימת הנבחרות (שמות קבצים)
-  positions.json      # תוויות וצבעי קווים (שוער/הגנה/קישור/התקפה)
-  structure.json      # מבנה הטורניר + שיטת הנקודות
-  schedule.json       # תחנות קו הזמן
+  positions, structure, schedule, stadiums, groups, nations, matches, legends, records, knockout .json
   teams/<id>.json     # 16 קבצי נבחרת (סכמה אחידה)
-player_images/         # תמונות שחקנים (מורדות מוויקיפדיה)
-players.txt            # קלט לסקריפט הורדת התמונות (שמות באנגלית)
-download_player_images.py
+scripts/
+  build_inline.py     # מטמיע את data/ לתוך index.html (להריץ אחרי עריכת נתונים)
+  lint_assets.py      # בדיקת קישורים/תמונות
+player_images/         # תמונות שחקנים (קבצים סטטיים)
+players.txt · download_player_images.py
 ```
 
 ## הוספת נבחרת חדשה
 
 1. צרו `data/teams/<id>.json` לפי הסכמה של קובץ קיים.
 2. הוסיפו את שם הקובץ ל-`data/manifest.json`.
+3. הריצו `python3 scripts/build_inline.py` כדי להטמיע את השינוי ל-`index.html`.
    הנבחרת תופיע אוטומטית בסרגל הצד — אין צורך לגעת בקוד.
 
 ## תמונות שחקנים
