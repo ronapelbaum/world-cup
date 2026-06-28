@@ -253,11 +253,26 @@ h1{font-size:clamp(32px,7.5vw,50px);color:#fff;font-weight:900;text-shadow:0 3px
 .sim-reset{font-family:inherit;font-weight:900;font-size:15px;border:3px solid var(--ink);background:#fff;border-radius:14px;padding:8px 16px;cursor:pointer;box-shadow:var(--shadow-sm);transition:transform .1s;}
 .sim-reset:hover{transform:translateY(-2px);}
 .bracket-scroll{overflow:auto;border:3px solid var(--ink);border-radius:18px;background:#eaf4ff;padding:14px;max-height:78vh;-webkit-overflow-scrolling:touch;}
-.bracket{display:flex;gap:20px;direction:rtl;align-items:stretch;min-width:max-content;}
-.bracket-col{display:flex;flex-direction:column;min-width:178px;}
+.bracket{display:flex;gap:20px;direction:rtl;align-items:stretch;min-width:max-content;position:relative;}
+.bracket-col{display:flex;flex-direction:column;min-width:178px;position:relative;z-index:1;}
+/* connector lines (SVG overlay) */
+svg.ko-lines{position:absolute;left:0;top:0;pointer-events:none;z-index:0;overflow:visible;}
+.ko-line{fill:none;stroke:#a9bdd0;stroke-width:2.5;stroke-linejoin:round;stroke-linecap:round;transition:opacity .45s;}
+.ko-line.on{stroke:var(--sun-deep);stroke-width:4.5;}
+/* decided match → collapsed single row (both teams inline, winner highlighted) */
+.ko-match.collapsed{animation:kocollapse .4s cubic-bezier(.34,1.56,.64,1);}
+@keyframes kocollapse{from{transform:scale(.92);opacity:.4}to{transform:scale(1);opacity:1}}
+.ko-row{display:flex;align-items:stretch;}
+.ko-chip{flex:1;min-width:0;display:flex;align-items:center;gap:6px;padding:8px 10px;font-weight:800;font-size:14px;cursor:pointer;white-space:nowrap;overflow:hidden;transition:background .2s,opacity .2s;}
+.ko-chip+.ko-chip{border-inline-start:2px solid #eef3f9;}
+.ko-chip .kf{font-size:18px;flex-shrink:0;line-height:1;}
+.ko-chip .kf .flagimg{width:1em;}
+.ko-chip .kn{flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.ko-chip.win{background:#caf7d3;color:var(--ink);font-weight:900;}
+.ko-chip.lose{opacity:.5;text-decoration:line-through;}
 .col-head{flex-shrink:0;text-align:center;font-weight:900;font-size:15px;color:#fff;background:var(--ink);border-radius:999px;padding:6px 10px;margin-bottom:10px;}
 .col-body{flex:1;display:flex;flex-direction:column;justify-content:space-around;gap:10px;}
-.ko-match{background:#fff;border:3px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm);}
+.ko-match{background:#fff;border:3px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:var(--shadow-sm);position:relative;z-index:1;}
 .ko-side{display:flex;align-items:center;gap:8px;padding:9px 11px;font-weight:800;font-size:15px;cursor:pointer;transition:background .15s,opacity .15s;}
 .ko-side+.ko-side{border-top:2px solid #eef3f9;}
 .ko-side .kf{font-size:22px;flex-shrink:0;line-height:1;}
@@ -1017,6 +1032,8 @@ function koClearDownstream(matchNum,picks,ch){
 }
 function koRoundComplete(rd,picks){ return rd.order.every(n=>picks[n]!=null); }
 
+const KO_NS='http://www.w3.org/2000/svg';
+
 function renderKnockoutSim(){
   const wrap=document.getElementById('bracket'); if(!wrap)return;
   const picks=koPicks();
@@ -1025,12 +1042,17 @@ function renderKnockoutSim(){
       const m=KNOCKOUT.matches[num];
       const aid=koResolve(m.a,picks), bid=koResolve(m.b,picks);
       const winner=picks[num]||null;
+      if(winner){
+        // DECIDED → collapse to one inline row, winner highlighted
+        const chip=(id)=>{ const t=teamInfo(id);
+          return `<div class="ko-chip ${winner===id?'win':'lose'}" data-match="${num}" data-team="${id}"><span class="kf">${t.flag}</span><span class="kn">${t.name}</span></div>`; };
+        return `<div class="ko-match collapsed" data-m="${num}"><div class="ko-row">${chip(aid)}${chip(bid)}</div></div>`;
+      }
+      // OPEN → two stacked rows, click to pick
       const side=(id)=>{
         if(!id) return `<div class="ko-side tbd">⏳ ממתין/ה...</div>`;
         const t=teamInfo(id);
-        const cls = winner ? (winner===id?'win':'lose') : 'pickable';
-        const fill = (!winner) ? ' ko-fill' : '';
-        return `<div class="ko-side ${cls}${fill}" data-match="${num}" data-team="${id}"><span class="kf">${t.flag}</span><span class="kn">${t.name}</span></div>`;
+        return `<div class="ko-side pickable ko-fill" data-match="${num}" data-team="${id}"><span class="kf">${t.flag}</span><span class="kn">${t.name}</span></div>`;
       };
       return `<div class="ko-match" data-m="${num}">${side(aid)}${side(bid)}</div>`;
     }).join('');
@@ -1041,8 +1063,50 @@ function renderKnockoutSim(){
   const champ=picks[104]||null;
   const lbl=document.getElementById('simChampLabel');
   lbl.innerHTML = champ ? `🏆 האלופה שלך: ${teamInfo(champ).flag} ${teamInfo(champ).name}!` : '';
-  wrap.querySelectorAll('.ko-side[data-team]').forEach(el=>{ el.onclick=()=>koPick(+el.dataset.match, el.dataset.team); });
+  wrap.querySelectorAll('.ko-side[data-team], .ko-chip[data-team]').forEach(el=>{ el.onclick=()=>koPick(+el.dataset.match, el.dataset.team); });
+  requestAnimationFrame(koRelayout);
 }
+
+/* match numbers on the champion's route to the title (final → … → R32) */
+function koChampPath(picks){
+  const set=new Set(); const champ=picks[104]; if(!champ) return set;
+  let m=104;
+  while(m!=null){
+    set.add(m);
+    const def=KNOCKOUT.matches[m]; let nx=null;
+    for(const s of [def.a,def.b]){ if(s.w!=null && picks[s.w]===champ){ nx=s.w; break; } }
+    m=nx;
+  }
+  return set;
+}
+/* draw bracket connector lines as an SVG overlay (content coords, scale 1) */
+function koDrawConnectors(){
+  const inner=document.getElementById('bracket'); if(!inner)return;
+  let svg=inner.querySelector('svg.ko-lines');
+  if(!svg){ svg=document.createElementNS(KO_NS,'svg'); svg.setAttribute('class','ko-lines'); inner.prepend(svg); }
+  const br=inner.getBoundingClientRect();
+  if(br.width<5) return;                 // panel hidden — draw later when shown
+  const W=inner.scrollWidth, H=inner.scrollHeight;
+  svg.setAttribute('width',W); svg.setAttribute('height',H); svg.setAttribute('viewBox',`0 0 ${W} ${H}`);
+  const picks=koPicks(), path=koChampPath(picks);
+  let out='';
+  KNOCKOUT.rounds.forEach((rd,ri)=>{
+    if(ri===0) return;
+    rd.order.forEach(pnum=>{
+      const pEl=inner.querySelector(`.ko-match[data-m="${pnum}"]`); if(!pEl)return;
+      const pr=pEl.getBoundingClientRect(); const pX=pr.right-br.left, pY=(pr.top+pr.bottom)/2-br.top;
+      [KNOCKOUT.matches[pnum].a, KNOCKOUT.matches[pnum].b].forEach(s=>{
+        if(s.w==null) return;
+        const cEl=inner.querySelector(`.ko-match[data-m="${s.w}"]`); if(!cEl)return;
+        const cr=cEl.getBoundingClientRect(); const cX=cr.left-br.left, cY=(cr.top+cr.bottom)/2-br.top;
+        const midX=(cX+pX)/2, on=path.has(pnum)&&path.has(s.w);
+        out+=`<polyline class="ko-line${on?' on':''}" points="${cX.toFixed(1)},${cY.toFixed(1)} ${midX.toFixed(1)},${cY.toFixed(1)} ${midX.toFixed(1)},${pY.toFixed(1)} ${pX.toFixed(1)},${pY.toFixed(1)}"/>`;
+      });
+    });
+  });
+  svg.innerHTML=out;
+}
+function koRelayout(){ koDrawConnectors(); }
 
 function koPick(matchNum,teamId){
   const picks=koPicks();
@@ -1077,8 +1141,10 @@ document.querySelectorAll('.toptab').forEach(tab=>{
     document.querySelectorAll('.tabpanel').forEach(p=>p.classList.remove('show'));
     tab.classList.add('active');
     document.getElementById('panel-'+tab.dataset.panel).classList.add('show');sfx.tab();
+    if(tab.dataset.panel==='sim') requestAnimationFrame(koRelayout);   // measure connectors once visible
   };
 });
+window.addEventListener('resize',()=>{ const p=document.getElementById('panel-sim'); if(p&&p.classList.contains('show')) koRelayout(); });
 
 /* ===== CONFETTI ===== */
 function confetti(){
