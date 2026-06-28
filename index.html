@@ -205,6 +205,9 @@ h1{font-size:clamp(32px,7.5vw,50px);color:#fff;font-weight:900;text-shadow:0 3px
 .gtable .rk{color:var(--ink-soft);font-weight:900;width:30px;}
 .gtable .pts{font-weight:900;color:var(--ink);font-size:17px;}
 .grow{transition:background .12s;}
+.grow.adv{background:#e7f7ec;}
+.gtable .qbadge{font-size:13px;}
+.gtable .gls{font-variant-numeric:tabular-nums;color:var(--ink-soft);}
 .grow.haspage{cursor:pointer;}
 .grow.haspage:hover{background:#f1f6fc;}
 .grow .goarrow{font-size:13px;opacity:.7;}
@@ -343,7 +346,7 @@ footer{text-align:center;margin-top:30px;font-size:15px;font-weight:700;color:va
 
   <section class="tabpanel" id="panel-groups">
     <div class="section-title">🗂️ שלב הבתים — 12 בתים, 48 נבחרות <span class="line"></span></div>
-    <p class="groups-note">ההגרלה הרשמית של מונדיאל 2026! הטורניר עוד לא התחיל — לכן כל הנתונים מתחילים מ-0. נבחרות שמסומנות 👆 מובילות עם עמוד מלא — לחצו עליהן כדי לגלות את הסגל!</p>
+    <p class="groups-note">התוצאות האמיתיות של שלב הבתים! ✅ = עלתה לשלב הנוקאאוט (2 הראשונות בכל בית + 8 השלישיות הטובות). נבחרות עם 👆 הן מובחרות עם עמוד מלא — לחצו עליהן כדי לגלות את הסגל!</p>
     <div class="groups-grid" id="groupsWrap"></div>
   </section>
 
@@ -510,18 +513,20 @@ function teamInfo(id){
 function renderGroups(){
   const el=document.getElementById('groupsWrap'); if(!el)return;
   el.innerHTML=GROUPS.map(grp=>{
-    const rows=grp.teams.map((id,i)=>{
+    const rows=grp.teams.map((row,i)=>{
+      const id=typeof row==='string'?row:row.id;       // tolerate old (string) or new (object) shape
+      const s=typeof row==='string'?{pos:i+1,w:0,d:0,l:0,gf:0,ga:0,pts:0,adv:false}:row;
       const t=teamInfo(id);
-      return `<tr class="grow${t.full?' haspage':''}" data-id="${id}">
-        <td class="rk">${i+1}</td>
-        <td class="tm"><span class="gf">${t.flag}</span>${t.name}${t.full?' <span class="goarrow">👆</span>':''}</td>
-        <td>0</td><td>0</td><td>0</td><td>0</td><td class="pts">0</td>
+      return `<tr class="grow${t.full?' haspage':''}${s.adv?' adv':''}" data-id="${id}">
+        <td class="rk">${s.pos}</td>
+        <td class="tm"><span class="gf">${t.flag}</span>${t.name}${s.adv?' <span class="qbadge">✅</span>':''}${t.full?' <span class="goarrow">👆</span>':''}</td>
+        <td>${s.w}</td><td>${s.d}</td><td>${s.l}</td><td class="gls">${s.gf}:${s.ga}</td><td class="pts">${s.pts}</td>
       </tr>`;
     }).join('');
     return `<div class="gcard">
       <div class="ghead2" style="background:${grp.color}">🗂️ בית ${grp.g}</div>
       <table class="gtable">
-        <thead><tr><th></th><th style="text-align:start;padding-inline-start:10px">נבחרת</th><th>מש׳</th><th>נצ׳</th><th>תי׳</th><th>הפ׳</th><th>נק׳</th></tr></thead>
+        <thead><tr><th></th><th style="text-align:start;padding-inline-start:10px">נבחרת</th><th>נצ׳</th><th>תי׳</th><th>הפ׳</th><th>שערים</th><th>נק׳</th></tr></thead>
         <tbody>${rows}</tbody>
       </table>
     </div>`;
@@ -1051,14 +1056,20 @@ function renderKnockoutSim(){
   const champ=picks[104]||null;
   const lbl=document.getElementById('simChampLabel');
   lbl.innerHTML = champ ? `🏆 האלופה שלך: ${teamInfo(champ).flag} ${teamInfo(champ).name}!` : '';
-  wrap.querySelectorAll('.ko-side.pickable').forEach(el=>{ el.onclick=()=>koPick(+el.dataset.match, el.dataset.team); });
+  wrap.querySelectorAll('.ko-side[data-team]').forEach(el=>{ el.onclick=()=>koPick(+el.dataset.match, el.dataset.team); });
 }
 
 function koPick(matchNum,teamId){
   const picks=koPicks();
-  if(picks[matchNum]===teamId) return;
+  const ch=koChildren();
+  if(picks[matchNum]===teamId){            // clicking the chosen winner cancels it
+    delete picks[matchNum];
+    koClearDownstream(matchNum,picks,ch);
+    lsSet(KO_KEY,picks); sfx.click(); renderKnockoutSim();
+    return;
+  }
   picks[matchNum]=teamId;
-  koClearDownstream(matchNum,picks,koChildren());
+  koClearDownstream(matchNum,picks,ch);
   lsSet(KO_KEY,picks);
   sfx.right();
   renderKnockoutSim();
